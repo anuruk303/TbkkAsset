@@ -1,0 +1,68 @@
+﻿@page
+@model tbkk_AC.Pages.Models.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create</h2>
+
+<h4>Model</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Model.ModelName" class="control-label"></label>
+                <input asp-for="Model.ModelName" class="form-control" />
+                <span asp-validation-for="Model.ModelName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Model.Note" class="control-label"></label>
+                <input asp-for="Model.Note" class="form-control" />
+                <span asp-validation-for="Model.Note" class="text-danger"></span>
+            </div>
+            <input asp-for="Model.Status" value="Using" type="hidden" />
+            <div class="form-group">
+                <label asp-for="Model.Brand_BrandID" class="control-label"></label>
+                <select asp-for="Model.Brand_BrandID" class="form-control">
+                    <option selected value=@null>Plase select</option>
+                    @foreach (var item in Model.Brand)
+                    {
+                        if (item.Status.Equals("Using"))
+                        {
+                            <option value=@item.BrandID>@Html.DisplayFor(modelItem => item.BrandName)</option>
+                        }
+                    }
+                </select>
+                <span asp-validation-for="Model.Brand_BrandID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Model.Category_CategoryID" class="control-label"></label>
+                <select asp-for="Model.Category_CategoryID" class="form-control">
+                    <option selected value=@null>Plase select</option>
+                    @foreach (var item in Model.Category)
+                    {
+                        if (item.Status.Equals("Using"))
+                        {
+                            <option value=@item.CategoryID>@Html.DisplayFor(modelItem => item.CategoryName)</option>
+                        }
+                    }
+                </select>
+                <span asp-validation-for="Model.Category_CategoryID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,88 @@
+﻿@page
+@model tbkk_AC.Pages.Brands.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+    <div id="content-wrapper">
+        <div class="container-fluid">
+            <!-- Breadcrumbs-->
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="index.html">Asset Control</a>
+                </li>
+                <li class="breadcrumb-item active">Managment</li>
+                <li class="breadcrumb-item active">Brand</li>
+            </ol>
+            <!-- DataTables Example -->
+
+            <div class="card mb-3">
+                <div class="card-header">
+                    <div class="dataTable_length">
+                        <i class="fas fa-table">Suppliers</i>
+                        <div style="float: right">
+                            <a asp-page="Create"><button type="button" class="btn btn-primary">Create</button></a>
+
+                            <button type="button" class="btn btn-info">Import data</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="3">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Brand[0].BrandName)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Brand[0].Image)
+                                    </th>
+                                    <th>
+                                        Edit
+                                    </th>
+                                   
+                                    <th>
+                                        Delete
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model.Brand)
+                                {
+                                    if (item.Status.Equals("Using")) {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.BrandName)
+                                        </td>
+
+                                        <td>
+                                            <img src="~/uploads/@Html.DisplayFor(modelItem => item.Image)" width="100px" height="120px" />
+
+                                        </td>
+                                        <td width="5%">
+                                            <a asp-page="./Edit" asp-route-id="@item.BrandID">
+                                                <button type="button" class="btn btn-secondary btn-block catgs-modal" data-toggle="modal" data-target="#editCatgsModal"
+                                                        asp-route-id="@item.BrandID">
+                                                    Edit
+                                                </button>
+                                            </a>
+                                        </td>
+                                        
+                                        <td width="5%">
+                                            <a asp-page="./Delete" asp-route-id="@item.BrandID">
+                                                <button type="button" class="btn btn-secondary btn-block catgs-modal" data-toggle="modal" data-target="#editCatgsModal">
+                                                    Delete
+                                                </button>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    }
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>

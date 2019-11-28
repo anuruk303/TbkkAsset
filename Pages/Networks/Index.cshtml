@@ -1,0 +1,101 @@
+﻿@page
+@model tbkk_AC.Pages.Networks.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div id="content-wrapper">
+    <div class="container-fluid">
+        <!-- Breadcrumbs-->
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="index.html">Asset Control</a>
+            </li>
+            <li class="breadcrumb-item active">Managment</li>
+            <li class="breadcrumb-item active">Network</li>
+        </ol>
+        <!-- DataTables Example -->
+
+        <div class="card mb-3">
+            <div class="card-header">
+                <div class="dataTable_length">
+                    <i class="fas fa-table">Network</i>
+                    <div style="float: right">
+                        <a asp-page="Create"><button type="button" class="btn btn-primary">Create</button></a>
+
+                        <button type="button" class="btn btn-info">Import data</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="3">
+                        <thead>
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Network[0].NetworkName)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Network[0].IpAddr)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Network[0].Password)
+                                </th>
+                                <th>
+                                    Edit
+                                </th>
+                                <th>
+                                    Details
+                                </th>
+                                <th>
+                                    Delete
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.Network)
+                            {
+                                if (item.Status.Equals("Using"))
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.NetworkName)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.IpAddr)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Password)
+                                        </td>
+                                        <td width="5%">
+                                            <a asp-page="./Edit" asp-route-id="@item.NetworkID">
+                                                <button type="button" class="btn btn-secondary btn-block catgs-modal" data-toggle="modal" data-target="#editCatgsModal"
+                                                        asp-route-id="@item.NetworkID">
+                                                    Edit
+                                                </button>
+                                            </a>
+                                        </td>
+                                        <td width="5%">
+                                            <a asp-page="./Details" asp-route-id="@item.NetworkID">
+                                                <button type="button" class="btn btn-secondary btn-block catgs-modal" data-toggle="modal" data-target="#editCatgsModal">
+                                                    Details
+                                                </button>
+                                            </a>
+                                        </td>
+                                        <td width="5%">
+                                            <a asp-page="./Delete" asp-route-id="@item.NetworkID">
+                                                <button type="button" class="btn btn-secondary btn-block catgs-modal" data-toggle="modal" data-target="#editCatgsModal">
+                                                    Delete
+                                                </button>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>

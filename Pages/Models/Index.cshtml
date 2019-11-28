@@ -1,0 +1,103 @@
+﻿@page
+@model tbkk_AC.Pages.Models.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div id="content-wrapper">
+    <div class="container-fluid">
+        <!-- Breadcrumbs-->
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="index.html">Asset Control</a>
+            </li>
+            <li class="breadcrumb-item active">Managment</li>
+            <li class="breadcrumb-item active">Model</li>
+        </ol>
+        <!-- DataTables Example -->
+
+        <div class="card mb-3">
+            <div class="card-header">
+                <div class="dataTable_length">
+                    <i class="fas fa-table">Model</i>
+                    <div style="float: right">
+                        <a asp-page="Create"><button type="button" class="btn btn-primary">Create</button></a>
+
+                        <button type="button" class="btn btn-info">Import data</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="3">
+                        <thead>
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Model[0].ModelName)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Model[0].Note)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Model[0].Status)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Model[0].Brand)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Model[0].Category)
+                                </th>
+                                <th>
+                                    Edit
+                                </th>
+
+                                <th>
+                                    Delete
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.ModelName)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Note)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Status)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Brand.BrandName)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Category.CategoryName)
+                                    </td>
+                                    <td width="5%">
+                                        <a asp-page="./Edit" asp-route-id="@item.ModelID">
+                                            <button type="button" class="btn btn-secondary btn-block catgs-modal" data-toggle="modal" data-target="#editCatgsModal"
+                                                    asp-route-id="@item.ModelID">
+                                                Edit
+                                            </button>
+                                        </a>
+                                    </td>
+
+                                    <td width="5%">
+                                        <a asp-page="./Delete" asp-route-id="@item.ModelID">
+                                            <button type="button" class="btn btn-secondary btn-block catgs-modal" data-toggle="modal" data-target="#editCatgsModal">
+                                                Delete
+                                            </button>
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
