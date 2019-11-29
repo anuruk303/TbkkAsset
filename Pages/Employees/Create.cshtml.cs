@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using tbkk_AC.Models;
 
 namespace tbkk_AC.Pages.Employees
@@ -17,14 +18,18 @@ namespace tbkk_AC.Pages.Employees
         {
             _context = context;
         }
-
-        public IActionResult OnGet()
+        public IList<Company> Company { get; set; }
+        public IList<Department> Department { get; set; }
+        public IList<EmployeeType> EmployeeType { get; set; }
+        public IList<Location> Location { get; set; }
+        public IList<Position> Position { get; set; }
+        public async Task<IActionResult> OnGetAsync()
         {
-        ViewData["Company_CompanyID"] = new SelectList(_context.Company, "CompanyID", "Image");
-        ViewData["Department_DepartmentID"] = new SelectList(_context.Department, "DepartmentID", "DepartmentName");
-        ViewData["EmployeeType_EmployeeTypeID"] = new SelectList(_context.Set<EmployeeType>(), "EmployeeTypeID", "EmployeeTypeID");
-        ViewData["Location_LocationID"] = new SelectList(_context.Location, "LocationID", "LocationName");
-        ViewData["Position_PositionID"] = new SelectList(_context.Set<Position>(), "PositionID", "PositionID");
+            Company = await _context.Company.ToListAsync();
+            Department = await _context.Department.ToListAsync();
+            EmployeeType = await _context.EmployeeType.ToListAsync();
+            Location = await _context.Location.ToListAsync();
+            Position = await _context.Position.ToListAsync();
             return Page();
         }
 

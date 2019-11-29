@@ -18,7 +18,7 @@ namespace tbkk_AC.Pages.Positions
             _context = context;
         }
 
-        public IList<Position> Position { get;set; }
+        public IList<Position> Position { get; set; }
 
         public async Task OnGetAsync()
         {

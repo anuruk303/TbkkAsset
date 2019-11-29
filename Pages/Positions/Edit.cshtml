@@ -5,34 +5,48 @@
     ViewData["Title"] = "Edit";
 }
 
-<h2>Edit</h2>
-
-<h4>Position</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Position.PositionID" />
-            <div class="form-group">
-                <label asp-for="Position.PositionName" class="control-label"></label>
-                <input asp-for="Position.PositionName" class="form-control" />
-                <span asp-validation-for="Position.PositionName" class="text-danger"></span>
+<div id="content-wrapper">
+    <div class="container-fluid">
+        <!-- Breadcrumbs-->
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active">Asset Control</li>
+            <li class="breadcrumb-item active">Managment</li>
+            <li class="breadcrumb-item active">Position</li>
+        </ol>
+        <div class="card ">
+            <div class="card-header">
+                Edit
             </div>
-            <div class="form-group">
-                <label asp-for="Position.Status" class="control-label"></label>
-                <input asp-for="Position.Status" class="form-control" />
-                <span asp-validation-for="Position.Status" class="text-danger"></span>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col">
+                        <form method="post">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <input type="hidden" asp-for="Position.PositionID" />
+                            <div class="form-group row">
+                                <label asp-for="Position.PositionName" class="col-sm-3 col-form-label"></label>
+                                <div class="col-sm-8">
+                                    <input asp-for="Position.PositionName" class="form-control" />
+                                    <span asp-validation-for="Position.PositionName" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="form-group row ">
+                                <label asp-for="Position.Status" class="col-sm-3 col-form-label"></label>
+                                <div class="col-sm-8">
+                                    <input asp-for="Position.Status" class="form-control" value="Using" readonly>
+                                    <span asp-validation-for="Position.Status" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="form-group row" style="float:right; margin-right:9%">
+                                <a asp-page="./Index"><button type="button" class="btn btn-link">Back to List</button></a>
+                                <input style="margin-left:10px" type="submit" value="Save" class="btn btn-outline-dark" />
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-default" />
-            </div>
-        </form>
+        </div>
     </div>
-</div>
-
-<div>
-    <a asp-page="./Index">Back to List</a>
 </div>
 
 @section Scripts {

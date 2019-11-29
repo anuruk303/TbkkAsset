@@ -85,7 +85,7 @@ using tbkk_AC;
                         ");
             EndContext();
             BeginContext(765, 86, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "13fcbe955b294b6c8f43b83dab14a6e1", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a50baf8b657947599fb1894c6818a56c", async() => {
                 BeginContext(786, 61, true);
                 WriteLiteral("<button type=\"button\" class=\"btn btn-primary\">Create</button>");
                 EndContext();
@@ -179,7 +179,7 @@ using tbkk_AC;
             WriteLiteral("\r\n                                    </td>\r\n                                    <td>\r\n                                        ");
             EndContext();
             BeginContext(2522, 94, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "87a5e38f610b4d2a9060686ad422d8f7", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "05a78ea82ed3436eb771597985167685", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -216,12 +216,12 @@ AddHtmlAttributeValue("", 2542, Html.DisplayFor(modelItem => item.Image), 2542, 
             WriteLiteral("\r\n                                    </td>\r\n                                    <td width=\"5%\">\r\n                                        ");
             EndContext();
             BeginContext(2925, 459, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1d06c04ada71491381ae50617018eaca", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "707c0e0b2fda41809b298d4a93b5ddc8", async() => {
                 BeginContext(2978, 46, true);
                 WriteLiteral("\r\n                                            ");
                 EndContext();
                 BeginContext(3024, 314, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("button", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cadc1dfb489b4de0892621b429ed9f41", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("button", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cc3bc47513a8415c8b0df9898145c3df", async() => {
                     BeginContext(3229, 100, true);
                     WriteLiteral("\r\n                                                Edit\r\n                                            ");
                     EndContext();
@@ -288,7 +288,7 @@ AddHtmlAttributeValue("", 2542, Html.DisplayFor(modelItem => item.Image), 2542, 
             WriteLiteral("\r\n                                    </td>\r\n\r\n                                    <td width=\"5%\">\r\n                                        ");
             EndContext();
             BeginContext(3524, 378, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fe67e5ce8a1e41e1b6f02711b9cd5e54", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a09c37d367074b588b504f5f06b238f9", async() => {
                 BeginContext(3579, 319, true);
                 WriteLiteral(@"
                                             <button type=""button"" class=""btn btn-secondary btn-block catgs-modal"" data-toggle=""modal"" data-target=""#editCatgsModal"">

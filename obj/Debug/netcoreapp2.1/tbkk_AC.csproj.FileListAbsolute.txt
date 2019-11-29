@@ -95,6 +95,12 @@ C:\Users\USER\source\repos\tbkk-AC\obj\Debug\netcoreapp2.1\Razor\Pages\Suppliers
 C:\Users\USER\source\repos\tbkk-AC\obj\Debug\netcoreapp2.1\Razor\Pages\Suppliers\Details.g.cshtml.cs
 C:\Users\USER\source\repos\tbkk-AC\obj\Debug\netcoreapp2.1\Razor\Pages\Suppliers\Edit.g.cshtml.cs
 C:\Users\USER\source\repos\tbkk-AC\obj\Debug\netcoreapp2.1\Razor\Pages\Suppliers\Index.g.cshtml.cs
+C:\Users\Anuruk\Desktop\tbkk-asset-master\obj\Debug\netcoreapp2.1\tbkk_AC.csproj.CoreCompileInputs.cache
+C:\Users\Anuruk\Desktop\tbkk-asset-master\obj\Debug\netcoreapp2.1\tbkk_AC.RazorAssemblyInfo.cache
+C:\Users\Anuruk\Desktop\tbkk-asset-master\obj\Debug\netcoreapp2.1\tbkk_AC.RazorAssemblyInfo.cs
+C:\Users\Anuruk\Desktop\tbkk-asset-master\obj\Debug\netcoreapp2.1\tbkk_AC.AssemblyInfoInputs.cache
+C:\Users\Anuruk\Desktop\tbkk-asset-master\obj\Debug\netcoreapp2.1\tbkk_AC.AssemblyInfo.cs
+C:\Users\Anuruk\Desktop\tbkk-asset-master\obj\Debug\netcoreapp2.1\tbkk_AC.csprojAssemblyReference.cache
 C:\Users\Anuruk\Desktop\tbkk-asset-master\bin\Debug\netcoreapp2.1\tbkk_AC.deps.json
 C:\Users\Anuruk\Desktop\tbkk-asset-master\bin\Debug\netcoreapp2.1\tbkk_AC.runtimeconfig.json
 C:\Users\Anuruk\Desktop\tbkk-asset-master\bin\Debug\netcoreapp2.1\tbkk_AC.runtimeconfig.dev.json
@@ -102,12 +108,6 @@ C:\Users\Anuruk\Desktop\tbkk-asset-master\bin\Debug\netcoreapp2.1\tbkk_AC.dll
 C:\Users\Anuruk\Desktop\tbkk-asset-master\bin\Debug\netcoreapp2.1\tbkk_AC.pdb
 C:\Users\Anuruk\Desktop\tbkk-asset-master\bin\Debug\netcoreapp2.1\tbkk_AC.Views.dll
 C:\Users\Anuruk\Desktop\tbkk-asset-master\bin\Debug\netcoreapp2.1\tbkk_AC.Views.pdb
-C:\Users\Anuruk\Desktop\tbkk-asset-master\obj\Debug\netcoreapp2.1\tbkk_AC.csprojAssemblyReference.cache
-C:\Users\Anuruk\Desktop\tbkk-asset-master\obj\Debug\netcoreapp2.1\tbkk_AC.csproj.CoreCompileInputs.cache
-C:\Users\Anuruk\Desktop\tbkk-asset-master\obj\Debug\netcoreapp2.1\tbkk_AC.RazorAssemblyInfo.cache
-C:\Users\Anuruk\Desktop\tbkk-asset-master\obj\Debug\netcoreapp2.1\tbkk_AC.RazorAssemblyInfo.cs
-C:\Users\Anuruk\Desktop\tbkk-asset-master\obj\Debug\netcoreapp2.1\tbkk_AC.AssemblyInfoInputs.cache
-C:\Users\Anuruk\Desktop\tbkk-asset-master\obj\Debug\netcoreapp2.1\tbkk_AC.AssemblyInfo.cs
 C:\Users\Anuruk\Desktop\tbkk-asset-master\obj\Debug\netcoreapp2.1\tbkk_AC.TagHelpers.input.cache
 C:\Users\Anuruk\Desktop\tbkk-asset-master\obj\Debug\netcoreapp2.1\tbkk_AC.TagHelpers.output.cache
 C:\Users\Anuruk\Desktop\tbkk-asset-master\obj\Debug\netcoreapp2.1\tbkk_AC.RazorCoreGenerate.cache

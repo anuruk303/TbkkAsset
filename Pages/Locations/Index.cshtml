@@ -5,50 +5,72 @@
     ViewData["Title"] = "Index";
 }
 
-<h2>Index</h2>
+<div id="content-wrapper">
+    <div class="container-fluid">
+        <!-- Breadcrumbs-->
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active">Asset Control</li>
+            <li class="breadcrumb-item active">Managment</li>
+            <li class="breadcrumb-item active">Locations</li>
+        </ol>
+        <!-- DataTables Example -->
+        <div class="card mb-3">
+            <div class="card-header">
+                <div class="dataTable_length">
+                    <i class="fas fa-table">Locations</i>
+                    <div style="float: right">
+                        <a asp-page="Create">
+                            <button type="button" class="btn btn-primary brands-modal">
 
-<p>
-    <a asp-page="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Location[0].LocationName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Location[0].Note)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Location[0].Status)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model.Location)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.LocationName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Note)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Status)
-                </td>
-                <td>
-                    <a asp-page="./Edit" asp-route-id="@item.LocationID">Edit</a> |
-                    <a asp-page="./Details" asp-route-id="@item.LocationID">Details</a> |
-                    <a asp-page="./Delete" asp-route-id="@item.LocationID">Delete</a>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+                                Create
+                            </button>
+                        </a>
+                        <!--<a class="btn btn-info" asp-page="Create">Create New</a>-->
+                        <button type="button" class="btn btn-info">Import data</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Location[0].LocationName)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Location[0].Note)
+                                </th>
+                                <th>Actions</th>
 
-
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.Location)
+                            {
+                                if (item.Status.Equals("Using"))
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.LocationName)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Note)
+                                        </td>
+                                        <td width="100px">
+                                            <a asp-page="./Edit" asp-route-id="@item.LocationID">Edit</a> |
+                                            <a asp-page="./Delete" asp-route-id="@item.LocationID">Delete</a>
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 

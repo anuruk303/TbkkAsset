@@ -9,28 +9,30 @@
         <div class="container-fluid">
             <!-- Breadcrumbs-->
             <ol class="breadcrumb">
-                <li class="breadcrumb-item">
-                    <a href="index.html">Asset Control</a>
-                </li>
+                <li class="breadcrumb-item active">Asset Control</li>
                 <li class="breadcrumb-item active">Managment</li>
                 <li class="breadcrumb-item active">Brand</li>
             </ol>
             <!-- DataTables Example -->
-
             <div class="card mb-3">
                 <div class="card-header">
                     <div class="dataTable_length">
-                        <i class="fas fa-table">Suppliers</i>
+                        <i class="fas fa-table"> Brand</i>
                         <div style="float: right">
-                            <a asp-page="Create"><button type="button" class="btn btn-primary">Create</button></a>
+                            <a asp-page="Create">
+                                <button type="button" class="btn btn-primary brands-modal">
 
+                                    Create
+                                </button>
+                            </a>
+                            <!--<a class="btn btn-info" asp-page="Create">Create New</a>-->
                             <button type="button" class="btn btn-info">Import data</button>
                         </div>
                     </div>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="3">
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
                                     <th>
@@ -39,45 +41,28 @@
                                     <th>
                                         @Html.DisplayNameFor(model => model.Brand[0].Image)
                                     </th>
-                                    <th>
-                                        Edit
-                                    </th>
-                                   
-                                    <th>
-                                        Delete
-                                    </th>
+                                    <th>Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach (var item in Model.Brand)
                                 {
-                                    if (item.Status.Equals("Using")) {
-                                    <tr>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.BrandName)
-                                        </td>
+                                    if (item.Status.Equals("Using"))
+                                    {
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.BrandName)
+                                            </td>
 
-                                        <td>
-                                            <img src="~/uploads/@Html.DisplayFor(modelItem => item.Image)" width="100px" height="120px" />
+                                            <td>
+                                                <img src="~/uploads/@Html.DisplayFor(modelItem => item.Image)" width="100px" height="100px" />
 
-                                        </td>
-                                        <td width="5%">
-                                            <a asp-page="./Edit" asp-route-id="@item.BrandID">
-                                                <button type="button" class="btn btn-secondary btn-block catgs-modal" data-toggle="modal" data-target="#editCatgsModal"
-                                                        asp-route-id="@item.BrandID">
-                                                    Edit
-                                                </button>
-                                            </a>
-                                        </td>
-                                        
-                                        <td width="5%">
-                                            <a asp-page="./Delete" asp-route-id="@item.BrandID">
-                                                <button type="button" class="btn btn-secondary btn-block catgs-modal" data-toggle="modal" data-target="#editCatgsModal">
-                                                    Delete
-                                                </button>
-                                            </a>
-                                        </td>
-                                    </tr>
+                                            </td>
+                                            <td width="100px">
+                                                <a asp-page="./Edit" asp-route-id="@item.BrandID">Edit</a> |
+                                                <a asp-page="./Delete" asp-route-id="@item.BrandID">Delete</a>
+                                            </td>
+                                        </tr>
                                     }
                                 }
                             </tbody>
@@ -86,3 +71,4 @@
                 </div>
             </div>
         </div>
+    </div>

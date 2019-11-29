@@ -5,63 +5,247 @@
     ViewData["Title"] = "Details";
 }
 
-<h2>Details</h2>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <h2>Supplier Detail</h2>
+                <div class=" col-md-12 col-lg-12 ">
+                    <table class="table table-user-information">
+                        <tbody>
+                            <tr>
+                                <td>@Html.DisplayNameFor(model => model.Supplier.SupplierName) :</td>
+                                <td> @Html.DisplayFor(model => model.Supplier.SupplierName)</td>
+                            </tr>
+                            <tr>
+                                <td>@Html.DisplayNameFor(model => model.Supplier.ContactName) :</td>
+                                <td>@Html.DisplayFor(model => model.Supplier.ContactName)</td>
+                            </tr>
+                            <tr>
+                                <td>@Html.DisplayNameFor(model => model.Supplier.Address) :</td>
+                                <td>@Html.DisplayFor(model => model.Supplier.Address)</td>
+                            </tr>
 
-<div>
-    <h4>Supplier</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Supplier.SupplierName)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Supplier.SupplierName)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Supplier.ContactName)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Supplier.ContactName)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Supplier.Address)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Supplier.Address)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Supplier.Email)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Supplier.Email)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Supplier.URL)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Supplier.URL)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Supplier.Note)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Supplier.Note)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Supplier.Image)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Supplier.Image)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Supplier.Status)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Supplier.Status)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-page="./Edit" asp-route-id="@Model.Supplier.SupplierID">Edit</a> |
-    <a asp-page="./Index">Back to List</a>
-</div>
+                            <tr>
+                            <tr>
+                                <td>@Html.DisplayNameFor(model => model.Supplier.Email) :</td>
+                                <td>@Html.DisplayFor(model => model.Supplier.Email)</td>
+                            </tr>
+                            <tr>
+                                <td>@Html.DisplayNameFor(model => model.Supplier.URL) :</td>
+                                <td>@Html.DisplayFor(model => model.Supplier.URL)</td>
+                            </tr>
+                            <tr>
+                                <td>@Html.DisplayNameFor(model => model.Supplier.Note) :</td>
+                                <td>
+                                    <div class="form-group">
+                                        <textarea class="form-control" id="exampleFormControlTextarea3" rows="5" cols='20'>@Html.DisplayFor(model => model.Supplier.Note)</textarea>
+                                    </div>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <h2></h2>
+                <div class="col-md-3 col-lg-3 " align="center">
+                    <img src="~/uploads/@Html.DisplayFor(model => model.Supplier.Image)" width="200px" height="220px" />
+                   
+                </div>
+
+            </div>
+        </div>
+
+        <div>
+            <a asp-page="./Edit" asp-route-id="@Model.Supplier.SupplierID">Edit</a> |
+            <a asp-page="./Index">Back to List</a>
+        </div>
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Joy</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">History Update</a>
+            </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="3">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        ggg
+                                    </th>
+                                    <th>
+                                        qqq
+                                    </th>
+
+                                    <th>
+                                        www
+                                    </th>
+                                    <th>
+                                        eeee
+                                    </th>
+
+                                    <th>
+                                        Edit
+                                    </th>
+                                    <th>
+                                        Details
+                                    </th>
+                                    <th>
+                                        Delete
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        llll
+                                    </td>
+
+                                    <td>
+                                        oooo
+                                    </td>
+
+                                    <td>
+                                        oooo
+
+                                    </td>
+                                    <td>
+                                        oooo
+                                    </td>
+
+                                    <td width="5%">
+
+                                        <button type="button" class="btn btn-secondary btn-block catgs-modal" data-toggle="modal" data-target="#editCatgsModal">
+                                            Edit
+                                        </button>
+                                    </td>
+                                    <td width="5%">
+                                        <button type="button" class="btn btn-secondary btn-block catgs-modal" data-toggle="modal" data-target="#editCatgsModal">
+                                            Details
+                                        </button>
+                                    </td>
+                                    <td width="5%">
+                                        <button type="button" class="btn btn-secondary btn-block catgs-modal" data-toggle="modal" data-target="#editCatgsModal">
+                                            Delete
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        llll
+                                    </td>
+
+                                    <td>
+                                        oooo
+                                    </td>
+
+                                    <td>
+                                        oooo
+
+                                    </td>
+                                    <td>
+                                        oooo
+                                    </td>
+
+                                    <td width="5%">
+
+                                        <button type="button" class="btn btn-secondary btn-block catgs-modal" data-toggle="modal" data-target="#editCatgsModal">
+                                            Edit
+                                        </button>
+                                    </td>
+                                    <td width="5%">
+                                        <button type="button" class="btn btn-secondary btn-block catgs-modal" data-toggle="modal" data-target="#editCatgsModal">
+                                            Details
+                                        </button>
+                                    </td>
+                                    <td width="5%">
+                                        <button type="button" class="btn btn-secondary btn-block catgs-modal" data-toggle="modal" data-target="#editCatgsModal">
+                                            Delete
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        llll
+                                    </td>
+
+                                    <td>
+                                        oooo
+                                    </td>
+
+                                    <td>
+                                        oooo
+
+                                    </td>
+                                    <td>
+                                        oooo
+                                    </td>
+
+                                    <td width="5%">
+
+                                        <button type="button" class="btn btn-secondary btn-block catgs-modal" data-toggle="modal" data-target="#editCatgsModal">
+                                            Edit
+                                        </button>
+                                    </td>
+                                    <td width="5%">
+                                        <button type="button" class="btn btn-secondary btn-block catgs-modal" data-toggle="modal" data-target="#editCatgsModal">
+                                            Details
+                                        </button>
+                                    </td>
+                                    <td width="5%">
+                                        <button type="button" class="btn btn-secondary btn-block catgs-modal" data-toggle="modal" data-target="#editCatgsModal">
+                                            Delete
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        llll
+                                    </td>
+
+                                    <td>
+                                        oooo
+                                    </td>
+
+                                    <td>
+                                        oooo
+
+                                    </td>
+                                    <td>
+                                        oooo
+                                    </td>
+
+                                    <td width="5%">
+
+                                        <button type="button" class="btn btn-secondary btn-block catgs-modal" data-toggle="modal" data-target="#editCatgsModal">
+                                            Edit
+                                        </button>
+                                    </td>
+                                    <td width="5%">
+                                        <button type="button" class="btn btn-secondary btn-block catgs-modal" data-toggle="modal" data-target="#editCatgsModal">
+                                            Details
+                                        </button>
+                                    </td>
+                                    <td width="5%">
+                                        <button type="button" class="btn btn-secondary btn-block catgs-modal" data-toggle="modal" data-target="#editCatgsModal">
+                                            Delete
+                                        </button>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                <a>zzzzzzzzzzzzzzzz</a>
+            </div>
+
+        </div>

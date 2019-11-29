@@ -45,10 +45,10 @@ namespace tbkk_AC.Pages.Positions
             }
 
             Position = await _context.Position.FindAsync(id);
-
+            Position.Status = "Unused";
             if (Position != null)
             {
-                _context.Position.Remove(Position);
+                _context.Attach(Position).State = EntityState.Modified;
                 await _context.SaveChangesAsync();
             }
 

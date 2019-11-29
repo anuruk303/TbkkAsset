@@ -84,7 +84,7 @@ using tbkk_AC;
                         ");
             EndContext();
             BeginContext(763, 86, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e61c956e11fb464d86897b5ecbc64eac", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ba84ead3755741bebff41afbb5b6b9b3", async() => {
                 BeginContext(784, 61, true);
                 WriteLiteral("<button type=\"button\" class=\"btn btn-primary\">Create</button>");
                 EndContext();
@@ -273,12 +273,12 @@ using tbkk_AC;
             WriteLiteral("\r\n                                    </td>\r\n                                    <td width=\"5%\">\r\n                                        ");
             EndContext();
             BeginContext(4562, 457, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "103330218f7a43639fb5c487781624ee", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9902a3a1806c4f23b3eb5b85c9e2ddad", async() => {
                 BeginContext(4614, 46, true);
                 WriteLiteral("\r\n                                            ");
                 EndContext();
                 BeginContext(4660, 313, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("button", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5f1de88cd58a486a9ca3d933bdd6bcaa", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("button", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4134dcc90b65465ba6a298a7572f59f4", async() => {
                     BeginContext(4864, 100, true);
                     WriteLiteral("\r\n                                                Edit\r\n                                            ");
                     EndContext();
@@ -345,7 +345,7 @@ using tbkk_AC;
             WriteLiteral("\r\n                                    </td>\r\n                                    <td width=\"5%\">\r\n                                        ");
             EndContext();
             BeginContext(5157, 379, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f8ea7a1e6b3345d786af420db5dd76bb", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1f5a17e586264f03bd8867b8f667dc01", async() => {
                 BeginContext(5212, 320, true);
                 WriteLiteral(@"
                                             <button type=""button"" class=""btn btn-secondary btn-block catgs-modal"" data-toggle=""modal"" data-target=""#editCatgsModal"">
@@ -384,7 +384,7 @@ using tbkk_AC;
             WriteLiteral("\r\n                                    </td>\r\n                                    <td width=\"5%\">\r\n                                        ");
             EndContext();
             BeginContext(5674, 377, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9433dd03424a4f559fb271ce3f76ec12", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6e4fbe9739754c36ae15b10cf2d3b9a6", async() => {
                 BeginContext(5728, 319, true);
                 WriteLiteral(@"
                                             <button type=""button"" class=""btn btn-secondary btn-block catgs-modal"" data-toggle=""modal"" data-target=""#editCatgsModal"">
