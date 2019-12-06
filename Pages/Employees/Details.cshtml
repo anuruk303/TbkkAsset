@@ -4,106 +4,141 @@
 @{
     ViewData["Title"] = "Details";
 }
+<div class="container">
+    <div class="row">
+        <div class="col-md-9">
+            <h2>Employee Detail</h2>
+            <div class=" col-md-12 col-lg-12 ">
+                <table class="table table-user-information">
+                    <tbody>
+                        <tr>
+                            <td>@Html.DisplayNameFor(model => model.Employee.FirstName) :</td>
+                            <td> @Html.DisplayFor(model => model.Employee.FirstName)</td>
+                        </tr>
+                        <tr>
+                            <td>@Html.DisplayNameFor(model => model.Employee.LastName) :</td>
+                            <td>@Html.DisplayFor(model => model.Employee.LastName)</td>
+                        </tr>
+                        <tr>
+                            <td>@Html.DisplayNameFor(model => model.Employee.Gender) :</td>
+                            <td>@Html.DisplayFor(model => model.Employee.Gender)</td>
+                        </tr>
 
-<h2>Details</h2>
+                        <tr>
+                            <td>@Html.DisplayNameFor(model => model.Employee.Email) :</td>
+                            <td>@Html.DisplayFor(model => model.Employee.Email)</td>
+                        </tr>
+                        <tr>
+                            <td>@Html.DisplayNameFor(model => model.Employee.Call) :</td>
+                            <td>@Html.DisplayFor(model => model.Employee.Call)</td>
+                        </tr>
+                        <tr>
+                            <td>@Html.DisplayNameFor(model => model.Employee.Line) :</td>
+                            <td>@Html.DisplayFor(model => model.Employee.Line)</td>
+                        </tr>
+                        <tr>
+                            <td>@Html.DisplayNameFor(model => model.Employee.Addr) :</td>
+                            <td>@Html.DisplayFor(model => model.Employee.Addr)</td>
+                        </tr>
+                        <tr>
+                            <td>@Html.DisplayNameFor(model => model.Employee.Date) :</td>
+                            <td>@Html.DisplayFor(model => model.Employee.Date)</td>
+                        </tr>
+                        <tr>
+                            <td>@Html.DisplayNameFor(model => model.Employee.Status) :</td>
+                            <td>@Html.DisplayFor(model => model.Employee.Status)</td>
+                        </tr>
+                        <tr>
+                            <td>@Html.DisplayNameFor(model => model.Employee.Company) :</td>
+                            <td>@Html.DisplayFor(model => model.Employee.Company.CompanyName)</td>
+                        </tr>
+                        <tr>
+                            <td>@Html.DisplayNameFor(model => model.Employee.Department) :</td>
+                            <td>@Html.DisplayFor(model => model.Employee.Department.DepartmentName)</td>
+                        </tr>
+                        <tr>
+                            <td>@Html.DisplayNameFor(model => model.Employee.Location) :</td>
+                            <td>@Html.DisplayFor(model => model.Employee.Location.LocationName)</td>
+                        </tr>
+                        <tr>
+                            <td>@Html.DisplayNameFor(model => model.Employee.EmployeeType) :</td>
+                            <td>@Html.DisplayFor(model => model.Employee.EmployeeType.EmployeeTypeName)</td>
+                        </tr>
+                        <tr>
+                            <td>@Html.DisplayNameFor(model => model.Employee.Position) :</td>
+                            <td>@Html.DisplayFor(model => model.Employee.Position.PositionName)</td>
+                        </tr>
+                        
 
-<div>
-    <h4>Employee</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Employee.FirstName)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Employee.FirstName)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Employee.LastName)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Employee.LastName)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Employee.Gender)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Employee.Gender)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Employee.Email)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Employee.Email)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Employee.Call)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Employee.Call)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Employee.Line)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Employee.Line)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Employee.Image)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Employee.Image)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Employee.Addr)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Employee.Addr)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Employee.Date)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Employee.Date)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Employee.Status)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Employee.Status)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Employee.Company)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Employee.Company.Image)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Employee.Department)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Employee.Department.DepartmentName)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Employee.Location)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Employee.Location.LocationName)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Employee.EmployeeType)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Employee.EmployeeType.EmployeeTypeID)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Employee.Position)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Employee.Position.PositionID)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-page="./Edit" asp-route-id="@Model.Employee.EmployeeID">Edit</a> |
-    <a asp-page="./Index">Back to List</a>
-</div>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <h2></h2>
+            <div class="col-md-3 col-lg-3 " align="center">
+                <img src="~/uploads/@Html.DisplayFor(model => model.Employee.Image)" width="200px" height="220px" />
+
+            </div>
+
+        </div>
+    </div>
+
+    <div>
+        <a asp-page="./Edit" asp-route-id="@Model.Employee.EmployeeID">Edit</a> |
+        <a asp-page="./Index">Back to List</a>
+    </div>
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item">
+            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Join</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">History Update</a>
+        </li>
+    </ul>
+    <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="3">
+                        <thead>
+                            <tr>
+                                <th>
+                                    Name
+                                </th>
+                                <th>
+                                    Time
+                                </th>
+
+                                <th>
+                                    User
+                                </th>
+                                <th>
+                                    date
+                                </th>
+
+                                <th>
+                                    Edit
+                                </th>
+                                <th>
+                                    Details
+                                </th>
+                                <th>
+                                    Delete
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+
+        </div>
+
+    </div>

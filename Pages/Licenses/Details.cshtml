@@ -4,94 +4,137 @@
 @{
     ViewData["Title"] = "Details";
 }
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <h2>Employee Detail</h2>
+                <div class=" col-md-12 col-lg-12 ">
+                    <table class="table table-user-information">
+                        <tbody>
+                            <tr>
+                                <td>@Html.DisplayNameFor(model => model.License.LicenseName) :</td>
+                                <td> @Html.DisplayFor(model => model.License.LicenseName)</td>
+                            </tr>
+                            <tr>
+                                <td>@Html.DisplayNameFor(model => model.License.SoftewareName) :</td>
+                                <td>@Html.DisplayFor(model => model.License.SoftewareName)</td>
+                            </tr>
+                            <tr>
+                                <td>@Html.DisplayNameFor(model => model.License.PurchaseDate) :</td>
+                                <td>@Html.DisplayFor(model => model.License.PurchaseDate)</td>
+                            </tr>
 
-<h2>Details</h2>
+                            <tr>
+                                <td>@Html.DisplayNameFor(model => model.License.StartDate) :</td>
+                                <td>@Html.DisplayFor(model => model.License.StartDate)</td>
+                            </tr>
+                            <tr>
+                                <td>@Html.DisplayNameFor(model => model.License.ExpireDate) :</td>
+                                <td>@Html.DisplayFor(model => model.License.ExpireDate)</td>
+                            </tr>
+                            <tr>
+                                <td>@Html.DisplayNameFor(model => model.License.PONumber) :</td>
+                                <td>@Html.DisplayFor(model => model.License.PONumber)</td>
+                            </tr>
+                            <tr>
+                                <td>@Html.DisplayNameFor(model => model.License.Attachfiles) :</td>
+                                <td>@Html.DisplayFor(model => model.License.Attachfiles)</td>
+                            </tr>
+                           
+                            <tr>
+                                <td>@Html.DisplayNameFor(model => model.License.Status) :</td>
+                                <td>@Html.DisplayFor(model => model.License.Status)</td>
+                            </tr>
+                            <tr>
+                                <td>@Html.DisplayNameFor(model => model.License.Model_ModelID) :</td>
+                                <td>@Html.DisplayFor(model => model.License.Model_ModelID)</td>
+                            </tr>
+                            <tr>
+                                <td>@Html.DisplayNameFor(model => model.License.Supplier_SupplierID) :</td>
+                                <td>@Html.DisplayFor(model => model.License.Supplier_SupplierID)</td>
+                            </tr>
+                            <tr>
+                                <td>@Html.DisplayNameFor(model => model.License.Department_DepartmentID) :</td>
+                                <td>@Html.DisplayFor(model => model.License.Department_DepartmentID)</td>
+                            </tr>
+                            <tr>
+                                <td>@Html.DisplayNameFor(model => model.License.Company_CompanyID) :</td>
+                                <td>@Html.DisplayFor(model => model.License.Company_CompanyID)</td>
+                            </tr>
+                            <tr>
+                                <td>@Html.DisplayNameFor(model => model.License.Note) :</td>
+                                <td>
+                                    <div class="form-group">
+                                        <textarea class="form-control" id="exampleFormControlTextarea3" rows="5" cols='20'>@Html.DisplayFor(model => model.License.Note)</textarea>
+                                    </div>
+                                </td>
+                            </tr>
 
-<div>
-    <h4>License</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.License.LicenseName)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.License.LicenseName)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.License.SoftewareName)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.License.SoftewareName)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.License.PurchaseDate)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.License.PurchaseDate)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.License.StartDate)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.License.StartDate)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.License.ExpireDate)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.License.ExpireDate)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.License.PONumber)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.License.PONumber)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.License.Attachfiles)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.License.Attachfiles)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.License.Note)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.License.Note)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.License.Status)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.License.Status)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.License.Model_ModelID)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.License.Model_ModelID)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.License.Supplier_SupplierID)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.License.Supplier_SupplierID)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.License.Department_DepartmentID)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.License.Department_DepartmentID)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.License.Company_CompanyID)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.License.Company_CompanyID)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-page="./Edit" asp-route-id="@Model.License.LicenseID">Edit</a> |
-    <a asp-page="./Index">Back to List</a>
-</div>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+        </div>
+
+        <div>
+            <a asp-page="./Edit" asp-route-id="@Model.License.LicenseID">Edit</a> |
+            <a asp-page="./Index">Back to List</a>
+        </div>
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Join</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">History Update</a>
+            </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="3">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        Name
+                                    </th>
+                                    <th>
+                                        Time
+                                    </th>
+
+                                    <th>
+                                        User
+                                    </th>
+                                    <th>
+                                        date
+                                    </th>
+
+                                    <th>
+                                        Edit
+                                    </th>
+                                    <th>
+                                        Details
+                                    </th>
+                                    <th>
+                                        Delete
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+
+            </div>
+
+        </div>
+
+       

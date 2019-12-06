@@ -45,10 +45,10 @@ namespace tbkk_AC.Pages.Licenses
             }
 
             License = await _context.License.FindAsync(id);
-
+            License.Status = "Unused";
             if (License != null)
             {
-                _context.License.Remove(License);
+                _context.Attach(License).State = EntityState.Modified;
                 await _context.SaveChangesAsync();
             }
 

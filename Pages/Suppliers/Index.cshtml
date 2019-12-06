@@ -46,15 +46,7 @@
                                 <th>
                                     @Html.DisplayNameFor(model => model.Supplier[0].Image)
                                 </th>
-                                <th>
-                                    Edit
-                                </th>
-                                <th>
-                                    Details
-                                </th>
-                                <th>
-                                    Delete
-                                </th>
+                                <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -75,30 +67,12 @@
                                         </td>
 
                                         <td>
-                                            
                                             <img src="~/uploads/@Html.DisplayFor(modelItem => item.Image)" width="100px" height="120px" />
                                         </td>
-                                        <td width="5%">
-                                            <a asp-page="./Edit" asp-route-id="@item.SupplierID">
-                                                <button type="button" class="btn btn-secondary btn-block catgs-modal" data-toggle="modal" data-target="#editCatgsModal"
-                                                        asp-route-id="@item.SupplierID">
-                                                    Edit
-                                                </button>
-                                            </a>
-                                        </td>
-                                        <td width="5%">
-                                            <a asp-page="./Details" asp-route-id="@item.SupplierID">
-                                                <button type="button" class="btn btn-secondary btn-block catgs-modal" data-toggle="modal" data-target="#editCatgsModal">
-                                                    Details
-                                                </button>
-                                            </a>
-                                        </td>
-                                        <td width="5%">
-                                            <a asp-page="./Delete" asp-route-id="@item.SupplierID">
-                                                <button type="button" class="btn btn-secondary btn-block catgs-modal" data-toggle="modal" data-target="#editCatgsModal">
-                                                    Delete
-                                                </button>
-                                            </a>
+                                        <td width="100px">
+                                            <a asp-page="./Details" asp-route-id="@item.SupplierID">Details</a> |
+                                            <a asp-page="./Edit" asp-route-id="@item.SupplierID">Edit</a> |
+                                            <a asp-page="./Delete" asp-route-id="@item.SupplierID">Delete</a>
                                         </td>
                                     </tr>
                                 }

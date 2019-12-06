@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using tbkk_AC.Models;
 
 namespace tbkk_AC.Pages.Assets
@@ -26,9 +27,16 @@ namespace tbkk_AC.Pages.Assets
 
         [BindProperty]
         public Asset Asset { get; set; }
-
+        public IList<Model> Model { get; set; }
+        public IList<Supplier> Supplier { get; set; }
+        public IList<Department> Department { get; set; }
+        public IList<Company> Company { get; set; }
         public async Task<IActionResult> OnPostAsync()
         {
+            Model = await _context.Model.ToListAsync();
+            Supplier = await _context.Supplier.ToListAsync();
+            Department = await _context.Department.ToListAsync();
+            Company = await _context.Company.ToListAsync();
             if (!ModelState.IsValid)
             {
                 return Page();

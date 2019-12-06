@@ -21,9 +21,18 @@ namespace tbkk_AC.Pages.Employees
 
         [BindProperty]
         public Employee Employee { get; set; }
-
+        public IList<Company> Company { get; set; }
+        public IList<Department> Department { get; set; }
+        public IList<EmployeeType> EmployeeType { get; set; }
+        public IList<Location> Location { get; set; }
+        public IList<Position> Position { get; set; }
         public async Task<IActionResult> OnGetAsync(int? id)
         {
+            Company = await _context.Company.ToListAsync();
+            Department = await _context.Department.ToListAsync();
+            EmployeeType = await _context.EmployeeType.ToListAsync();
+            Location = await _context.Location.ToListAsync();
+            Position = await _context.Position.ToListAsync();
             if (id == null)
             {
                 return NotFound();

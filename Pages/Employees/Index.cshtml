@@ -65,7 +65,8 @@
                             <tbody>
                                 @foreach (var item in Model.Employee)
                                 {
-                                    if (item.Status.Equals("Using")) { 
+                                    if (item.Status.Equals("Using"))
+                                    {
                                 <tr>
                                     <td>
                                         @Html.DisplayFor(modelItem => item.FirstName)
@@ -93,7 +94,7 @@
                                     </td>
                                     <td width="100px">
                                         <a asp-page="./Edit" asp-route-id="@item.EmployeeID">Edit</a> |
-                                        <a asp-page="./Detail" asp-route-id="@item.EmployeeID">Delete</a>
+                                        <a asp-page="./Details" asp-route-id="@item.EmployeeID">Detail</a>
                                         <a asp-page="./Delete" asp-route-id="@item.EmployeeID">Delete</a>
                                     </td>
                                 </tr>

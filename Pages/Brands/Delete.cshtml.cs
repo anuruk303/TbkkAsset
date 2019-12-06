@@ -45,10 +45,10 @@ namespace tbkk_AC.Pages.Brands
             }
 
             Brand = await _context.Brand.FindAsync(id);
-
+            Brand.Status = "Unused";
             if (Brand != null)
             {
-                _context.Brand.Remove(Brand);
+                _context.Attach(Brand).State = EntityState.Modified;
                 await _context.SaveChangesAsync();
             }
 

@@ -45,10 +45,10 @@ namespace tbkk_AC.Pages.Departments
             }
 
             Department = await _context.Department.FindAsync(id);
-
+            Department.Status = "Unused";
             if (Department != null)
             {
-                _context.Department.Remove(Department);
+                _context.Attach(Department).State = EntityState.Modified;
                 await _context.SaveChangesAsync();
             }
 

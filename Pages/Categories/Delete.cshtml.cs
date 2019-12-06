@@ -45,10 +45,10 @@ namespace tbkk_AC.Pages.Categories
             }
 
             Category = await _context.Category.FindAsync(id);
-
+            Category.Status = "Unused";
             if (Category != null)
             {
-                _context.Category.Remove(Category);
+                _context.Attach(Category).State = EntityState.Modified;
                 await _context.SaveChangesAsync();
             }
 

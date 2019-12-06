@@ -5,108 +5,34 @@
     ViewData["Title"] = "Delete";
 }
 
-<h2>Delete</h2>
+<div id="content-wrapper">
+    <div class="container-fluid">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active">Asset Control</li>
+            <li class="breadcrumb-item active">Managment</li>
+            <li class="breadcrumb-item active">Employee</li>
+        </ol>
+        <div class="card border-danger mb-auto">
+            <div class="card-header">Delete</div>
+            <div class="card-body text-dark" style="text-align:center">
+                <p class="card-title">Are you sure you want to delete this?</p>
+                <dl class="dl-horizontal">
+                    <dd>
+                        @Html.DisplayNameFor(model => model.Employee.EmployeeID) :
+                        @Html.DisplayFor(model => model.Employee.EmployeeID)
+                    </dd>
+                    <dd>
+                        @Html.DisplayNameFor(model => model.Employee.Status) :
+                        @Html.DisplayFor(model => model.Employee.Status)
+                    </dd>
+                </dl>
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>Employee</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Employee.FirstName)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Employee.FirstName)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Employee.LastName)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Employee.LastName)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Employee.Gender)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Employee.Gender)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Employee.Email)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Employee.Email)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Employee.Call)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Employee.Call)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Employee.Line)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Employee.Line)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Employee.Image)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Employee.Image)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Employee.Addr)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Employee.Addr)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Employee.Date)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Employee.Date)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Employee.Status)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Employee.Status)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Employee.Company)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Employee.Company.Image)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Employee.Department)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Employee.Department.DepartmentName)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Employee.Location)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Employee.Location.LocationName)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Employee.EmployeeType)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Employee.EmployeeType.EmployeeTypeID)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Employee.Position)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Employee.Position.PositionID)
-        </dd>
-    </dl>
-    
-    <form method="post">
-        <input type="hidden" asp-for="Employee.EmployeeID" />
-        <input type="submit" value="Delete" class="btn btn-default" /> |
-        <a asp-page="./Index">Back to List</a>
-    </form>
+                <form method="post">
+                    <input type="hidden" asp-for="Employee.EmployeeID" />
+                    <a asp-page="./Index"><button type="button" class="btn btn-link">Back to List</button></a>
+                    <input style="margin-left:10px" type="submit" value="Delete" class="btn btn-outline-danger" />
+                </form>
+            </div>
+        </div>
+    </div>
 </div>

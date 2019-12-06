@@ -28,8 +28,7 @@ namespace tbkk_AC.Pages.Assets
                 return NotFound();
             }
 
-            Asset = await _context.Asset
-                .Include(a => a.Supplier).FirstOrDefaultAsync(m => m.AssetID == id);
+            Asset = await _context.Asset.FirstOrDefaultAsync(m => m.AssetID == id);
 
             if (Asset == null)
             {
@@ -46,10 +45,10 @@ namespace tbkk_AC.Pages.Assets
             }
 
             Asset = await _context.Asset.FindAsync(id);
-
+            Asset.Status = "Unused";
             if (Asset != null)
             {
-                _context.Asset.Remove(Asset);
+                _context.Attach(Asset).State = EntityState.Modified;
                 await _context.SaveChangesAsync();
             }
 

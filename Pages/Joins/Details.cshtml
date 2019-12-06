@@ -1,0 +1,43 @@
+﻿@page
+@model tbkk_AC.Pages.Joins.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Join_Asset_Asset</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Join_Asset_Asset.Note)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Join_Asset_Asset.Note)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Join_Asset_Asset.Status)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Join_Asset_Asset.Status)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Join_Asset_Asset.Asset_AssetID)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Join_Asset_Asset.Asset_AssetID)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Join_Asset_Asset.AssetSon)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Join_Asset_Asset.AssetSon)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Join_Asset_Asset.JoinAsAsID">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

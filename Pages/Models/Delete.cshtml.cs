@@ -28,9 +28,7 @@ namespace tbkk_AC.Pages.Models
                 return NotFound();
             }
 
-            Model = await _context.Model
-                .Include(m => m.Brand)
-                .Include(m => m.Category).FirstOrDefaultAsync(m => m.ModelID == id);
+            Model = await _context.Model.FirstOrDefaultAsync(m => m.ModelID == id);
 
             if (Model == null)
             {
@@ -47,10 +45,10 @@ namespace tbkk_AC.Pages.Models
             }
 
             Model = await _context.Model.FindAsync(id);
-
+            Model.Status = "Unused";
             if (Model != null)
             {
-                _context.Model.Remove(Model);
+                _context.Attach(Model).State = EntityState.Modified;
                 await _context.SaveChangesAsync();
             }
 

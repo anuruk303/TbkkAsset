@@ -45,10 +45,10 @@ namespace tbkk_AC.Pages.Locations
             }
 
             Location = await _context.Location.FindAsync(id);
-
+            Location.Status = "Unused";
             if (Location != null)
             {
-                _context.Location.Remove(Location);
+                _context.Attach(Location).State = EntityState.Modified;
                 await _context.SaveChangesAsync();
             }
 

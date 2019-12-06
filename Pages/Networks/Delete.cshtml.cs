@@ -45,10 +45,10 @@ namespace tbkk_AC.Pages.Networks
             }
 
             Network = await _context.Network.FindAsync(id);
-
+            Network.Status = "Unused";
             if (Network != null)
             {
-                _context.Network.Remove(Network);
+                _context.Attach(Network).State = EntityState.Modified;
                 await _context.SaveChangesAsync();
             }
 

@@ -21,9 +21,12 @@ namespace tbkk_AC.Pages.Models
 
         [BindProperty]
         public Model Model { get; set; }
-
+        public IList<Brand> Brand { get; set; }
+        public IList<Category> Category { get; set; }
         public async Task<IActionResult> OnGetAsync(int? id)
         {
+             Brand = await _context.Brand.ToListAsync();
+            Category = await _context.Category.ToListAsync();
             if (id == null)
             {
                 return NotFound();

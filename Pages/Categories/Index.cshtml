@@ -41,17 +41,14 @@
                                 <th>
                                     @Html.DisplayNameFor(model => model.Category[0].TypeName)
                                 </th>
-                                <th>
-                                    Edit
-                                </th>
-                                <th>
-                                    Delete
-                                </th>
+                                <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach (var item in Model.Category)
                             {
+                                if (item.Status.Equals("Using"))
+                                {
                                 <tr>
                                     <td>
                                         @Html.DisplayFor(modelItem => item.CategoryName)
@@ -62,23 +59,12 @@
                                     <td>
                                         @Html.DisplayFor(modelItem => item.TypeName)
                                     </td>
-                                    <td width="5%">
-                                        <a asp-page="./Edit" asp-route-id="@item.CategoryID">
-                                            <button type="button" class="btn btn-secondary btn-block catgs-modal" data-toggle="modal" data-target="#editCatgsModal"
-                                                    asp-route-id="@item.CategoryID">
-                                                Edit
-                                            </button>
-                                        </a>
-                                    </td>
-
-                                    <td width="5%">
-                                        <a asp-page="./Delete" asp-route-id="@item.CategoryID">
-                                            <button type="button" class="btn btn-secondary btn-block catgs-modal" data-toggle="modal" data-target="#editCatgsModal">
-                                                Delete
-                                            </button>
-                                        </a>
+                                    <td width="100px">
+                                        <a asp-page="./Edit" asp-route-id="@item.CategoryID">Edit</a> |
+                                        <a asp-page="./Delete" asp-route-id="@item.CategoryID">Delete</a>
                                     </td>
                                 </tr>
+                                }
                             }
                         </tbody>
                     </table>

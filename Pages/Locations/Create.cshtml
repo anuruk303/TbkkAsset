@@ -19,7 +19,7 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col">
-                        <form method="post" enctype="multipart/form-data">
+                        <form method="post">
                             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                             <div class="form-group row">
                                 <label asp-for="Location.LocationName" class="col-sm-3 col-form-label"></label>
@@ -29,19 +29,21 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label asp-for="Location.Note" class="col-sm-3 col-form-label"></label>
-                                <div class="col-sm-8">
-                                    <input asp-for="Location.Note" class="form-control" />
-                                    <span asp-validation-for="Location.Note" class="text-danger"></span>
-                                </div>
-                            </div>
-                            <div class="form-group row">
                                 <label asp-for="Location.Status" class="col-sm-3 col-form-label"></label>
                                 <div class="col-sm-8">
                                     <input asp-for="Location.Status" class="form-control" value="Using" readonly />
                                     <span asp-validation-for="Location.Status" class="text-danger"></span>
                                 </div>
                             </div>
+                            <input asp-for="Location.Status" value="Using" type="hidden" />
+                            <div class="form-group row">
+                                <label asp-for="Location.Note" class="col-sm-3 col-form-label"></label>
+                                <div class="col-sm-8">
+                                    <textarea rows="4" cols="15" asp-for="Location.Note" class="form-control"></textarea>
+                                    <span asp-validation-for="Location.Note" class="text-danger"></span>
+                                </div>
+                            </div>
+
                             <div class="form-group row" style="float:right; margin-right:9%">
                                 <a asp-page="./Index"><button type="button" class="btn btn-link">Back to List</button></a>
                                 <input style="margin-left:10px" type="submit" value="Create" class="btn btn-outline-dark" onclick="run()" />

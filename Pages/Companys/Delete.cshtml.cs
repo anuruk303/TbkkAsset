@@ -45,10 +45,10 @@ namespace tbkk_AC.Pages.Companys
             }
 
             Company = await _context.Company.FindAsync(id);
-
+            Company.Status = "Unused";
             if (Company != null)
             {
-                _context.Company.Remove(Company);
+                _context.Attach(Company).State = EntityState.Modified;
                 await _context.SaveChangesAsync();
             }
 

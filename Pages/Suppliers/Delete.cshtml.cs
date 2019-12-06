@@ -45,10 +45,10 @@ namespace tbkk_AC.Pages.Suppliers
             }
 
             Supplier = await _context.Supplier.FindAsync(id);
-
+            Supplier.Status = "Unused";
             if (Supplier != null)
             {
-                _context.Supplier.Remove(Supplier);
+                _context.Attach(Supplier).State = EntityState.Modified;
                 await _context.SaveChangesAsync();
             }
 

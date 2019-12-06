@@ -28,12 +28,7 @@ namespace tbkk_AC.Pages.Employees
                 return NotFound();
             }
 
-            Employee = await _context.Employee
-                .Include(e => e.Company)
-                .Include(e => e.Department)
-                .Include(e => e.EmployeeType)
-                .Include(e => e.Location)
-                .Include(e => e.Position).FirstOrDefaultAsync(m => m.EmployeeID == id);
+            Employee = await _context.Employee.FirstOrDefaultAsync(m => m.EmployeeID == id);
 
             if (Employee == null)
             {
@@ -50,10 +45,10 @@ namespace tbkk_AC.Pages.Employees
             }
 
             Employee = await _context.Employee.FindAsync(id);
-
+            Employee.Status = "Unused";
             if (Employee != null)
             {
-                _context.Employee.Remove(Employee);
+                _context.Attach(Employee).State = EntityState.Modified;
                 await _context.SaveChangesAsync();
             }
 
