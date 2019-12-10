@@ -7,7 +7,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-9">
-                <h2>Employee Detail</h2>
+                <h2>License Detail</h2>
                 <div class=" col-md-12 col-lg-12 ">
                     <table class="table table-user-information">
                         <tbody>
@@ -46,20 +46,51 @@
                                 <td>@Html.DisplayFor(model => model.License.Status)</td>
                             </tr>
                             <tr>
-                                <td>@Html.DisplayNameFor(model => model.License.Model_ModelID) :</td>
-                                <td>@Html.DisplayFor(model => model.License.Model_ModelID)</td>
+                                <td>Model :</td>
+                                <td>
+                                    @foreach (var item in Model.Model)
+                                    {
+                                        if (Model.License.Model_ModelID == item.ModelID)
+                                        {
+                                            @Html.DisplayFor(modelItem => item.ModelName)
+                                        }
+                                    }
                             </tr>
                             <tr>
-                                <td>@Html.DisplayNameFor(model => model.License.Supplier_SupplierID) :</td>
-                                <td>@Html.DisplayFor(model => model.License.Supplier_SupplierID)</td>
+                                <td>Supplier :</td>
+                                <td>
+                                    @foreach (var item in Model.Supplier)
+                                    {
+                                        if (Model.License.Supplier_SupplierID == item.SupplierID)
+                                        {
+                                            @Html.DisplayFor(modelItem => item.SupplierName)
+                                        }
+                                    }
+                                </td>
                             </tr>
                             <tr>
-                                <td>@Html.DisplayNameFor(model => model.License.Department_DepartmentID) :</td>
-                                <td>@Html.DisplayFor(model => model.License.Department_DepartmentID)</td>
+                                <td>Department :</td>
+                                <td>
+                                    @foreach (var item in Model.Department)
+                                    {
+                                        if (Model.License.Department_DepartmentID == item.DepartmentID)
+                                        {
+                                            @Html.DisplayFor(modelItem => item.DepartmentName)
+                                        }
+                                    }
+                             </td>
                             </tr>
                             <tr>
-                                <td>@Html.DisplayNameFor(model => model.License.Company_CompanyID) :</td>
-                                <td>@Html.DisplayFor(model => model.License.Company_CompanyID)</td>
+                                <td>Company :</td>
+                                <td>
+                                    @foreach (var item in Model.Company)
+                                    {
+                                        if (Model.License.Company_CompanyID == item.CompanyID)
+                                        {
+                                            @Html.DisplayFor(modelItem => item.CompanyName)
+                                        }
+                                    }
+                                </td>
                             </tr>
                             <tr>
                                 <td>@Html.DisplayNameFor(model => model.License.Note) :</td>

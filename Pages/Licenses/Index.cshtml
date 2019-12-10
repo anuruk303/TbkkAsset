@@ -79,16 +79,42 @@
                                         @Html.DisplayFor(modelItem => item.PONumber)
                                     </td>
                                     <td>
-                                        @Html.DisplayFor(modelItem => item.Model_ModelID)
+                                        @foreach (var item1 in Model.Model)
+                                        {
+                                            if (item.Model_ModelID==item1.ModelID)
+                                            {
+                                                @Html.DisplayFor(modelItem => item1.ModelName)
+                                            }
+                                        }
                                     </td>
                                     <td>
-                                        @Html.DisplayFor(modelItem => item.Supplier_SupplierID)
+                                        @foreach (var item1 in Model.Supplier)
+                                        {
+                                            if (item.Supplier_SupplierID == item1.SupplierID)
+                                            {
+                                                @Html.DisplayFor(modelItem => item1.SupplierName)
+                                            }
+                                        }
+                                      
                                     </td>
                                     <td>
-                                        @Html.DisplayFor(modelItem => item.Department_DepartmentID)
+                                        @foreach (var item1 in Model.Department)
+                                        {
+                                            if (item.Department_DepartmentID == item1.DepartmentID)
+                                            {
+                                                @Html.DisplayFor(modelItem => item1.DepartmentName)
+                                            }
+                                        }
                                     </td>
                                     <td>
-                                        @Html.DisplayFor(modelItem => item.Company_CompanyID)
+                                        @foreach (var item1 in Model.Company)
+                                        {
+                                            if (item.Company_CompanyID == item1.CompanyID)
+                                            {
+                                                @Html.DisplayFor(modelItem => item1.CompanyName)
+                                            }
+                                        }
+                                        
                                     </td>
                                     <td width="100px">
                                         <a asp-page="./Details" asp-route-id="@item.LicenseID">Details</a> |

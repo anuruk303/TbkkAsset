@@ -1,0 +1,99 @@
+﻿@page
+@model tbkk_AC.Pages.TestModel
+@{
+    ViewData["Title"] = "Test";
+}
+
+<div id="content-wrapper">
+    <div class="container-fluid">
+        <!-- Breadcrumbs-->
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="index.html">Asset Control</a>
+            </li>
+            <li class="breadcrumb-item active">Managment</li>
+            <li class="breadcrumb-item active">Expired</li>
+        </ol>
+        <!-- DataTables Example -->
+
+        <div class="card mb-3">
+            <div class="card-header">
+                <div class="dataTable_length">
+                    <i class="fas fa-table">Expired</i>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="3">
+                        <thead>
+                            <tr>
+                                <th>
+                                    ID
+                                </th>
+                                <th>
+                                    Name
+                                </th>
+                                <th>
+                                    StartDate
+                                </th>
+                                <th>
+                                    ExpireDate
+                                </th>
+                                <th>
+                                    Status
+                                </th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    Licenses001
+                                </td>
+                                <td>
+                                    Adoby.....
+                                </td>
+                                <td>
+                                    01-Jan-18 12:00:00 AM
+                                </td>
+                                <td>
+                                    01-Jan-20 12:00:00 AM
+                                </td>
+                                <td>
+                                    <h4><span class="badge badge-warning">Expiring</span></h4>
+                                </td>
+                                <td width="100px">
+                                    <a asp-page="./Edit">Edit</a> 
+                                </td>
+                            </tr>
+
+                        </tbody>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    Licenses002
+                                </td>
+                                <td>
+                                    Adoby.....
+                                </td>
+                                <td>
+                                    01-Jan-18 12:00:00 AM
+                                </td>
+                                <td>
+                                    01-Jan-2018 12:00:00 AM
+                                </td>
+                                <td>
+                                    
+                                    <h4><span class="badge badge-danger">Expired</span></h4>
+                                </td>
+                                <td width="100px">
+                                    <a asp-page="./Edit">Edit</a> 
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
