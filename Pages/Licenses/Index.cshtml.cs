@@ -18,7 +18,7 @@ namespace tbkk_AC.Pages.Licenses
             _context = context;
         }
 
-        public IList<License> License { get;set; }
+        public IList<License> License { get; set; }
         public IList<Model> Model { get; set; }
         public IList<Supplier> Supplier { get; set; }
         public IList<Department> Department { get; set; }

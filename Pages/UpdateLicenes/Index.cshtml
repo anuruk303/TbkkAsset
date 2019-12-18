@@ -1,0 +1,126 @@
+﻿@page
+@model tbkk_AC.Pages.UpdateLicenes.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Update_License[0].Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Update_License[0].LicenseName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Update_License[0].SoftewareName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Update_License[0].PurchaseDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Update_License[0].StartDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Update_License[0].ExpireDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Update_License[0].PONumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Update_License[0].Attachfiles)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Update_License[0].Note)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Update_License[0].Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Update_License[0].Employee)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Update_License[0].Model_ModelID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Update_License[0].Supplier_SupplierID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Update_License[0].Department_DepartmentID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Update_License[0].Company_CompanyID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Update_License[0].License_LicenseID)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Update_License) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LicenseName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SoftewareName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PurchaseDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StartDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ExpireDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PONumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Attachfiles)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Note)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Employee)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Model_ModelID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Supplier_SupplierID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Department_DepartmentID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Company_CompanyID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.License_LicenseID)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.UpdateLicenseID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.UpdateLicenseID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.UpdateLicenseID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

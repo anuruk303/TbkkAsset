@@ -29,7 +29,7 @@ namespace tbkk_AC.Pages.Departments
         }
 
         [BindProperty]
-        public Department Department  { get; set; }
+        public Department Department { get; set; }
 
         public async Task<IActionResult> OnPostAsync(IFormFile photo)
         {

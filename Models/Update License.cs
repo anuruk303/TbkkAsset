@@ -8,6 +8,7 @@ namespace tbkk_AC.Models
 {
     public class Update_License
     {
+        [Key]
         public int UpdateLicenseID { get; set; }
         [Required]
         [Display(Name = "Date")]
@@ -39,7 +40,9 @@ namespace tbkk_AC.Models
         [Required]
         [Display(Name = "Status")]
         public string Status { get; set; }
-
+        [Required]
+        [Display(Name = "Employee")]
+        public string Employee { get; set; }
         public int Model_ModelID { get; set; }
 
         public int Supplier_SupplierID { get; set; }
@@ -49,6 +52,5 @@ namespace tbkk_AC.Models
         public int Company_CompanyID { get; set; }
 
         public int License_LicenseID { get; set; }
-
     }
 }

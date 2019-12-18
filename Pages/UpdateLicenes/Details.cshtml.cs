@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using tbkk_AC.Models;
 
-namespace tbkk_AC.Pages.Assets
+namespace tbkk_AC.Pages.UpdateLicenes
 {
     public class DetailsModel : PageModel
     {
@@ -18,7 +18,7 @@ namespace tbkk_AC.Pages.Assets
             _context = context;
         }
 
-        public Asset Asset { get; set; }
+        public Update_License Update_License { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -27,10 +27,9 @@ namespace tbkk_AC.Pages.Assets
                 return NotFound();
             }
 
-            Asset = await _context.Asset
-                .Include(a => a.Supplier).FirstOrDefaultAsync(m => m.AssetID == id);
+            Update_License = await _context.Update_License.FirstOrDefaultAsync(m => m.UpdateLicenseID == id);
 
-            if (Asset == null)
+            if (Update_License == null)
             {
                 return NotFound();
             }

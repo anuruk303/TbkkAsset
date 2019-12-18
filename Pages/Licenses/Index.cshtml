@@ -65,63 +65,63 @@
                             {
                                 if (item.Status.Equals("Using"))
                                     {
-                                <tr>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.LicenseName)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.SoftewareName)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.ExpireDate)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.PONumber)
-                                    </td>
-                                    <td>
-                                        @foreach (var item1 in Model.Model)
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.LicenseName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SoftewareName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.ExpireDate)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.PONumber)
+                                </td>
+                                <td>
+                                    @foreach (var item1 in Model.Model)
                                         {
                                             if (item.Model_ModelID==item1.ModelID)
                                             {
-                                                @Html.DisplayFor(modelItem => item1.ModelName)
+                                    @Html.DisplayFor(modelItem => item1.ModelName)
                                             }
                                         }
-                                    </td>
-                                    <td>
-                                        @foreach (var item1 in Model.Supplier)
+                                </td>
+                                <td>
+                                    @foreach (var item1 in Model.Supplier)
                                         {
                                             if (item.Supplier_SupplierID == item1.SupplierID)
                                             {
-                                                @Html.DisplayFor(modelItem => item1.SupplierName)
+                                    @Html.DisplayFor(modelItem => item1.SupplierName)
                                             }
                                         }
-                                      
-                                    </td>
-                                    <td>
-                                        @foreach (var item1 in Model.Department)
+
+                                </td>
+                                <td>
+                                    @foreach (var item1 in Model.Department)
                                         {
                                             if (item.Department_DepartmentID == item1.DepartmentID)
                                             {
-                                                @Html.DisplayFor(modelItem => item1.DepartmentName)
+                                    @Html.DisplayFor(modelItem => item1.DepartmentName)
                                             }
                                         }
-                                    </td>
-                                    <td>
-                                        @foreach (var item1 in Model.Company)
+                                </td>
+                                <td>
+                                    @foreach (var item1 in Model.Company)
                                         {
                                             if (item.Company_CompanyID == item1.CompanyID)
                                             {
-                                                @Html.DisplayFor(modelItem => item1.CompanyName)
+                                    @Html.DisplayFor(modelItem => item1.CompanyName)
                                             }
                                         }
-                                        
-                                    </td>
-                                    <td width="100px">
-                                        <a asp-page="./Details" asp-route-id="@item.LicenseID">Details</a> |
-                                        <a asp-page="./Edit" asp-route-id="@item.LicenseID">Edit</a> |
-                                        <a asp-page="./Delete" asp-route-id="@item.LicenseID">Delete</a>
-                                    </td>
-                                </tr>
+
+                                </td>
+                                <td width="100px">
+                                    <a asp-page="./Details" asp-route-id="@item.LicenseID">Details</a> |
+                                    <a asp-page="./UpdateCreate" asp-route-id="@item.LicenseID">Edit</a> |
+                                    <a asp-page="./Delete" asp-route-id="@item.LicenseID">Delete</a>
+                                </td>
+                            </tr>
                             }
                             }
                         </tbody>

@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using tbkk_AC.Models;
 
-namespace tbkk_AC.Pages.Assets
+namespace tbkk_AC.Pages.UpdateLicenes
 {
     public class EditModel : PageModel
     {
@@ -20,7 +20,7 @@ namespace tbkk_AC.Pages.Assets
         }
 
         [BindProperty]
-        public Asset Asset { get; set; }
+        public Update_License Update_License { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -29,14 +29,12 @@ namespace tbkk_AC.Pages.Assets
                 return NotFound();
             }
 
-            Asset = await _context.Asset
-                .Include(a => a.Supplier).FirstOrDefaultAsync(m => m.AssetID == id);
+            Update_License = await _context.Update_License.FirstOrDefaultAsync(m => m.UpdateLicenseID == id);
 
-            if (Asset == null)
+            if (Update_License == null)
             {
                 return NotFound();
             }
-           ViewData["Supplier_SupplierID"] = new SelectList(_context.Supplier, "SupplierID", "Address");
             return Page();
         }
 
@@ -47,7 +45,7 @@ namespace tbkk_AC.Pages.Assets
                 return Page();
             }
 
-            _context.Attach(Asset).State = EntityState.Modified;
+            _context.Attach(Update_License).State = EntityState.Modified;
 
             try
             {
@@ -55,7 +53,7 @@ namespace tbkk_AC.Pages.Assets
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!AssetExists(Asset.AssetID))
+                if (!Update_LicenseExists(Update_License.UpdateLicenseID))
                 {
                     return NotFound();
                 }
@@ -68,9 +66,9 @@ namespace tbkk_AC.Pages.Assets
             return RedirectToPage("./Index");
         }
 
-        private bool AssetExists(int id)
+        private bool Update_LicenseExists(int id)
         {
-            return _context.Asset.Any(e => e.AssetID == id);
+            return _context.Update_License.Any(e => e.UpdateLicenseID == id);
         }
     }
 }

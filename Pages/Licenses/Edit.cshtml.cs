@@ -21,6 +21,7 @@ namespace tbkk_AC.Pages.Licenses
 
         [BindProperty]
         public License License { get; set; }
+        public Update_License Update_License { get; set; }
         public IList<Model> Model { get; set; }
         public IList<Supplier> Supplier { get; set; }
         public IList<Department> Department { get; set; }
@@ -51,6 +52,10 @@ namespace tbkk_AC.Pages.Licenses
             {
                 return Page();
             }
+
+            Update_License a = new Update_License();
+            
+
 
             _context.Attach(License).State = EntityState.Modified;
 

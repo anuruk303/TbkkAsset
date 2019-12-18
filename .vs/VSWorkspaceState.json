@@ -1,7 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Data",
+    "\\Migrations",
+    "\\Pages"
   ],
-  "SelectedNode": "\\tbkk-AC.sln",
+  "SelectedNode": "\\Data\\tbkk_ACContext.cs",
   "PreviewInSolutionExplorer": false
 }

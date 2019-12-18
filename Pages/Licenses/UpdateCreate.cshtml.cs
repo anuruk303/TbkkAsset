@@ -4,53 +4,51 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using tbkk_AC.Models;
 
-namespace tbkk_AC.Pages.Assets
+namespace tbkk_AC.Pages.Update_Licenses
 {
-    public class DeleteModel : PageModel
+    public class CreateModel : PageModel
     {
         private readonly tbkk_AC.Models.tbkk_ACContext _context;
 
-        public DeleteModel(tbkk_AC.Models.tbkk_ACContext context)
+        public CreateModel(tbkk_AC.Models.tbkk_ACContext context)
         {
             _context = context;
         }
 
-        [BindProperty]
-        public Asset Asset { get; set; }
-
         public async Task<IActionResult> OnGetAsync(int? id)
         {
+
             if (id == null)
             {
                 return NotFound();
             }
 
-            Asset = await _context.Asset.FirstOrDefaultAsync(m => m.AssetID == id);
+            License = await _context.License.FirstOrDefaultAsync(m => m.LicenseID == id);
 
-            if (Asset == null)
+            if (License == null)
             {
                 return NotFound();
             }
             return Page();
+
         }
 
-        public async Task<IActionResult> OnPostAsync(int? id)
+        [BindProperty]
+        public Update_License Update_License { get; set; }
+        public License License { get; set; }
+        public async Task<IActionResult> OnPostAsync()
         {
-            if (id == null)
+            if (!ModelState.IsValid)
             {
-                return NotFound();
+                return Page();
             }
 
-            Asset = await _context.Asset.FindAsync(id);
-            Asset.Status = "Unused";
-            if (Asset != null)
-            {
-                _context.Attach(Asset).State = EntityState.Modified;
-                await _context.SaveChangesAsync();
-            }
+            _context.Update_License.Add(Update_License);
+            await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");
         }

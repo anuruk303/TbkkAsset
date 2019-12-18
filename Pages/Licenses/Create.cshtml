@@ -5,227 +5,234 @@
     ViewData["Title"] = "Create";
 }
 
-<div id="content-wrapper">
-    <div class="container-fluid">
-        <!-- Breadcrumbs-->
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item active">Asset Control</li>
-            <li class="breadcrumb-item active">Managment</li>
-            <li class="breadcrumb-item active">License</li>
-        </ol>
-        <form method="post">
-            <div class="card " style="margin-top:1%">
-                <div class="card-header">
-                    Create
+<body>
+    <div id="content-wrapper">
+        <div class="container-fluid">
+            <!-- Breadcrumbs-->
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item active">Asset Control</li>
+                <li class="breadcrumb-item active">Managment</li>
+                <li class="breadcrumb-item active">License</li>
+            </ol>
+            <form method="post">
+                <div class="card " style="margin-top:1%">
+                    <div class="card-header">
+                        Create
+                    </div>
+                    <div class="card-body">
+
+                        <div class="row">
+
+
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <div class="col">
+                                <div class="form-group row">
+                                    <div class="col-sm-12">
+                                        <label asp-for="License.LicenseName" class="col-sm-0 col-form-label"></label>
+                                        <input asp-for="License.LicenseName" class="form-control" placeholder="LicenseName" />
+                                        <span asp-validation-for="License.LicenseName" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+
+                                    <div class="col-sm-12">
+                                        <label asp-for="License.PONumber" class="col-sm-0 col-form-label"></label>
+                                        <input asp-for="License.PONumber" class="form-control" placeholder="PONumber" />
+                                        <span asp-validation-for="License.PONumber" class="text-danger"></span>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col">
+                                <div class="form-group row">
+                                    <div class="col-sm-12">
+                                        <label asp-for="License.SoftewareName" class="col-sm-0 col-form-label"></label>
+                                        <input asp-for="License.SoftewareName" class="form-control" placeholder="SoftewareName" />
+                                        <span asp-validation-for="License.SoftewareName" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-12">
+                                        <label asp-for="License.Attachfiles" class="col-sm-0 col-form-label">AttachFiles</label>
+                                        <input asp-for="License.Attachfiles" class="form-control" placeholder="AttachFiles" />
+                                        <span asp-validation-for="License.Attachfiles" class="text-danger"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
                 </div>
-                <div class="card-body">
-
-                    <div class="row">
-
-
+                <div class="card " style="margin-top:1%">
+                    <div class="card-header">
+                        Model
+                    </div>
+                    <div class="card-body">
                         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                        <div class="col">
-                            <div class="form-group row">
-                                <div class="col-sm-12">
-                                    <label asp-for="License.LicenseName" class="col-sm-0 col-form-label"></label>
-                                    <input asp-for="License.LicenseName" class="form-control" placeholder="LicenseName" />
-                                    <span asp-validation-for="License.LicenseName" class="text-danger"></span>
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group row">
+                                    <div class="col-sm-12">
+                                        <label asp-for="License.Supplier_SupplierID" class="col-sm-0 col-form-label">Supplier</label>
+                                        <select asp-for="License.Supplier_SupplierID" class="form-control">
+                                            <option selected value=@null>Plase select</option>
+                                            @foreach (var item in Model.Supplier)
+                                            {
+                                                if (item.Status.Equals("Using"))
+                                                {
+                                                    <option value=@item.SupplierID>@Html.DisplayFor(modelItem => item.SupplierName)</option>
+                                                }
+                                            }
+                                        </select>
+                                        <span asp-validation-for="License.Supplier_SupplierID" class="text-danger"></span>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="form-group row">
+                                <div class="form-group row">
 
-                                <div class="col-sm-12">
-                                    <label asp-for="License.PONumber" class="col-sm-0 col-form-label"></label>
-                                    <input asp-for="License.PONumber" class="form-control" placeholder="PONumber" />
-                                    <span asp-validation-for="License.PONumber" class="text-danger"></span>
+                                    <div class="col-sm-12">
+                                        <label asp-for="License.Company_CompanyID" class="col-sm-0 col-form-label">Company</label>
+                                        <select asp-for="License.Company_CompanyID" class="form-control">
+                                            <option selected value=@null>Plase select</option>
+                                            @foreach (var item in Model.Company)
+                                            {
+                                                if (item.Status.Equals("Using"))
+                                                {
+                                                    <option value=@item.CompanyID>@Html.DisplayFor(modelItem => item.CompanyName)</option>
+                                                }
+                                            }
+                                        </select>
+                                        <span asp-validation-for="License.Company_CompanyID" class="text-danger"></span>
+                                    </div>
                                 </div>
+
                             </div>
 
-                        </div>
-                        <div class="col">
-                            <div class="form-group row">
-                                <div class="col-sm-12">
-                                    <label asp-for="License.SoftewareName" class="col-sm-0 col-form-label"></label>
-                                    <input asp-for="License.SoftewareName" class="form-control" placeholder="SoftewareName" />
-                                    <span asp-validation-for="License.SoftewareName" class="text-danger"></span>
+                            <div class="col">
+                                <div class="form-group row">
+                                    <div class="col-sm-12">
+                                        <label asp-for="License.Model_ModelID" class="col-sm-0 col-form-label">Model</label>
+                                        <select asp-for="License.Model_ModelID" class="form-control">
+                                            <option selected value=@null>Plase select</option>
+                                            @foreach (var item in Model.Model)
+                                            {
+                                                if (item.Status.Equals("Using"))
+                                                {
+                                                    <option value=@item.ModelID>@Html.DisplayFor(modelItem => item.ModelName)</option>
+                                                }
+                                            }
+                                        </select>
+                                        <span asp-validation-for="License.Model_ModelID" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-12">
+                                        <label asp-for="License.Department_DepartmentID" class="col-sm-0 col-form-label">Department</label>
+                                        <select asp-for="License.Department_DepartmentID" class="form-control">
+                                            <option selected value=@null>Plase select</option>
+                                            @foreach (var item in Model.Department)
+                                            {
+                                                if (item.Status.Equals("Using"))
+                                                {
+                                                    <option value=@item.DepartmentID>@Html.DisplayFor(modelItem => item.DepartmentName)</option>
+                                                }
+                                            }
+                                        </select>
+                                        <span asp-validation-for="License.Department_DepartmentID" class="text-danger"></span>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="form-group row">
-                                <div class="col-sm-12">
-                                    <label asp-for="License.Attachfiles" class="col-sm-0 col-form-label">AttachFiles</label>
-                                    <input asp-for="License.Attachfiles" class="form-control" placeholder="AttachFiles" />
-                                    <span asp-validation-for="License.Attachfiles" class="text-danger"></span>
-                                </div>
-                            </div>
                         </div>
+
+
                     </div>
-                        
+
                 </div>
+                <div class="card " style="margin-top:1%">
+                    <div class="card-header">
+                        Date
+                    </div>
+                    <div class="card-body">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="row">
 
-            </div>
-            <div class="card " style="margin-top:1%">
-                <div class="card-header">
-                    Model
-                </div>
-                <div class="card-body">
-                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                    <div class="row">
-                        <div class="col">
-                            <div class="form-group row">
-                                <div class="col-sm-12">
-                                    <label asp-for="License.Supplier_SupplierID" class="col-sm-0 col-form-label">Supplier</label>
-                                    <select asp-for="License.Supplier_SupplierID" class="form-control">
-                                        <option selected value=@null>Plase select</option>
-                                        @foreach (var item in Model.Supplier)
-                                        {
-                                            if (item.Status.Equals("Using"))
-                                            {
-                                                <option value=@item.SupplierID>@Html.DisplayFor(modelItem => item.SupplierName)</option>
-                                            }
-                                        }
-                                    </select>
-                                    <span asp-validation-for="License.Supplier_SupplierID" class="text-danger"></span>
-                                </div>
-                            </div>
-                            <div class="form-group row">
+                            <input asp-for="License.PurchaseDate" class="form-control" type="hidden" value="@DateTime.Now" />
+                            <span asp-validation-for="License.PurchaseDate" class="text-danger"></span>
 
-                                <div class="col-sm-12">
-                                    <label asp-for="License.Company_CompanyID" class="col-sm-0 col-form-label">Company</label>
-                                    <select asp-for="License.Company_CompanyID" class="form-control">
-                                        <option selected value=@null>Plase select</option>
-                                        @foreach (var item in Model.Company)
-                                        {
-                                            if (item.Status.Equals("Using"))
-                                            {
-                                                <option value=@item.CompanyID>@Html.DisplayFor(modelItem => item.CompanyName)</option>
-                                            }
-                                        }
-                                    </select>
-                                    <span asp-validation-for="License.Company_CompanyID" class="text-danger"></span>
+
+
+                            <div class="col">
+                                <div class="form-group row">
+                                    <div class="col-sm-12">
+                                        <label asp-for="License.StartDate" class="col-sm-0 col-form-label"></label>
+                                        <input asp-for="License.StartDate" class="form-control" />
+                                        <span asp-validation-for="License.StartDate" class="text-danger"></span>
+                                    </div>
                                 </div>
                             </div>
 
-                        </div>
-
-                        <div class="col">
-                            <div class="form-group row">
-                                <div class="col-sm-12">
-                                    <label asp-for="License.Model_ModelID" class="col-sm-0 col-form-label">Model</label>
-                                    <select asp-for="License.Model_ModelID" class="form-control">
-                                        <option selected value=@null>Plase select</option>
-                                        @foreach (var item in Model.Model)
-                                        {
-                                            if (item.Status.Equals("Using"))
-                                            {
-                                                <option value=@item.ModelID>@Html.DisplayFor(modelItem => item.ModelName)</option>
-                                            }
-                                        }
-                                    </select>
-                                    <span asp-validation-for="License.Model_ModelID" class="text-danger"></span>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <div class="col-sm-12">
-                                    <label asp-for="License.Department_DepartmentID" class="col-sm-0 col-form-label">Department</label>
-                                    <select asp-for="License.Department_DepartmentID" class="form-control">
-                                        <option selected value=@null>Plase select</option>
-                                        @foreach (var item in Model.Department)
-                                        {
-                                            if (item.Status.Equals("Using"))
-                                            {
-                                                <option value=@item.DepartmentID>@Html.DisplayFor(modelItem => item.DepartmentName)</option>
-                                            }
-                                        }
-                                    </select>
-                                    <span asp-validation-for="License.Department_DepartmentID" class="text-danger"></span>
+                            <div class="col">
+                                <div class="form-group row">
+                                    <div class="col-sm-12">
+                                        <label asp-for="License.ExpireDate" class="col-sm-0 col-form-label"></label>
+                                        <input asp-for="License.ExpireDate" class="form-control" />
+                                        <span asp-validation-for="License.ExpireDate" class="text-danger"></span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-
                 </div>
-
-            </div>
-            <div class="card " style="margin-top:1%">
-                <div class="card-header">
-                    Date
-                </div>
-                <div class="card-body">
-                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                    <div class="row">
-                        <div class="col">
-                            <div class="form-group row">
-                                <div class="col-sm-12">
-                                    <label asp-for="License.PurchaseDate" class="col-sm-0 col-form-label"></label>
-                                    <input asp-for="License.PurchaseDate" class="form-control" />
-                                    <span asp-validation-for="License.PurchaseDate" class="text-danger"></span>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="col">
-                            <div class="form-group row">
-                                <div class="col-sm-12">
-                                    <label asp-for="License.StartDate" class="col-sm-0 col-form-label"></label>
-                                    <input asp-for="License.StartDate" class="form-control" />
-                                    <span asp-validation-for="License.StartDate" class="text-danger"></span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col">
-                            <div class="form-group row">
-                                <div class="col-sm-12">
-                                    <label asp-for="License.ExpireDate" class="col-sm-0 col-form-label"></label>
-                                    <input asp-for="License.ExpireDate" class="form-control" />
-                                    <span asp-validation-for="License.ExpireDate" class="text-danger"></span>
-                                </div>
-                            </div>
-                        </div>
+                <div class="card " style="margin-top:1%">
+                    <div class="card-header">
+                        Note
                     </div>
-                </div>
-
-            </div>
-            <div class="card " style="margin-top:1%">
-                <div class="card-header">
-                    Note
-                </div>
-                <div class="card-body">
-                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                    <div class="row">
-                        <div class="col">
-                            <div class="form-group row">
-                                <div class="col-sm-12">
-                                    <label asp-for="License.Note" class="col-sm-0 col-form-label"></label>
-                                    <textarea rows="4" cols="15" asp-for="License.Note" class="form-control"></textarea>
-                                    <span asp-validation-for="License.Note" class="text-danger"></span>
+                    <div class="card-body">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group row">
+                                    <div class="col-sm-12">
+                                        <label asp-for="License.Note" class="col-sm-0 col-form-label"></label>
+                                        <textarea rows="4" cols="15" asp-for="License.Note" class="form-control"></textarea>
+                                        <span asp-validation-for="License.Note" class="text-danger"></span>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="form-group row">
-                                <div class="col-sm-12">
-                                    <label asp-for="License.Status" class="col-sm-0 col-form-label"></label>
-                                    <input asp-for="License.Status" class="form-control" value="Using" readonly />
-                                    <span asp-validation-for="License.Status" class="text-danger"></span>
+                                <div class="form-group row">
+                                    <div class="col-sm-12">
+                                        <label asp-for="License.Status" class="col-sm-0 col-form-label"></label>
+                                        <input asp-for="License.Status" class="form-control" value="Using" readonly />
+                                        <span asp-validation-for="License.Status" class="text-danger"></span>
+                                    </div>
                                 </div>
-                            </div>
 
+                            </div>
                         </div>
+
+
                     </div>
 
-
                 </div>
 
-            </div>
-
-            <div class="form-group row" style="float:right; margin-right:0% ; margin-top:1%">
-                <a asp-page="./Index"><button type="button" class="btn btn-link">Back to List</button></a>
-                <input style="margin-left:10px" type="submit" value="Create" class="btn btn-outline-secondary" />
-            </div>
-        </form>
+                <div class="form-group row" style="float:right; margin-right:0% ; margin-top:1%">
+                    <a asp-page="./Index"><button type="button" class="btn btn-link">Back to List</button></a>
+                    <input style="margin-left:10px" type="submit" value="Create" class="btn btn-outline-secondary" />
+                </div>
+            </form>
+        </div>
     </div>
-</div>
-
+</body>
+<script onload="JavaScript:timedRefresh(1000); >
+    console.log("jjj");
+</script>
+<script type="text/javascript">
+    function timedRefresh(timeoutPeriod) {
+        setTimeout(function () {
+            location.reload(true);
+        }, timeoutPeriod);
+    }
+</script>
 
 
 @section Scripts {

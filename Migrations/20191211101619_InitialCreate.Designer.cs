@@ -10,7 +10,7 @@ using tbkk_AC.Models;
 namespace tbkk_AC.Migrations
 {
     [DbContext(typeof(tbkk_ACContext))]
-    [Migration("20191129103552_InitialCreate")]
+    [Migration("20191211101619_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -33,8 +33,6 @@ namespace tbkk_AC.Migrations
                     b.Property<int>("Company_CompanyID");
 
                     b.Property<int>("Department_DepartmentID");
-
-                    b.Property<int>("Employee_EmployeeID");
 
                     b.Property<DateTime>("ExpireDate");
 
@@ -227,6 +225,31 @@ namespace tbkk_AC.Migrations
                     b.ToTable("EmployeeType");
                 });
 
+            modelBuilder.Entity("tbkk_AC.Models.Join_Asset_Asset", b =>
+                {
+                    b.Property<int>("JoinAsAsID")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("AssetMomAssetID");
+
+                    b.Property<int>("AssetSon");
+
+                    b.Property<int>("Asset_AssetID");
+
+                    b.Property<string>("Note")
+                        .IsRequired();
+
+                    b.Property<string>("Status")
+                        .IsRequired();
+
+                    b.HasKey("JoinAsAsID");
+
+                    b.HasIndex("AssetMomAssetID");
+
+                    b.ToTable("Join_Asset_Asset");
+                });
+
             modelBuilder.Entity("tbkk_AC.Models.License", b =>
                 {
                     b.Property<int>("LicenseID")
@@ -394,6 +417,56 @@ namespace tbkk_AC.Migrations
                     b.ToTable("Supplier");
                 });
 
+            modelBuilder.Entity("tbkk_AC.Models.Update_License", b =>
+                {
+                    b.Property<int>("UpdateLicenseID")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Attachfiles")
+                        .IsRequired();
+
+                    b.Property<int>("Company_CompanyID");
+
+                    b.Property<DateTime>("Date");
+
+                    b.Property<int>("Department_DepartmentID");
+
+                    b.Property<string>("Employee")
+                        .IsRequired();
+
+                    b.Property<DateTime>("ExpireDate");
+
+                    b.Property<string>("LicenseName")
+                        .IsRequired();
+
+                    b.Property<int>("License_LicenseID");
+
+                    b.Property<int>("Model_ModelID");
+
+                    b.Property<string>("Note")
+                        .IsRequired();
+
+                    b.Property<string>("PONumber")
+                        .IsRequired();
+
+                    b.Property<DateTime>("PurchaseDate");
+
+                    b.Property<string>("SoftewareName")
+                        .IsRequired();
+
+                    b.Property<DateTime>("StartDate");
+
+                    b.Property<string>("Status")
+                        .IsRequired();
+
+                    b.Property<int>("Supplier_SupplierID");
+
+                    b.HasKey("UpdateLicenseID");
+
+                    b.ToTable("Update_License");
+                });
+
             modelBuilder.Entity("tbkk_AC.Models.Asset", b =>
                 {
                     b.HasOne("tbkk_AC.Models.Supplier", "Supplier")
@@ -428,6 +501,13 @@ namespace tbkk_AC.Migrations
                         .WithMany()
                         .HasForeignKey("Position_PositionID")
                         .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("tbkk_AC.Models.Join_Asset_Asset", b =>
+                {
+                    b.HasOne("tbkk_AC.Models.Asset", "AssetMom")
+                        .WithMany()
+                        .HasForeignKey("AssetMomAssetID");
                 });
 
             modelBuilder.Entity("tbkk_AC.Models.Model", b =>
