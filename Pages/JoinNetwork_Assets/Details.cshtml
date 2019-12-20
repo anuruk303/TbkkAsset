@@ -1,0 +1,43 @@
+﻿@page
+@model tbkk_AC.Pages.JoinNetwork_Assets.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Join_Network_Asset</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Join_Network_Asset.Note)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Join_Network_Asset.Note)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Join_Network_Asset.Status)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Join_Network_Asset.Status)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Join_Network_Asset.Network)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Join_Network_Asset.Network.IpAddr)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Join_Network_Asset.Asset)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Join_Network_Asset.Asset.AssetName)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Join_Network_Asset.JoinNetAsID">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

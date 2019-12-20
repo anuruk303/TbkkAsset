@@ -8,6 +8,7 @@ namespace tbkk_AC.Models
 {
     public class Update_Asset
     {
+        [Key]
         public int UpdateAssetID { get; set; }
         [Required]
         [Display(Name = "AssetName")]
@@ -46,7 +47,7 @@ namespace tbkk_AC.Models
         [Required]
         [Display(Name = "Image")]
         public string Image { get; set; }
-
+      
         public int Location_LocationID { get; set; }
 
         public int Company_CompanyID { get; set; }
@@ -56,6 +57,8 @@ namespace tbkk_AC.Models
         public int Supplier_SupplierID { get; set; }
 
         public int Employee_EmpID { get; set; }
+
+        public int Asset_AssetID { get; set; }
 
         public int Model_ModelID { get; set; }
 

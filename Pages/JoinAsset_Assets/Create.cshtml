@@ -1,0 +1,266 @@
+﻿@page
+@model tbkk_AC.Pages.JoinAsset_Assets.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+<div class="card-body">
+    <h2>Please Select Join</h2>
+    <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Please Select
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="../JoinAsset_Assets/Create">Join Asset Assets</a>
+            <a class="dropdown-item" href="../JoinAsset_Emp/Create">Join Asset Emp</a>
+            <a class="dropdown-item" href="../JoinLicense_Assets/Create">Join License Assets</a>
+            <a class="dropdown-item" href="../JoinNetwork_Assets/Create">Join Network Assets</a>
+        </div>
+
+
+    </div>
+    <form method="post">
+        <div class="card " style="margin-top:1%">
+            <div class="card-header">
+                Create
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="col">
+                        <div class="form-group row">
+                            <div class="col-sm-12">
+                                <label class="col-sm-0 col-form-label"></label>
+                                <input class="form-control" placeholder="LicenseName" />
+                                <span class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <label class="col-sm-0 col-form-label"></label>
+                        <input class="form-control" placeholder="SoftewareName" />
+                        <span class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-12">
+                        <label class="col-sm-0 col-form-label" asp-for="Join_Asset_Asset.Note"></label>
+                        <textarea rows="4" cols="15" class="form-control" asp-for="Join_Asset_Asset.Note"></textarea>
+                        <span class="text-danger" asp-validation-for="Join_Asset_Asset.Note"></span>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+    </form>
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item">
+            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Join</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">History Update</a>
+        </li>
+    </ul>
+    <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered " id="dataTable" width="100%" cellspacing="3">
+                        <thead>
+                            <tr>
+                                <th>
+                                    Name
+                                </th>
+                                <th>
+                                    Time
+                                </th>
+
+                                <th>
+                                    User
+                                </th>
+                                <th>
+                                    date
+                                </th>
+
+                                <th>
+                                    Action
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    Com001
+                                </td>
+
+                                <td>
+                                    20:05
+                                </td>
+                                <td>
+                                    Admin
+                                </td>
+                                <td>
+                                    05/05/2010
+                                </td>
+                                <td width="100px">
+                                    <a asp-page="./Details">Details</a> |
+                                    <a asp-page="./Delete">Delete</a>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable1" width="100%" cellspacing="3">
+                    <thead>
+                        <tr>
+                            <th>
+                                Name
+                            </th>
+                            <th>
+                                Time
+                            </th>
+
+                            <th>
+                                User
+                            </th>
+                            <th>
+                                date
+                            </th>
+
+                            <th>
+                                Action
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                Com002
+                            </td>
+
+                            <td>
+                                20:05
+                            </td>
+                            <td>
+                                Admin
+                            </td>
+                            <td>
+                                05/05/2010
+                            </td>
+                            <td width="100px">
+                                <a asp-page="./Details">Details</a> |
+                                <a asp-page="./Delete">Delete</a>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="card-body">
+    <div class="table-responsive">
+        <table class="table table-bordered" id="dataTable1" width="100%" cellspacing="3">
+            <thead>
+                <tr>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        Time
+                    </th>
+
+                    <th>
+                        User
+                    </th>
+                    <th>
+                        date
+                    </th>
+
+                    <th>
+                        Action
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        Com002
+                    </td>
+
+                    <td>
+                        20:05
+                    </td>
+                    <td>
+                        Admin
+                    </td>
+                    <td>
+                        05/05/2010
+                    </td>
+                    <td width="100px">
+                        <a asp-page="./Details">Details</a> |
+                        <a asp-page="./Delete">Delete</a>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+</div>
+<h2>Create</h2>
+
+<h4>Join_Asset_Asset</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Join_Asset_Asset.Note" class="control-label"></label>
+                <input asp-for="Join_Asset_Asset.Note" class="form-control" />
+                <span asp-validation-for="Join_Asset_Asset.Note" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Join_Asset_Asset.Status" class="control-label"></label>
+                <input asp-for="Join_Asset_Asset.Status" class="form-control" />
+                <span asp-validation-for="Join_Asset_Asset.Status" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Join_Asset_Asset.Asset_AssetID" class="control-label"></label>
+                <input asp-for="Join_Asset_Asset.Asset_AssetID" class="form-control" />
+                <span asp-validation-for="Join_Asset_Asset.Asset_AssetID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Join_Asset_Asset.AssetSon" class="control-label"></label>
+                <input asp-for="Join_Asset_Asset.AssetSon" class="form-control" />
+                <span asp-validation-for="Join_Asset_Asset.AssetSon" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

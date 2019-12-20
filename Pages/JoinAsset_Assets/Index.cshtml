@@ -1,0 +1,54 @@
+﻿@page
+@model tbkk_AC.Pages.JoinAsset_Assets.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Join_Asset_Asset[0].Note)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Join_Asset_Asset[0].Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Join_Asset_Asset[0].Asset_AssetID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Join_Asset_Asset[0].AssetSon)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Join_Asset_Asset) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Note)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Asset_AssetID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AssetSon)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.JoinAsAsID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.JoinAsAsID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.JoinAsAsID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

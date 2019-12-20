@@ -23,7 +23,7 @@ namespace tbkk_AC.Models
         public int License_LicenseID { get; set; }
         public License License { get; set; }
 
-        [ForeignKey("Asset")]
+   
         public int Asset_AssetID { get; set; }
         public Asset Asset { get; set; }
     }

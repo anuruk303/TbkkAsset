@@ -248,6 +248,83 @@ namespace tbkk_AC.Migrations
                     b.ToTable("Join_Asset_Asset");
                 });
 
+            modelBuilder.Entity("tbkk_AC.Models.Join_Asset_Emp", b =>
+                {
+                    b.Property<int>("JoinAsEmpID")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("Asset_AssetID");
+
+                    b.Property<int>("Employee_EmployeeID");
+
+                    b.Property<string>("Note")
+                        .IsRequired();
+
+                    b.Property<string>("Status")
+                        .IsRequired();
+
+                    b.HasKey("JoinAsEmpID");
+
+                    b.HasIndex("Asset_AssetID");
+
+                    b.HasIndex("Employee_EmployeeID");
+
+                    b.ToTable("Join_Asset_Emp");
+                });
+
+            modelBuilder.Entity("tbkk_AC.Models.Join_License_Asset", b =>
+                {
+                    b.Property<int>("JoinLiAsID")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("AssetID");
+
+                    b.Property<int>("Asset_AssetID");
+
+                    b.Property<int>("License_LicenseID");
+
+                    b.Property<string>("Note")
+                        .IsRequired();
+
+                    b.Property<string>("Status")
+                        .IsRequired();
+
+                    b.HasKey("JoinLiAsID");
+
+                    b.HasIndex("AssetID");
+
+                    b.HasIndex("License_LicenseID");
+
+                    b.ToTable("Join_License_Asset");
+                });
+
+            modelBuilder.Entity("tbkk_AC.Models.Join_Network_Asset", b =>
+                {
+                    b.Property<int>("JoinNetAsID")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("Asset_AssetID");
+
+                    b.Property<int>("Network_NetworkID");
+
+                    b.Property<string>("Note")
+                        .IsRequired();
+
+                    b.Property<string>("Status")
+                        .IsRequired();
+
+                    b.HasKey("JoinNetAsID");
+
+                    b.HasIndex("Asset_AssetID");
+
+                    b.HasIndex("Network_NetworkID");
+
+                    b.ToTable("Join_Network_Asset");
+                });
+
             modelBuilder.Entity("tbkk_AC.Models.License", b =>
                 {
                     b.Property<int>("LicenseID")
@@ -415,6 +492,62 @@ namespace tbkk_AC.Migrations
                     b.ToTable("Supplier");
                 });
 
+            modelBuilder.Entity("tbkk_AC.Models.Update_Asset", b =>
+                {
+                    b.Property<int>("UpdateAssetID")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("AssetName")
+                        .IsRequired();
+
+                    b.Property<int>("Asset_AssetID");
+
+                    b.Property<int>("Company_CompanyID");
+
+                    b.Property<int>("Department_DepartmentID");
+
+                    b.Property<int>("Employee_EmpID");
+
+                    b.Property<DateTime>("ExpireDate");
+
+                    b.Property<string>("Image")
+                        .IsRequired();
+
+                    b.Property<string>("InstallDate")
+                        .IsRequired();
+
+                    b.Property<int>("Location_LocationID");
+
+                    b.Property<string>("MACAddr")
+                        .IsRequired();
+
+                    b.Property<int>("Model_ModelID");
+
+                    b.Property<DateTime>("PONumber");
+
+                    b.Property<double>("Price");
+
+                    b.Property<DateTime>("PurchaseDate");
+
+                    b.Property<string>("SerailNumber")
+                        .IsRequired();
+
+                    b.Property<string>("Status")
+                        .IsRequired();
+
+                    b.Property<int>("Supplier_SupplierID");
+
+                    b.Property<string>("Type")
+                        .IsRequired();
+
+                    b.Property<int>("Warranty");
+
+                    b.HasKey("UpdateAssetID");
+
+                    b.ToTable("Update_Asset");
+                });
+
             modelBuilder.Entity("tbkk_AC.Models.Update_License", b =>
                 {
                     b.Property<int>("UpdateLicenseID")
@@ -465,6 +598,44 @@ namespace tbkk_AC.Migrations
                     b.ToTable("Update_License");
                 });
 
+            modelBuilder.Entity("tbkk_AC.Models.Update_Network", b =>
+                {
+                    b.Property<int>("NetworkUpdateID")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Date")
+                        .IsRequired();
+
+                    b.Property<int?>("EmployeeID");
+
+                    b.Property<int>("Employee_EmpID");
+
+                    b.Property<string>("IpAddr")
+                        .IsRequired();
+
+                    b.Property<int?>("NetworkID");
+
+                    b.Property<int>("Network_NetworkID");
+
+                    b.Property<string>("Note")
+                        .IsRequired();
+
+                    b.Property<string>("Password")
+                        .IsRequired();
+
+                    b.Property<string>("Status")
+                        .IsRequired();
+
+                    b.HasKey("NetworkUpdateID");
+
+                    b.HasIndex("EmployeeID");
+
+                    b.HasIndex("NetworkID");
+
+                    b.ToTable("Update_Network");
+                });
+
             modelBuilder.Entity("tbkk_AC.Models.Asset", b =>
                 {
                     b.HasOne("tbkk_AC.Models.Supplier", "Supplier")
@@ -508,6 +679,44 @@ namespace tbkk_AC.Migrations
                         .HasForeignKey("AssetMomAssetID");
                 });
 
+            modelBuilder.Entity("tbkk_AC.Models.Join_Asset_Emp", b =>
+                {
+                    b.HasOne("tbkk_AC.Models.Asset", "Asset")
+                        .WithMany()
+                        .HasForeignKey("Asset_AssetID")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("tbkk_AC.Models.Employee", "Employee")
+                        .WithMany()
+                        .HasForeignKey("Employee_EmployeeID")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("tbkk_AC.Models.Join_License_Asset", b =>
+                {
+                    b.HasOne("tbkk_AC.Models.Asset", "Asset")
+                        .WithMany()
+                        .HasForeignKey("AssetID");
+
+                    b.HasOne("tbkk_AC.Models.License", "License")
+                        .WithMany()
+                        .HasForeignKey("License_LicenseID")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("tbkk_AC.Models.Join_Network_Asset", b =>
+                {
+                    b.HasOne("tbkk_AC.Models.Asset", "Asset")
+                        .WithMany()
+                        .HasForeignKey("Asset_AssetID")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("tbkk_AC.Models.Network", "Network")
+                        .WithMany()
+                        .HasForeignKey("Network_NetworkID")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
             modelBuilder.Entity("tbkk_AC.Models.Model", b =>
                 {
                     b.HasOne("tbkk_AC.Models.Brand", "Brand")
@@ -519,6 +728,17 @@ namespace tbkk_AC.Migrations
                         .WithMany()
                         .HasForeignKey("Category_CategoryID")
                         .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("tbkk_AC.Models.Update_Network", b =>
+                {
+                    b.HasOne("tbkk_AC.Models.Employee", "Employee")
+                        .WithMany()
+                        .HasForeignKey("EmployeeID");
+
+                    b.HasOne("tbkk_AC.Models.Network", "Network")
+                        .WithMany()
+                        .HasForeignKey("NetworkID");
                 });
 #pragma warning restore 612, 618
         }

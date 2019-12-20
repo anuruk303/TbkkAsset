@@ -81,5 +81,58 @@
                     </table>
                 </div>
             </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable1" width="100%" cellspacing="3">
+                        <thead>
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Supplier[0].SupplierName)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Supplier[0].ContactName)
+                                </th>
+
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Supplier[0].Email)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Supplier[0].Image)
+                                </th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.Supplier)
+                            {
+                                if (item.Status.Equals("Using"))
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.SupplierName)
+                                        </td>
+
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.ContactName)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Email)
+                                        </td>
+
+                                        <td>
+                                            <img src="~/uploads/@Html.DisplayFor(modelItem => item.Image)" width="100px" height="120px" />
+                                        </td>
+                                        <td width="100px">
+                                            <a asp-page="./Details" asp-route-id="@item.SupplierID">Details</a> |
+                                            <a asp-page="./Edit" asp-route-id="@item.SupplierID">Edit</a> |
+                                            <a asp-page="./Delete" asp-route-id="@item.SupplierID">Delete</a>
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     </div>

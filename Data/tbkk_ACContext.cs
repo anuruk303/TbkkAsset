@@ -43,6 +43,16 @@ namespace tbkk_AC.Models
 
         public DbSet<tbkk_AC.Models.Join_Asset_Asset> Join_Asset_Asset { get; set; }
 
+        public DbSet<tbkk_AC.Models.Join_Asset_Emp> Join_Asset_Emp { get; set; }
+
+        public DbSet<tbkk_AC.Models.Join_License_Asset> Join_License_Asset { get; set; }
+
+        public DbSet<tbkk_AC.Models.Join_Network_Asset> Join_Network_Asset { get; set; }
+
         public DbSet<tbkk_AC.Models.Update_License> Update_License { get; set; }
+
+        public DbSet<tbkk_AC.Models.Update_Asset> Update_Asset { get; set; }
+
+        public DbSet<tbkk_AC.Models.Update_Network> Update_Network { get; set; }
     }
 }

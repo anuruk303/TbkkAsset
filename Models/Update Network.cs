@@ -9,6 +9,7 @@ namespace tbkk_AC.Models
 {
     public class Update_Network
     {
+        [Key]
         public int NetworkUpdateID { get; set; }
         [Required]
         [Display(Name = "Date")]

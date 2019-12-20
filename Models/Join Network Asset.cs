@@ -9,6 +9,7 @@ namespace tbkk_AC.Models
 {
     public class Join_Network_Asset
     {
+        [Key]
         public int JoinNetAsID { get; set; }
         [Required]
         [Display(Name = "Note")]
