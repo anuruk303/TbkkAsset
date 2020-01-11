@@ -9,6 +9,36 @@ namespace tbkk_AC.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
+                name: "Asset",
+                columns: table => new
+                {
+                    AssetID = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    AssetName = table.Column<string>(nullable: false),
+                    SerailNumber = table.Column<string>(nullable: false),
+                    MACAddr = table.Column<string>(nullable: false),
+                    InstallDate = table.Column<DateTime>(nullable: false),
+                    PurchaseDate = table.Column<DateTime>(nullable: false),
+                    ExpireDate = table.Column<DateTime>(nullable: false),
+                    PONumber = table.Column<string>(nullable: false),
+                    Price = table.Column<string>(nullable: false),
+                    Warranty = table.Column<int>(nullable: false),
+                    Type = table.Column<string>(nullable: false),
+                    Note = table.Column<string>(nullable: false),
+                    Status = table.Column<string>(nullable: false),
+                    Image = table.Column<string>(nullable: false),
+                    Company_CompanyID = table.Column<int>(nullable: false),
+                    Location_LocationID = table.Column<int>(nullable: false),
+                    Department_DepartmentID = table.Column<int>(nullable: false),
+                    Supplier_SupplierID = table.Column<int>(nullable: false),
+                    Model_ModelID = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Asset", x => x.AssetID);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Brand",
                 columns: table => new
                 {
@@ -81,6 +111,22 @@ namespace tbkk_AC.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_EmployeeType", x => x.EmployeeTypeID);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Join_Asset_Asset",
+                columns: table => new
+                {
+                    JoinAsAsID = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Note = table.Column<string>(nullable: false),
+                    Status = table.Column<string>(nullable: false),
+                    Asset_AssetID = table.Column<int>(nullable: false),
+                    AssetSon = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Join_Asset_Asset", x => x.JoinAsAsID);
                 });
 
             migrationBuilder.CreateTable(
@@ -234,6 +280,28 @@ namespace tbkk_AC.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Join_Asset_Emp",
+                columns: table => new
+                {
+                    JoinAsEmpID = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Note = table.Column<string>(nullable: false),
+                    Status = table.Column<string>(nullable: false),
+                    Employee_EmployeeID = table.Column<int>(nullable: false),
+                    Asset_AssetID = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Join_Asset_Emp", x => x.JoinAsEmpID);
+                    table.ForeignKey(
+                        name: "FK_Join_Asset_Emp_Asset_Asset_AssetID",
+                        column: x => x.Asset_AssetID,
+                        principalTable: "Asset",
+                        principalColumn: "AssetID",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Model",
                 columns: table => new
                 {
@@ -259,6 +327,63 @@ namespace tbkk_AC.Migrations
                         column: x => x.Category_CategoryID,
                         principalTable: "Category",
                         principalColumn: "CategoryID",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Join_License_Asset",
+                columns: table => new
+                {
+                    JoinLiAsID = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Note = table.Column<string>(nullable: false),
+                    Status = table.Column<string>(nullable: false),
+                    License_LicenseID = table.Column<int>(nullable: false),
+                    Asset_AssetID = table.Column<int>(nullable: false),
+                    AssetID = table.Column<int>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Join_License_Asset", x => x.JoinLiAsID);
+                    table.ForeignKey(
+                        name: "FK_Join_License_Asset_Asset_AssetID",
+                        column: x => x.AssetID,
+                        principalTable: "Asset",
+                        principalColumn: "AssetID",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Join_License_Asset_License_License_LicenseID",
+                        column: x => x.License_LicenseID,
+                        principalTable: "License",
+                        principalColumn: "LicenseID",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Join_Network_Asset",
+                columns: table => new
+                {
+                    JoinNetAsID = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Note = table.Column<string>(nullable: false),
+                    Status = table.Column<string>(nullable: false),
+                    Network_NetworkID = table.Column<int>(nullable: false),
+                    Asset_AssetID = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Join_Network_Asset", x => x.JoinNetAsID);
+                    table.ForeignKey(
+                        name: "FK_Join_Network_Asset_Asset_Asset_AssetID",
+                        column: x => x.Asset_AssetID,
+                        principalTable: "Asset",
+                        principalColumn: "AssetID",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Join_Network_Asset_Network_Network_NetworkID",
+                        column: x => x.Network_NetworkID,
+                        principalTable: "Network",
+                        principalColumn: "NetworkID",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -320,41 +445,6 @@ namespace tbkk_AC.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Asset",
-                columns: table => new
-                {
-                    AssetID = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    AssetName = table.Column<string>(nullable: false),
-                    SerailNumber = table.Column<string>(nullable: false),
-                    MACAddr = table.Column<string>(nullable: false),
-                    InstallDate = table.Column<DateTime>(nullable: false),
-                    PurchaseDate = table.Column<DateTime>(nullable: false),
-                    ExpireDate = table.Column<DateTime>(nullable: false),
-                    PONumber = table.Column<string>(nullable: false),
-                    Price = table.Column<string>(nullable: false),
-                    Warranty = table.Column<int>(nullable: false),
-                    Type = table.Column<string>(nullable: false),
-                    Note = table.Column<string>(nullable: false),
-                    Status = table.Column<string>(nullable: false),
-                    Image = table.Column<string>(nullable: false),
-                    Company_CompanyID = table.Column<int>(nullable: false),
-                    Location_LocationID = table.Column<int>(nullable: false),
-                    Department_DepartmentID = table.Column<int>(nullable: false),
-                    Supplier_SupplierID = table.Column<int>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Asset", x => x.AssetID);
-                    table.ForeignKey(
-                        name: "FK_Asset_Supplier_Supplier_SupplierID",
-                        column: x => x.Supplier_SupplierID,
-                        principalTable: "Supplier",
-                        principalColumn: "SupplierID",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Update_Network",
                 columns: table => new
                 {
@@ -387,119 +477,6 @@ namespace tbkk_AC.Migrations
                         onDelete: ReferentialAction.Restrict);
                 });
 
-            migrationBuilder.CreateTable(
-                name: "Join_Asset_Asset",
-                columns: table => new
-                {
-                    JoinAsAsID = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Note = table.Column<string>(nullable: false),
-                    Status = table.Column<string>(nullable: false),
-                    Asset_AssetID = table.Column<int>(nullable: false),
-                    AssetMomAssetID = table.Column<int>(nullable: true),
-                    AssetSon = table.Column<int>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Join_Asset_Asset", x => x.JoinAsAsID);
-                    table.ForeignKey(
-                        name: "FK_Join_Asset_Asset_Asset_AssetMomAssetID",
-                        column: x => x.AssetMomAssetID,
-                        principalTable: "Asset",
-                        principalColumn: "AssetID",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Join_Asset_Emp",
-                columns: table => new
-                {
-                    JoinAsEmpID = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Note = table.Column<string>(nullable: false),
-                    Status = table.Column<string>(nullable: false),
-                    Employee_EmployeeID = table.Column<int>(nullable: false),
-                    Asset_AssetID = table.Column<int>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Join_Asset_Emp", x => x.JoinAsEmpID);
-                    table.ForeignKey(
-                        name: "FK_Join_Asset_Emp_Asset_Asset_AssetID",
-                        column: x => x.Asset_AssetID,
-                        principalTable: "Asset",
-                        principalColumn: "AssetID",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Join_Asset_Emp_Employee_Employee_EmployeeID",
-                        column: x => x.Employee_EmployeeID,
-                        principalTable: "Employee",
-                        principalColumn: "EmployeeID",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Join_License_Asset",
-                columns: table => new
-                {
-                    JoinLiAsID = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Note = table.Column<string>(nullable: false),
-                    Status = table.Column<string>(nullable: false),
-                    License_LicenseID = table.Column<int>(nullable: false),
-                    Asset_AssetID = table.Column<int>(nullable: false),
-                    AssetID = table.Column<int>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Join_License_Asset", x => x.JoinLiAsID);
-                    table.ForeignKey(
-                        name: "FK_Join_License_Asset_Asset_AssetID",
-                        column: x => x.AssetID,
-                        principalTable: "Asset",
-                        principalColumn: "AssetID",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_Join_License_Asset_License_License_LicenseID",
-                        column: x => x.License_LicenseID,
-                        principalTable: "License",
-                        principalColumn: "LicenseID",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Join_Network_Asset",
-                columns: table => new
-                {
-                    JoinNetAsID = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Note = table.Column<string>(nullable: false),
-                    Status = table.Column<string>(nullable: false),
-                    Network_NetworkID = table.Column<int>(nullable: false),
-                    Asset_AssetID = table.Column<int>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Join_Network_Asset", x => x.JoinNetAsID);
-                    table.ForeignKey(
-                        name: "FK_Join_Network_Asset_Asset_Asset_AssetID",
-                        column: x => x.Asset_AssetID,
-                        principalTable: "Asset",
-                        principalColumn: "AssetID",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Join_Network_Asset_Network_Network_NetworkID",
-                        column: x => x.Network_NetworkID,
-                        principalTable: "Network",
-                        principalColumn: "NetworkID",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Asset_Supplier_SupplierID",
-                table: "Asset",
-                column: "Supplier_SupplierID");
-
             migrationBuilder.CreateIndex(
                 name: "IX_Employee_Company_CompanyID",
                 table: "Employee",
@@ -526,19 +503,9 @@ namespace tbkk_AC.Migrations
                 column: "Position_PositionID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Join_Asset_Asset_AssetMomAssetID",
-                table: "Join_Asset_Asset",
-                column: "AssetMomAssetID");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Join_Asset_Emp_Asset_AssetID",
                 table: "Join_Asset_Emp",
                 column: "Asset_AssetID");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Join_Asset_Emp_Employee_EmployeeID",
-                table: "Join_Asset_Emp",
-                column: "Employee_EmployeeID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Join_License_Asset_AssetID",
@@ -599,6 +566,9 @@ namespace tbkk_AC.Migrations
                 name: "Model");
 
             migrationBuilder.DropTable(
+                name: "Supplier");
+
+            migrationBuilder.DropTable(
                 name: "Update_Asset");
 
             migrationBuilder.DropTable(
@@ -624,9 +594,6 @@ namespace tbkk_AC.Migrations
 
             migrationBuilder.DropTable(
                 name: "Network");
-
-            migrationBuilder.DropTable(
-                name: "Supplier");
 
             migrationBuilder.DropTable(
                 name: "Company");

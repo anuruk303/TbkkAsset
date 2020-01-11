@@ -117,12 +117,12 @@ using tbkk_AC;
             WriteLiteral("\r\n                        </dd>\r\n                    </dl>\r\n\r\n                    ");
             EndContext();
             BeginContext(1223, 358, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "035bd467950b42c181e357b5182fcae8", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "be69e0502baf40f4b82110151ee11adf", async() => {
                 BeginContext(1243, 26, true);
                 WriteLiteral("\r\n                        ");
                 EndContext();
                 BeginContext(1269, 47, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "b84a4811e8bc48a7850a4b3449193e99", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "bfc8b9a7a2ed4131bc6dbe4ed1fa3eae", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.InputTagHelper>();
@@ -147,7 +147,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper.For = ModelExpressionProvid
                 WriteLiteral("\r\n                        ");
                 EndContext();
                 BeginContext(1342, 90, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "98ac17dd1d4848199f7e337c53c850d7", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1cd8aa6da48c4accad71af342aba7044", async() => {
                     BeginContext(1364, 64, true);
                     WriteLiteral("<button type=\"button\" class=\"btn btn-link\">Back to List</button>");
                     EndContext();

@@ -17,9 +17,9 @@ namespace tbkk_AC.Models
         [Required]
         [Display(Name = "Status")]
         public string Status { get; set; }
-        [ForeignKey("Employee")]
+       
         public int Employee_EmployeeID { get; set; }
-        public Employee Employee { get; set; }
+       
 
         [ForeignKey("Asset")]
         public int Asset_AssetID { get; set; }

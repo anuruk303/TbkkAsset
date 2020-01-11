@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using tbkk_AC.Models;
 
 namespace tbkk_AC.Pages.JoinAsset_Emp
@@ -18,16 +19,17 @@ namespace tbkk_AC.Pages.JoinAsset_Emp
             _context = context;
         }
 
-        public IActionResult OnGet()
+        public async Task<IActionResult> OnGetAsync()
         {
-        ViewData["Asset_AssetID"] = new SelectList(_context.Asset, "AssetID", "AssetName");
-        ViewData["Employee_EmployeeID"] = new SelectList(_context.Employee, "EmployeeID", "EmployeeID");
+            Asset = await _context.Asset.ToListAsync();
+            Employee = await _context.Employee.ToListAsync();
             return Page();
         }
 
         [BindProperty]
         public Join_Asset_Emp Join_Asset_Emp { get; set; }
-
+        public IList<Asset> Asset { get; set; }
+        public IList<Employee> Employee { get; set; }
         public async Task<IActionResult> OnPostAsync()
         {
             if (!ModelState.IsValid)
@@ -38,7 +40,7 @@ namespace tbkk_AC.Pages.JoinAsset_Emp
             _context.Join_Asset_Emp.Add(Join_Asset_Emp);
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("./Create");
         }
     }
 }

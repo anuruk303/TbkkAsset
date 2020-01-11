@@ -204,11 +204,6 @@ C:\Users\Anuruk\Desktop\tbkk-asset-master\obj\Debug\netcoreapp2.1\Razor\Pages\Jo
 C:\Users\Anuruk\Desktop\tbkk-asset-master\obj\Debug\netcoreapp2.1\Razor\Pages\JoinAsset_Assets\Details.g.cshtml.cs
 C:\Users\Anuruk\Desktop\tbkk-asset-master\obj\Debug\netcoreapp2.1\Razor\Pages\JoinAsset_Assets\Edit.g.cshtml.cs
 C:\Users\Anuruk\Desktop\tbkk-asset-master\obj\Debug\netcoreapp2.1\Razor\Pages\JoinAsset_Assets\Index.g.cshtml.cs
-C:\Users\Anuruk\Desktop\tbkk-asset-master\obj\Debug\netcoreapp2.1\Razor\Pages\JoinAsset_Emp\Create.g.cshtml.cs
-C:\Users\Anuruk\Desktop\tbkk-asset-master\obj\Debug\netcoreapp2.1\Razor\Pages\JoinAsset_Emp\Delete.g.cshtml.cs
-C:\Users\Anuruk\Desktop\tbkk-asset-master\obj\Debug\netcoreapp2.1\Razor\Pages\JoinAsset_Emp\Details.g.cshtml.cs
-C:\Users\Anuruk\Desktop\tbkk-asset-master\obj\Debug\netcoreapp2.1\Razor\Pages\JoinAsset_Emp\Edit.g.cshtml.cs
-C:\Users\Anuruk\Desktop\tbkk-asset-master\obj\Debug\netcoreapp2.1\Razor\Pages\JoinAsset_Emp\Index.g.cshtml.cs
 C:\Users\Anuruk\Desktop\tbkk-asset-master\obj\Debug\netcoreapp2.1\Razor\Pages\JoinLicense_Assets\Create.g.cshtml.cs
 C:\Users\Anuruk\Desktop\tbkk-asset-master\obj\Debug\netcoreapp2.1\Razor\Pages\JoinLicense_Assets\Delete.g.cshtml.cs
 C:\Users\Anuruk\Desktop\tbkk-asset-master\obj\Debug\netcoreapp2.1\Razor\Pages\JoinLicense_Assets\Details.g.cshtml.cs
@@ -219,3 +214,13 @@ C:\Users\Anuruk\Desktop\tbkk-asset-master\obj\Debug\netcoreapp2.1\Razor\Pages\Jo
 C:\Users\Anuruk\Desktop\tbkk-asset-master\obj\Debug\netcoreapp2.1\Razor\Pages\JoinNetwork_Assets\Details.g.cshtml.cs
 C:\Users\Anuruk\Desktop\tbkk-asset-master\obj\Debug\netcoreapp2.1\Razor\Pages\JoinNetwork_Assets\Edit.g.cshtml.cs
 C:\Users\Anuruk\Desktop\tbkk-asset-master\obj\Debug\netcoreapp2.1\Razor\Pages\JoinNetwork_Assets\Index.g.cshtml.cs
+C:\Users\Anuruk\Desktop\tbkk-asset-master\obj\Debug\netcoreapp2.1\Razor\Pages\Assets\Create.g.cshtml.cs
+C:\Users\Anuruk\Desktop\tbkk-asset-master\obj\Debug\netcoreapp2.1\Razor\Pages\Assets\Delete.g.cshtml.cs
+C:\Users\Anuruk\Desktop\tbkk-asset-master\obj\Debug\netcoreapp2.1\Razor\Pages\Assets\Details.g.cshtml.cs
+C:\Users\Anuruk\Desktop\tbkk-asset-master\obj\Debug\netcoreapp2.1\Razor\Pages\Assets\Edit.g.cshtml.cs
+C:\Users\Anuruk\Desktop\tbkk-asset-master\obj\Debug\netcoreapp2.1\Razor\Pages\Assets\Index.g.cshtml.cs
+C:\Users\Anuruk\Desktop\tbkk-asset-master\obj\Debug\netcoreapp2.1\Razor\Pages\JoinAsset_Emp\Create.g.cshtml.cs
+C:\Users\Anuruk\Desktop\tbkk-asset-master\obj\Debug\netcoreapp2.1\Razor\Pages\JoinAsset_Emp\Delete.g.cshtml.cs
+C:\Users\Anuruk\Desktop\tbkk-asset-master\obj\Debug\netcoreapp2.1\Razor\Pages\JoinAsset_Emp\Details.g.cshtml.cs
+C:\Users\Anuruk\Desktop\tbkk-asset-master\obj\Debug\netcoreapp2.1\Razor\Pages\JoinAsset_Emp\Edit.g.cshtml.cs
+C:\Users\Anuruk\Desktop\tbkk-asset-master\obj\Debug\netcoreapp2.1\Razor\Pages\JoinAsset_Emp\Index.g.cshtml.cs

@@ -1,7 +1,7 @@
-// Call the dataTables jQuery plugin
+// Call the s jQuery plugin
 $(document).ready(function() {
     $('#dataTable').DataTable();
 });
 $(document).ready(function () {
-    $('#dataTable1').DataTable();
+     $('#dataTable1').DataTable();
 });

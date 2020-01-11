@@ -71,8 +71,9 @@ namespace tbkk_AC.Models
 
         public int Department_DepartmentID { get; set; }
 
-        [ForeignKey("Supplier")]
+       
         public int Supplier_SupplierID { get; set; }
-        public Supplier Supplier { get; set; }
+
+        public int Model_ModelID { get; set; }
     }
 }

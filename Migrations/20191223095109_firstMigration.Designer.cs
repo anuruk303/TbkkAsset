@@ -10,7 +10,7 @@ using tbkk_AC.Models;
 namespace tbkk_AC.Migrations
 {
     [DbContext(typeof(tbkk_ACContext))]
-    [Migration("20191218125939_firstMigration")]
+    [Migration("20191223095109_firstMigration")]
     partial class firstMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -46,6 +46,8 @@ namespace tbkk_AC.Migrations
                     b.Property<string>("MACAddr")
                         .IsRequired();
 
+                    b.Property<int>("Model_ModelID");
+
                     b.Property<string>("Note")
                         .IsRequired();
 
@@ -71,8 +73,6 @@ namespace tbkk_AC.Migrations
                     b.Property<int>("Warranty");
 
                     b.HasKey("AssetID");
-
-                    b.HasIndex("Supplier_SupplierID");
 
                     b.ToTable("Asset");
                 });
@@ -231,8 +231,6 @@ namespace tbkk_AC.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("AssetMomAssetID");
-
                     b.Property<int>("AssetSon");
 
                     b.Property<int>("Asset_AssetID");
@@ -244,8 +242,6 @@ namespace tbkk_AC.Migrations
                         .IsRequired();
 
                     b.HasKey("JoinAsAsID");
-
-                    b.HasIndex("AssetMomAssetID");
 
                     b.ToTable("Join_Asset_Asset");
                 });
@@ -269,8 +265,6 @@ namespace tbkk_AC.Migrations
                     b.HasKey("JoinAsEmpID");
 
                     b.HasIndex("Asset_AssetID");
-
-                    b.HasIndex("Employee_EmployeeID");
 
                     b.ToTable("Join_Asset_Emp");
                 });
@@ -638,14 +632,6 @@ namespace tbkk_AC.Migrations
                     b.ToTable("Update_Network");
                 });
 
-            modelBuilder.Entity("tbkk_AC.Models.Asset", b =>
-                {
-                    b.HasOne("tbkk_AC.Models.Supplier", "Supplier")
-                        .WithMany()
-                        .HasForeignKey("Supplier_SupplierID")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
             modelBuilder.Entity("tbkk_AC.Models.Employee", b =>
                 {
                     b.HasOne("tbkk_AC.Models.Company", "Company")
@@ -674,23 +660,11 @@ namespace tbkk_AC.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("tbkk_AC.Models.Join_Asset_Asset", b =>
-                {
-                    b.HasOne("tbkk_AC.Models.Asset", "AssetMom")
-                        .WithMany()
-                        .HasForeignKey("AssetMomAssetID");
-                });
-
             modelBuilder.Entity("tbkk_AC.Models.Join_Asset_Emp", b =>
                 {
                     b.HasOne("tbkk_AC.Models.Asset", "Asset")
                         .WithMany()
                         .HasForeignKey("Asset_AssetID")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("tbkk_AC.Models.Employee", "Employee")
-                        .WithMany()
-                        .HasForeignKey("Employee_EmployeeID")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 

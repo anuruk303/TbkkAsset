@@ -30,15 +30,13 @@ namespace tbkk_AC.Pages.JoinAsset_Emp
             }
 
             Join_Asset_Emp = await _context.Join_Asset_Emp
-                .Include(j => j.Asset)
-                .Include(j => j.Employee).FirstOrDefaultAsync(m => m.JoinAsEmpID == id);
+                .Include(j => j.Asset).FirstOrDefaultAsync(m => m.JoinAsEmpID == id);
 
             if (Join_Asset_Emp == null)
             {
                 return NotFound();
             }
            ViewData["Asset_AssetID"] = new SelectList(_context.Asset, "AssetID", "AssetName");
-           ViewData["Employee_EmployeeID"] = new SelectList(_context.Employee, "EmployeeID", "EmployeeID");
             return Page();
         }
 

@@ -17,9 +17,9 @@ namespace tbkk_AC.Models
         [Required]
         [Display(Name = "Status")]
         public string Status { get; set; }
+
         [ForeignKey("Asset")]
         public int Asset_AssetID { get; set; }
-        public Asset AssetMom { get; set; }
         [Required]
         [Display(Name = "AssetSon")]
         public int AssetSon { get; set; }

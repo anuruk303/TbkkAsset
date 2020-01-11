@@ -2,9 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\Data",
-    "\\Migrations",
-    "\\Pages"
+    "\\Pages",
+    "\\Pages\\JoinAsset_Assets"
   ],
-  "SelectedNode": "\\Data\\tbkk_ACContext.cs",
+  "SelectedNode": "\\tbkk-AC.sln",
   "PreviewInSolutionExplorer": false
 }

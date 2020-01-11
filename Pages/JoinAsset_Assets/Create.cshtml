@@ -30,18 +30,19 @@
                     <div class="col">
                         <div class="form-group row">
                             <div class="col-sm-12">
-                                <label class="col-sm-0 col-form-label"></label>
-                                <input class="form-control" placeholder="LicenseName" />
-                                <span class="text-danger"></span>
+                                <label class="col-sm-0 col-form-label" asp-for="Join_Asset_Asset.Asset_AssetID"></label>
+                                <input class="form-control" placeholder="AssetID" asp-for="Join_Asset_Asset.Asset_AssetID" id="Asset" />
+                                <span class="text-danger" asp-validation-for="Join_Asset_Asset.Asset_AssetID"></span>
                             </div>
                         </div>
                     </div>
                     <div class="col">
-                        <label class="col-sm-0 col-form-label"></label>
-                        <input class="form-control" placeholder="SoftewareName" />
-                        <span class="text-danger"></span>
+                        <label class="col-sm-0 col-form-label" asp-for="Join_Asset_Asset.AssetSon"></label>
+                        <input class="form-control" placeholder="AssetID" asp-for="Join_Asset_Asset.AssetSon" id="Assetson" />
+                        <span class="text-danger" asp-validation-for="Join_Asset_Asset.AssetSon"></span>
                     </div>
                 </div>
+                <input class="form-control" placeholder="AssetID" asp-for="Join_Asset_Asset.Status" value="Join" type="hidden"/>
                 <div class="form-group row">
                     <div class="col-sm-12">
                         <label class="col-sm-0 col-form-label" asp-for="Join_Asset_Asset.Note"></label>
@@ -50,215 +51,192 @@
 
                     </div>
                 </div>
+                <div class="form-group row" style="float:right; margin-right:0% ; margin-top:1%">
+                    <a asp-page="./Index"><button type="button" class="btn btn-link">Back to List</button></a>
+                    <input style="margin-left:10px" type="submit" value="Create" class="btn btn-outline-secondary" />
+                </div>
             </div>
 
         </div>
 
 
     </form>
+    <div style="margin-top:1%">
     <ul class="nav nav-tabs" id="myTab" role="tablist">
         <li class="nav-item">
-            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Join</a>
+            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Asset</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">History Update</a>
+            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">AssetSon</a>
         </li>
     </ul>
     <div class="tab-content" id="myTabContent">
         <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-
             <div class="card-body">
                 <div class="table-responsive">
                     <table class="table table-bordered " id="dataTable" width="100%" cellspacing="3">
                         <thead>
                             <tr>
                                 <th>
-                                    Name
+                                    @Html.DisplayNameFor(model => model.Asset[0].AssetID)
                                 </th>
                                 <th>
-                                    Time
-                                </th>
-
-                                <th>
-                                    User
+                                    @Html.DisplayNameFor(model => model.Asset[0].AssetName)
                                 </th>
                                 <th>
-                                    date
+                                    @Html.DisplayNameFor(model => model.Asset[0].PurchaseDate)
                                 </th>
-
                                 <th>
-                                    Action
+                                    @Html.DisplayNameFor(model => model.Asset[0].Type)
                                 </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Asset[0].Status)
+                                </th>
+                                <th>
+                                    Company
+                                </th>
+                                <th>
+                                    Location
+                                </th>
+                                <th>
+                                    Department
+                                </th>
+                               
+                                <th>Select</th>
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach (var item in Model.Asset)
+                            {
                             <tr>
                                 <td>
-                                    Com001
-                                </td>
-
-                                <td>
-                                    20:05
+                                    @Html.DisplayFor(modelItem => item.AssetID)
                                 </td>
                                 <td>
-                                    Admin
+                                    @Html.DisplayFor(modelItem => item.AssetName)
                                 </td>
                                 <td>
-                                    05/05/2010
+                                    @Html.DisplayFor(modelItem => item.PurchaseDate)
                                 </td>
-                                <td width="100px">
-                                    <a asp-page="./Details">Details</a> |
-                                    <a asp-page="./Delete">Delete</a>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Type)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Status)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Company_CompanyID)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Location_LocationID)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Department_DepartmentID)
+                                </td>
+                                
+                                <td>
+                                    <button type="button" class="btn btn-outline-success" onclick="select1(@item.AssetID)">Select</button>
                                 </td>
                             </tr>
+                            }
 
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-        <div class="card-body">
-            <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable1" width="100%" cellspacing="3">
-                    <thead>
-                        <tr>
-                            <th>
-                                Name
-                            </th>
-                            <th>
-                                Time
-                            </th>
 
-                            <th>
-                                User
-                            </th>
-                            <th>
-                                date
-                            </th>
+        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered " id="dataTable1" width="100%" cellspacing="3">
+                        <thead>
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Asset[0].AssetID)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Asset[0].AssetName)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Asset[0].PurchaseDate)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Asset[0].Type)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Asset[0].Status)
+                                </th>
+                                <th>
+                                    Company
+                                </th>
+                                <th>
+                                    Location
+                                </th>
+                                <th>
+                                    Department
+                                </th>
 
-                            <th>
-                                Action
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>
-                                Com002
-                            </td>
+                                <th>Select</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item1 in Model.Asset)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item1.AssetID)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item1.AssetName)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item1.PurchaseDate)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item1.Type)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item1.Status)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item1.Company_CompanyID)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item1.Location_LocationID)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item1.Department_DepartmentID)
+                                    </td>
 
-                            <td>
-                                20:05
-                            </td>
-                            <td>
-                                Admin
-                            </td>
-                            <td>
-                                05/05/2010
-                            </td>
-                            <td width="100px">
-                                <a asp-page="./Details">Details</a> |
-                                <a asp-page="./Delete">Delete</a>
-                            </td>
-                        </tr>
+                                    <td>
+                                        <button type="button" class="btn btn-outline-success" onclick="select2(@item1.AssetID)">Select</button>
+                                    </td>
+                                </tr>
+                            }
 
-                    </tbody>
-                </table>
+                        </tbody>
+
+                    </table>
+                </div>
             </div>
         </div>
     </div>
 </div>
+<script>
+   
+    function select1(Ass) {
+        console.log("ggg")
+        console.log(Ass)
+        document.getElementById("Asset").value = Ass
+    }
+    function select2(Ass) {
+        console.log("ggg")
+        console.log(Ass)
+        document.getElementById("Assetson").value = Ass
+    }
 
-
-<div class="card-body">
-    <div class="table-responsive">
-        <table class="table table-bordered" id="dataTable1" width="100%" cellspacing="3">
-            <thead>
-                <tr>
-                    <th>
-                        Name
-                    </th>
-                    <th>
-                        Time
-                    </th>
-
-                    <th>
-                        User
-                    </th>
-                    <th>
-                        date
-                    </th>
-
-                    <th>
-                        Action
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>
-                        Com002
-                    </td>
-
-                    <td>
-                        20:05
-                    </td>
-                    <td>
-                        Admin
-                    </td>
-                    <td>
-                        05/05/2010
-                    </td>
-                    <td width="100px">
-                        <a asp-page="./Details">Details</a> |
-                        <a asp-page="./Delete">Delete</a>
-                    </td>
-                </tr>
-
-            </tbody>
-        </table>
-    </div>
-</div>
-<h2>Create</h2>
-
-<h4>Join_Asset_Asset</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Join_Asset_Asset.Note" class="control-label"></label>
-                <input asp-for="Join_Asset_Asset.Note" class="form-control" />
-                <span asp-validation-for="Join_Asset_Asset.Note" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Join_Asset_Asset.Status" class="control-label"></label>
-                <input asp-for="Join_Asset_Asset.Status" class="form-control" />
-                <span asp-validation-for="Join_Asset_Asset.Status" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Join_Asset_Asset.Asset_AssetID" class="control-label"></label>
-                <input asp-for="Join_Asset_Asset.Asset_AssetID" class="form-control" />
-                <span asp-validation-for="Join_Asset_Asset.Asset_AssetID" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Join_Asset_Asset.AssetSon" class="control-label"></label>
-                <input asp-for="Join_Asset_Asset.AssetSon" class="form-control" />
-                <span asp-validation-for="Join_Asset_Asset.AssetSon" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
-        </form>
-    </div>
-</div>
-
-<div>
-    <a asp-page="Index">Back to List</a>
-</div>
+</script>
 
 
 @section Scripts {

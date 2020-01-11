@@ -23,8 +23,7 @@ namespace tbkk_AC.Pages.JoinAsset_Emp
         public async Task OnGetAsync()
         {
             Join_Asset_Emp = await _context.Join_Asset_Emp
-                .Include(j => j.Asset)
-                .Include(j => j.Employee).ToListAsync();
+                .Include(j => j.Asset).ToListAsync();
         }
     }
 }

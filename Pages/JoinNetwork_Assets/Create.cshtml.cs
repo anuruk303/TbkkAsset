@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using tbkk_AC.Models;
 
 namespace tbkk_AC.Pages.JoinNetwork_Assets
@@ -18,15 +19,17 @@ namespace tbkk_AC.Pages.JoinNetwork_Assets
             _context = context;
         }
 
-        public IActionResult OnGet()
+        public async Task<IActionResult> OnGetAsync()
         {
-        ViewData["Asset_AssetID"] = new SelectList(_context.Asset, "AssetID", "AssetName");
-        ViewData["Network_NetworkID"] = new SelectList(_context.Network, "NetworkID", "IpAddr");
+            Asset = await _context.Asset.ToListAsync();
+            Network = await _context.Network.ToListAsync();
             return Page();
         }
 
         [BindProperty]
         public Join_Network_Asset Join_Network_Asset { get; set; }
+        public IList<Asset> Asset { get; set; }
+        public IList<Network> Network { get; set; }
 
         public async Task<IActionResult> OnPostAsync()
         {
@@ -38,7 +41,7 @@ namespace tbkk_AC.Pages.JoinNetwork_Assets
             _context.Join_Network_Asset.Add(Join_Network_Asset);
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("./Create");
         }
     }
 }

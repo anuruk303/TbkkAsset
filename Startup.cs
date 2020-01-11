@@ -60,6 +60,7 @@ namespace tbkk_AC
             app.UseCookiePolicy();
 
             app.UseMvc();
+            
         }
     }
 }
