@@ -4,34 +4,76 @@
 @{
     ViewData["Title"] = "Details";
 }
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <h2>Company Detail</h2>
+                <div class=" col-md-12 col-lg-12 ">
+                    <div class="card " style="margin-top:1%">
+                        <div class="card-header" style="font-weight:bold;color:darkblue;">
+                            Detail
+                        </div>
+                        <div class="card-body">
+                            <table class="table table-user-information" style="margin-top:-16%;margin-bottom:-6%">
+                                <tbody>
+                                    <tr>
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col">
+                                                    <td>@Html.DisplayNameFor(model => model.Company.CompanyID) :</td>
+                                                    <td>@Html.DisplayFor(model => model.Company.CompanyID)</td>
+                                                </div>
+                                                <div class="col">
+                                                    <td>@Html.DisplayNameFor(model => model.Company.CompanyName) :</td>
+                                                    <td>@Html.DisplayFor(model => model.Company.CompanyName)</td>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </tr>
+                                    <tr>
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col">
+                                                    <td>@Html.DisplayNameFor(model => model.Company.Status) :</td>
+                                                    <td>@Html.DisplayFor(model => model.Company.Status)</td>
 
-<h2>Details</h2>
+                                                </div>
+                                                <div class="col">
+                                                    <td></td>
+                                                    <td></td>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </tr>
+                                    <tr>
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col">
+                                                    <td></td>
+                                                    <td></td>
 
-<div>
-    <h4>Company</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Company.CompanyName)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Company.CompanyName)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Company.Image)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Company.Image)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Company.Status)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Company.Status)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-page="./Edit" asp-route-id="@Model.Company.CompanyID">Edit</a> |
-    <a asp-page="./Index">Back to List</a>
-</div>
+                                                </div>
+                                                <div class="col">
+                                                    <td></td>
+                                                    <td></td>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <h2></h2>
+                <div class="col-md-3 col-lg-3 " align="center">
+                    <img src="~/uploads/@Html.DisplayFor(model => model.Company.Image)" width="200px" height="220px" />
+                </div>
+            </div>
+        </div>
+        <div>
+            <a asp-page="./Edit" asp-route-id="@Model.Company.CompanyID">Edit</a> |
+            <a asp-page="./Index">Back to List</a>
+        </div>

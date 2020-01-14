@@ -45,10 +45,10 @@ namespace tbkk_AC.Pages.Assets
             }
 
             Asset = await _context.Asset.FindAsync(id);
-
+            Asset.Status = "Unused";
             if (Asset != null)
             {
-                _context.Asset.Remove(Asset);
+                _context.Attach(Asset).State = EntityState.Modified;
                 await _context.SaveChangesAsync();
             }
 

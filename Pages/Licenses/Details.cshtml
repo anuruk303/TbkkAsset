@@ -4,168 +4,320 @@
 @{
     ViewData["Title"] = "Details";
 }
-    <div class="container">
-        <div class="row">
-            <div class="col-md-9">
-                <h2>License Detail</h2>
-                <div class=" col-md-12 col-lg-12 ">
-                    <table class="table table-user-information">
-                        <tbody>
-                            <tr>
-                                <td>@Html.DisplayNameFor(model => model.License.LicenseName) :</td>
-                                <td> @Html.DisplayFor(model => model.License.LicenseName)</td>
-                            </tr>
-                            <tr>
-                                <td>@Html.DisplayNameFor(model => model.License.SoftewareName) :</td>
-                                <td>@Html.DisplayFor(model => model.License.SoftewareName)</td>
-                            </tr>
-                            <tr>
-                                <td>@Html.DisplayNameFor(model => model.License.PurchaseDate) :</td>
-                                <td>@Html.DisplayFor(model => model.License.PurchaseDate)</td>
-                            </tr>
-
-                            <tr>
-                                <td>@Html.DisplayNameFor(model => model.License.StartDate) :</td>
-                                <td>@Html.DisplayFor(model => model.License.StartDate)</td>
-                            </tr>
-                            <tr>
-                                <td>@Html.DisplayNameFor(model => model.License.ExpireDate) :</td>
-                                <td>@Html.DisplayFor(model => model.License.ExpireDate)</td>
-                            </tr>
-                            <tr>
-                                <td>@Html.DisplayNameFor(model => model.License.PONumber) :</td>
-                                <td>@Html.DisplayFor(model => model.License.PONumber)</td>
-                            </tr>
-                            <tr>
-                                <td>@Html.DisplayNameFor(model => model.License.Attachfiles) :</td>
-                                <td>@Html.DisplayFor(model => model.License.Attachfiles)</td>
-                            </tr>
-                           
-                            <tr>
-                                <td>@Html.DisplayNameFor(model => model.License.Status) :</td>
-                                <td>@Html.DisplayFor(model => model.License.Status)</td>
-                            </tr>
-                            <tr>
-                                <td>Model :</td>
-                                <td>
-                                    @foreach (var item in Model.Model)
-                                    {
-                                        if (Model.License.Model_ModelID == item.ModelID)
-                                        {
-                                            @Html.DisplayFor(modelItem => item.ModelName)
-                                        }
-                                    }
-                            </tr>
-                            <tr>
-                                <td>Supplier :</td>
-                                <td>
-                                    @foreach (var item in Model.Supplier)
-                                    {
-                                        if (Model.License.Supplier_SupplierID == item.SupplierID)
-                                        {
-                                            @Html.DisplayFor(modelItem => item.SupplierName)
-                                        }
-                                    }
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Department :</td>
-                                <td>
-                                    @foreach (var item in Model.Department)
-                                    {
-                                        if (Model.License.Department_DepartmentID == item.DepartmentID)
-                                        {
-                                            @Html.DisplayFor(modelItem => item.DepartmentName)
-                                        }
-                                    }
-                             </td>
-                            </tr>
-                            <tr>
-                                <td>Company :</td>
-                                <td>
-                                    @foreach (var item in Model.Company)
-                                    {
-                                        if (Model.License.Company_CompanyID == item.CompanyID)
-                                        {
-                                            @Html.DisplayFor(modelItem => item.CompanyName)
-                                        }
-                                    }
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>@Html.DisplayNameFor(model => model.License.Note) :</td>
-                                <td>
-                                    <div class="form-group">
-                                        <textarea class="form-control" id="exampleFormControlTextarea3" rows="5" cols='20'>@Html.DisplayFor(model => model.License.Note)</textarea>
-                                    </div>
-                                </td>
-                            </tr>
-
-
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            
-        </div>
-
-        <div>
-            <a asp-page="./Edit" asp-route-id="@Model.License.LicenseID">Edit</a> |
-            <a asp-page="./Index">Back to List</a>
-        </div>
-        <ul class="nav nav-tabs" id="myTab" role="tablist">
-            <li class="nav-item">
-                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Join</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">History Update</a>
-            </li>
-        </ul>
-        <div class="tab-content" id="myTabContent">
-            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                <div class="card-body">
-                    <div class="table-responsive">
-                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="3">
-                            <thead>
-                                <tr>
-                                    <th>
-                                        Name
-                                    </th>
-                                    <th>
-                                        Time
-                                    </th>
-
-                                    <th>
-                                        User
-                                    </th>
-                                    <th>
-                                        date
-                                    </th>
-
-                                    <th>
-                                        Edit
-                                    </th>
-                                    <th>
-                                        Details
-                                    </th>
-                                    <th>
-                                        Delete
-                                    </th>
-                                </tr>
-                            </thead>
+<div class="container">
+    <div class="row">
+        <div class="col-md-9">
+            <h2>License Detail</h2>
+            <div class=" col-md-12 col-lg-12 ">
+                <div class="card " style="margin-top:1%">
+                    <div class="card-header" style="font-weight:bold;color:darkblue;">
+                        Detail
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-user-information" style="margin-top:-24%">
                             <tbody>
                                 <tr>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col">
+                                                <td>@Html.DisplayNameFor(model => model.License.LicenseName) :</td>
+                                                <td> @Html.DisplayFor(model => model.License.LicenseName)</td>
+                                            </div>
+                                            <div class="col">
+                                                <td>@Html.DisplayNameFor(model => model.License.SoftewareName) :</td>
+                                                <td>@Html.DisplayFor(model => model.License.SoftewareName)</td>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </tr>
+                                <tr>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col">
+                                                <td>@Html.DisplayNameFor(model => model.License.Attachfiles) :</td>
+                                                <td> @Html.DisplayFor(model => model.License.Attachfiles)</td>
+                                            </div>
+                                            <div class="col">
+                                                <td>@Html.DisplayNameFor(model => model.License.PONumber) :</td>
+                                                <td>@Html.DisplayFor(model => model.License.PONumber)</td>
 
+                                            </div>
+                                        </div>
+                                    </div>
+                                </tr>
+                                <tr>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col">
+                                                <td>@Html.DisplayNameFor(model => model.License.LicenseID) :</td>
+                                                <td>@Html.DisplayFor(model => model.License.LicenseID)</td>
+                                            </div>
+                                            <div class="col">
+                                                <td></td>
+                                                <td></td>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </tr>
+                                <tr>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col">
+                                                <td></td>
+                                                <td></td>
+
+                                            </div>
+                                            <div class="col">
+                                                <td></td>
+                                                <td></td>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="card " style="margin-top:-4%">
+                    <div class="card-header" style="font-weight:bold;color:darkblue;">
+                        Model
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-user-information" style="margin-top:-16%;margin-bottom:2%">
+                            <tbody>
+                                <tr>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col">
+                                                <td>Supplier :</td>
+                                                <td>
+                                                    @foreach (var item in Model.Supplier)
+                                                    {
+                                                        if (Model.License.Supplier_SupplierID == item.SupplierID)
+                                                        {
+                                                            @Html.DisplayFor(modelItem => item.SupplierName)
+                                                        }
+                                                    }
+                                                </td>
+                                            </div>
+                                            <div class="col">
+                                                <td>Company :</td>
+                                                <td>
+                                                    @foreach (var item in Model.Company)
+                                                    {
+                                                        if (Model.License.Company_CompanyID == item.CompanyID)
+                                                        {
+                                                            @Html.DisplayFor(modelItem => item.CompanyName)
+                                                        }
+                                                    }
+                                                </td>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </tr>
+                                <tr>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col">
+                                                <td>Department :</td>
+                                                <td>
+                                                    @foreach (var item in Model.Department)
+                                                    {
+                                                        if (Model.License.Department_DepartmentID == item.DepartmentID)
+                                                        {
+                                                            @Html.DisplayFor(modelItem => item.DepartmentName)
+                                                        }
+                                                    }
+                                                </td>
+                                            </div>
+                                            <div class="col">
+                                                <td></td>
+                                                <td></td>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </tr>
+                                <tr>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col">
+                                                <td></td>
+                                                <td></td>
+
+                                            </div>
+                                            <div class="col">
+                                                <td></td>
+                                                <td></td>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="card " style="margin-top:-4%">
+                    <div class="card-header" style="font-weight:bold;color:darkblue;">
+                        Date
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-user-information" style="margin-top:-16%;margin-bottom:-3%">
+                            <tbody>
+                                <tr>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col">
+                                                <td>@Html.DisplayNameFor(model => model.License.StartDate) :</td>
+                                                <td>@Html.DisplayFor(model => model.License.StartDate)</td>
+
+                                            </div>
+                                            <div class="col">
+                                                <td>@Html.DisplayNameFor(model => model.License.PurchaseDate) :</td>
+                                                <td>@Html.DisplayFor(model => model.License.PurchaseDate)</td>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </tr>
+                                <tr>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col">
+                                                <td>@Html.DisplayNameFor(model => model.License.ExpireDate) :</td>
+                                                <td>@Html.DisplayFor(model => model.License.ExpireDate)</td>
+
+                                            </div>
+                                            <div class="col">
+                                                <td></td>
+                                                <td></td>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </tr>
+                                <tr>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col">
+                                                <td></td>
+                                                <td></td>
+
+                                            </div>
+                                            <div class="col">
+                                                <td></td>
+                                                <td></td>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="card " style="margin-top:-0%">
+                    <div class="card-header" style="font-weight:bold;color:darkblue;">
+                        More
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-user-information" style="margin-top:-12%;margin-bottom:-3%">
+                            <tbody>
+                                <tr>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col">
+                                                <td>@Html.DisplayNameFor(model => model.License.Status) :</td>
+                                                <td>@Html.DisplayFor(model => model.License.Status)</td>
+                                            </div>
+                                            <div class="col">
+                                                <td>@Html.DisplayNameFor(model => model.License.Note) :</td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <textarea class="form-control" id="exampleFormControlTextarea3" rows="5" cols='20'>@Html.DisplayFor(model => model.License.Note)</textarea>
+                                                    </div>
+                                                </td>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </tr>
+                                <tr>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col">
+                                                <td></td>
+                                                <td></td>
+
+                                            </div>
+                                            <div class="col">
+                                                <td></td>
+                                                <td></td>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
                 </div>
             </div>
-            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+        </div>
+    </div>
 
+    <div>
+        <a asp-page="./Edit" asp-route-id="@Model.License.LicenseID">Edit</a> |
+        <a asp-page="./Index">Back to List</a>
+    </div>
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item">
+            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Join</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">History Update</a>
+        </li>
+    </ul>
+    <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="3">
+                        <thead>
+                            <tr>
+                                <th>
+                                    Name
+                                </th>
+                                <th>
+                                    Time
+                                </th>
+
+                                <th>
+                                    User
+                                </th>
+                                <th>
+                                    date
+                                </th>
+
+                                <th>
+                                    Edit
+                                </th>
+                                <th>
+                                    Details
+                                </th>
+                                <th>
+                                    Delete
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
             </div>
+        </div>
+        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
 
         </div>
-
-       
+    </div>

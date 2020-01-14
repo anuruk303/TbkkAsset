@@ -17,11 +17,22 @@ namespace tbkk_AC.Pages.Assets
         {
             _context = context;
         }
-
+        public IList<Location> Location { get; set; }
+        public IList<Position> Position { get; set; }
+        public IList<Model> Model { get; set; }
+        public IList<Supplier> Supplier { get; set; }
+        public IList<Department> Department { get; set; }
+        public IList<Company> Company { get; set; }
         public Asset Asset { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
+            Supplier = await _context.Supplier.ToListAsync();
+            Company = await _context.Company.ToListAsync();
+            Department = await _context.Department.ToListAsync();
+            Model = await _context.Model.ToListAsync();
+            Location = await _context.Location.ToListAsync();
+            Position = await _context.Position.ToListAsync();
             if (id == null)
             {
                 return NotFound();

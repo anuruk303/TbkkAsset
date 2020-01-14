@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using tbkk_AC.Models;
 
 namespace tbkk_AC.Pages.Suppliers
@@ -15,22 +16,22 @@ namespace tbkk_AC.Pages.Suppliers
     public class CreateModel : PageModel
     {
         private readonly tbkk_AC.Models.tbkk_ACContext _context;
-        private IHostingEnvironment environment;
 
         public CreateModel(tbkk_AC.Models.tbkk_ACContext context, IHostingEnvironment environment)
         {
             _context = context;
             this.environment = environment;
         }
-
-        public IActionResult OnGet()
+       
+        public async Task<IActionResult> OnGetAsync()
         {
+           
             return Page();
         }
 
         [BindProperty]
         public Supplier Supplier { get; set; }
-
+        private IHostingEnvironment environment;
         public async Task<IActionResult> OnPostAsync(IFormFile photo)
         {
             var file = Path.Combine(environment.ContentRootPath, "wwwroot/uploads", photo.FileName);

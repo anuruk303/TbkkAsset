@@ -9,69 +9,250 @@
         <div class="col-md-9">
             <h2>Employee Detail</h2>
             <div class=" col-md-12 col-lg-12 ">
-                <table class="table table-user-information">
-                    <tbody>
-                        <tr>
-                            <td>@Html.DisplayNameFor(model => model.Employee.FirstName) :</td>
-                            <td> @Html.DisplayFor(model => model.Employee.FirstName)</td>
-                        </tr>
-                        <tr>
-                            <td>@Html.DisplayNameFor(model => model.Employee.LastName) :</td>
-                            <td>@Html.DisplayFor(model => model.Employee.LastName)</td>
-                        </tr>
-                        <tr>
-                            <td>@Html.DisplayNameFor(model => model.Employee.Gender) :</td>
-                            <td>@Html.DisplayFor(model => model.Employee.Gender)</td>
-                        </tr>
+                <div class="card " style="margin-top:1%">
+                    <div class="card-header" style="font-weight:bold;color:darkblue;">
+                        Detail
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-user-information" style="margin-top:-22%">
+                            <tbody>
+                                <tr>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col">
+                                                <td>@Html.DisplayNameFor(model => model.Employee.FirstName) :</td>
+                                                <td> @Html.DisplayFor(model => model.Employee.FirstName)</td>
+                                            </div>
+                                            <div class="col">
+                                                <td>@Html.DisplayNameFor(model => model.Employee.LastName) :</td>
+                                                <td>@Html.DisplayFor(model => model.Employee.LastName)</td>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </tr>
+                                <tr>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col">
+                                                <td>@Html.DisplayNameFor(model => model.Employee.EmployeeID) :</td>
+                                                <td> @Html.DisplayFor(model => model.Employee.EmployeeID)</td>
+                                            </div>
+                                            <div class="col">
+                                                <td>@Html.DisplayNameFor(model => model.Employee.Gender) :</td>
+                                                <td>@Html.DisplayFor(model => model.Employee.Gender)</td>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </tr>
+                                <tr>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col">
+                                                <td>@Html.DisplayNameFor(model => model.Employee.Status)</td>
+                                                <td>@Html.DisplayFor(model => model.Employee.Status)</td>
+                                            </div>
+                                            <div class="col">
+                                                <td>@Html.DisplayNameFor(model => model.Employee.Date) :</td>
+                                                <td> @Html.DisplayFor(model => model.Employee.Date)</td>
+                                                
 
-                        <tr>
-                            <td>@Html.DisplayNameFor(model => model.Employee.Email) :</td>
-                            <td>@Html.DisplayFor(model => model.Employee.Email)</td>
-                        </tr>
-                        <tr>
-                            <td>@Html.DisplayNameFor(model => model.Employee.Call) :</td>
-                            <td>@Html.DisplayFor(model => model.Employee.Call)</td>
-                        </tr>
-                        <tr>
-                            <td>@Html.DisplayNameFor(model => model.Employee.Line) :</td>
-                            <td>@Html.DisplayFor(model => model.Employee.Line)</td>
-                        </tr>
-                        <tr>
-                            <td>@Html.DisplayNameFor(model => model.Employee.Addr) :</td>
-                            <td>@Html.DisplayFor(model => model.Employee.Addr)</td>
-                        </tr>
-                        <tr>
-                            <td>@Html.DisplayNameFor(model => model.Employee.Date) :</td>
-                            <td>@Html.DisplayFor(model => model.Employee.Date)</td>
-                        </tr>
-                        <tr>
-                            <td>@Html.DisplayNameFor(model => model.Employee.Status) :</td>
-                            <td>@Html.DisplayFor(model => model.Employee.Status)</td>
-                        </tr>
-                        <tr>
-                            <td>@Html.DisplayNameFor(model => model.Employee.Company) :</td>
-                            <td>@Html.DisplayFor(model => model.Employee.Company.CompanyName)</td>
-                        </tr>
-                        <tr>
-                            <td>@Html.DisplayNameFor(model => model.Employee.Department) :</td>
-                            <td>@Html.DisplayFor(model => model.Employee.Department.DepartmentName)</td>
-                        </tr>
-                        <tr>
-                            <td>@Html.DisplayNameFor(model => model.Employee.Location) :</td>
-                            <td>@Html.DisplayFor(model => model.Employee.Location.LocationName)</td>
-                        </tr>
-                        <tr>
-                            <td>@Html.DisplayNameFor(model => model.Employee.EmployeeType) :</td>
-                            <td>@Html.DisplayFor(model => model.Employee.EmployeeType.EmployeeTypeName)</td>
-                        </tr>
-                        <tr>
-                            <td>@Html.DisplayNameFor(model => model.Employee.Position) :</td>
-                            <td>@Html.DisplayFor(model => model.Employee.Position.PositionName)</td>
-                        </tr>
-                        
+                                            </div>
+                                        </div>
+                                    </div>
+                                </tr>
+                                <tr>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col">
+                                                <td></td>
+                                                <td></td>
 
-                    </tbody>
-                </table>
+                                            </div>
+                                            <div class="col">
+                                                <td></td>
+                                                <td></td>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="card " style="margin-top:-4%">
+                    <div class="card-header" style="font-weight:bold;color:darkblue;">
+                        Model
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-user-information" style="margin-top:-20%;margin-bottom:2%">
+                            <tbody>
+                                <tr>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col">
+                                                <td>Supplier :</td>
+                                                <td>
+                                                    @foreach (var item in Model.Position)
+                                                    {
+                                                        if (Model.Employee.Position_PositionID == item.PositionID)
+                                                        {
+                                                            @Html.DisplayFor(modelItem => item.PositionName)
+                                                        }
+                                                    }
+                                                </td>
+                                            </div>
+                                            <div class="col">
+                                                <td>Company :</td>
+                                                <td>
+                                                    @foreach (var item in Model.Company)
+                                                    {
+                                                        if (Model.Employee.Company_CompanyID == item.CompanyID)
+                                                        {
+                                                            @Html.DisplayFor(modelItem => item.CompanyName)
+                                                        }
+                                                    }
+                                                </td>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </tr>
+                                <tr>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col">
+                                                <td>Location :</td>
+                                                <td>
+                                                    @foreach (var item in Model.Location)
+                                                    {
+                                                        if (Model.Employee.Location_LocationID == item.LocationID)
+                                                        {
+                                                            @Html.DisplayFor(modelItem => item.LocationName)
+                                                        }
+                                                    }
+                                                </td>
+                                            </div>
+                                            <div class="col">
+                                                <td>Department :</td>
+                                                <td>
+                                                    @foreach (var item in Model.Department)
+                                                    {
+                                                        if (Model.Employee.Department_DepartmentID == item.DepartmentID)
+                                                        {
+                                                            @Html.DisplayFor(modelItem => item.DepartmentName)
+                                                        }
+                                                    }
+                                                </td>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </tr>
+                                <tr>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col">
+                                                <td>Location :</td>
+                                                <td>
+                                                    @foreach (var item in Model.EmployeeType)
+                                                    {
+                                                        if (Model.Employee.EmployeeType_EmployeeTypeID == item.EmployeeTypeID)
+                                                        {
+                                                            @Html.DisplayFor(modelItem => item.EmployeeTypeName)
+                                                        }
+                                                    }
+                                                </td>
+                                            </div>
+                                            <div class="col">
+                                                <td>Department :</td>
+                                                <td>
+                                                    @foreach (var item in Model.Department)
+                                                    {
+                                                        if (Model.Employee.Department_DepartmentID == item.DepartmentID)
+                                                        {
+                                                            @Html.DisplayFor(modelItem => item.DepartmentName)
+                                                        }
+                                                    }
+                                                </td>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </tr>
+                                <tr>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col">
+                                                <td></td>
+                                                <td></td>
+
+                                            </div>
+                                            <div class="col">
+                                                <td></td>
+                                                <td></td>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="card " style="margin-top:-4%">
+                    <div class="card-header" style="font-weight:bold;color:darkblue;">
+                        Address
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-user-information" style="margin-top:-16%;margin-bottom:-2%">
+                            <tbody>
+                                <tr>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col">
+                                                <td>@Html.DisplayNameFor(model => model.Employee.Email) :</td>
+                                                <td>@Html.DisplayFor(model => model.Employee.Email)</td>
+
+                                            </div>
+                                            <div class="col">
+                                                <td>@Html.DisplayNameFor(model => model.Employee.Call) :</td>
+                                                <td>@Html.DisplayFor(model => model.Employee.Call)</td>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </tr>
+                                <tr>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col">
+                                                <td>@Html.DisplayNameFor(model => model.Employee.Line) :</td>
+                                                <td>@Html.DisplayFor(model => model.Employee.Line)</td>
+
+                                            </div>
+                                            <div class="col">
+                                                <td>@Html.DisplayNameFor(model => model.Employee.Addr) :</td>
+                                                <td>@Html.DisplayFor(model => model.Employee.Addr)</td>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </tr>
+                                <tr>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col">
+                                                <td></td>
+                                                <td></td>
+
+                                            </div>
+                                            <div class="col">
+                                                <td></td>
+                                                <td></td>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="col-md-3">
@@ -140,5 +321,6 @@
         <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
 
         </div>
-
     </div>
+
+    

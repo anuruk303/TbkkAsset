@@ -21,7 +21,6 @@
                         <div style="float: right">
                             <a asp-page="Create">
                                 <button type="button" class="btn btn-primary brands-modal">
-
                                     Create
                                 </button>
                             </a>
@@ -60,6 +59,7 @@
                                             </td>
                                             <td width="100px">
                                                 <a asp-page="./Edit" asp-route-id="@item.BrandID">Edit</a> |
+                                                <a asp-page="./Details" asp-route-id="@item.BrandID">Details</a> |
                                                 <a asp-page="./Delete" asp-route-id="@item.BrandID">Delete</a>
                                             </td>
                                         </tr>
