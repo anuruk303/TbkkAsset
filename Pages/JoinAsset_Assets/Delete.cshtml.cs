@@ -45,14 +45,14 @@ namespace tbkk_AC.Pages.JoinAsset_Assets
             }
 
             Join_Asset_Asset = await _context.Join_Asset_Asset.FindAsync(id);
-
+            Join_Asset_Asset.Status = "UNJOIN";
             if (Join_Asset_Asset != null)
             {
-                _context.Join_Asset_Asset.Remove(Join_Asset_Asset);
+                _context.Attach(Join_Asset_Asset).State = EntityState.Modified;
                 await _context.SaveChangesAsync();
             }
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("../Licenses/Index");
         }
     }
 }

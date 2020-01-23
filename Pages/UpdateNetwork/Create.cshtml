@@ -1,0 +1,69 @@
+﻿@page
+@model tbkk_AC.Pages.UpdateNetwork.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create</h2>
+
+<h4>Update_Network</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Update_Network.Date" class="control-label"></label>
+                <input asp-for="Update_Network.Date" class="form-control" />
+                <span asp-validation-for="Update_Network.Date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Update_Network.NetworkName" class="control-label"></label>
+                <input asp-for="Update_Network.NetworkName" class="form-control" />
+                <span asp-validation-for="Update_Network.NetworkName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Update_Network.IpAddr" class="control-label"></label>
+                <input asp-for="Update_Network.IpAddr" class="form-control" />
+                <span asp-validation-for="Update_Network.IpAddr" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Update_Network.Note" class="control-label"></label>
+                <input asp-for="Update_Network.Note" class="form-control" />
+                <span asp-validation-for="Update_Network.Note" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Update_Network.Password" class="control-label"></label>
+                <input asp-for="Update_Network.Password" class="form-control" />
+                <span asp-validation-for="Update_Network.Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Update_Network.Status" class="control-label"></label>
+                <input asp-for="Update_Network.Status" class="form-control" />
+                <span asp-validation-for="Update_Network.Status" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Update_Network.Employee_EmpID" class="control-label"></label>
+                <input asp-for="Update_Network.Employee_EmpID" class="form-control" />
+                <span asp-validation-for="Update_Network.Employee_EmpID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Update_Network.Network_NetworkID" class="control-label"></label>
+                <input asp-for="Update_Network.Network_NetworkID" class="form-control" />
+                <span asp-validation-for="Update_Network.Network_NetworkID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -11,8 +11,12 @@ namespace tbkk_AC.Models
         [Key]
         public int UpdateAssetID { get; set; }
         [Required]
+        [Display(Name = "Date")]
+        public DateTime Date { get; set; }
+        [Required]
         [Display(Name = "AssetName")]
         public string AssetName { get; set; }
+
         [Required]
         [Display(Name = "SerailNumber")]
         public string SerailNumber { get; set; }
@@ -21,7 +25,7 @@ namespace tbkk_AC.Models
         public string MACAddr { get; set; }
         [Required]
         [Display(Name = "InstallDate")]
-        public string InstallDate { get; set; }
+        public DateTime InstallDate { get; set; }
         [Required]
         [Display(Name = "PurchaseDate")]
         public DateTime PurchaseDate { get; set; }
@@ -30,10 +34,13 @@ namespace tbkk_AC.Models
         public DateTime ExpireDate { get; set; }
         [Required]
         [Display(Name = "PONumber")]
-        public DateTime PONumber { get; set; }
+        public string PONumber { get; set; }
+        [Required]
+        [Display(Name = "Note")]
+        public string Note { get; set; }
         [Required]
         [Display(Name = " Price")]
-        public double Price { get; set; }
+        public string Price { get; set; }
         [Required]
         [Display(Name = " Warranty")]
         public int Warranty { get; set; }

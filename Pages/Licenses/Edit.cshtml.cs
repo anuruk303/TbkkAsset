@@ -48,17 +48,32 @@ namespace tbkk_AC.Pages.Licenses
 
         public async Task<IActionResult> OnPostAsync()
         {
+
             if (!ModelState.IsValid)
             {
                 return Page();
             }
 
-            Update_License a = new Update_License();
-            
-
-
+           
             _context.Attach(License).State = EntityState.Modified;
-
+            var Update = new Update_License();
+            Update.Date = DateTime.Now;
+            Update.License_LicenseID = License.LicenseID;
+            Update.LicenseName = License.LicenseName;
+            Update.SoftewareName = License.SoftewareName;
+            Update.PurchaseDate = License.PurchaseDate;
+            Update.StartDate = License.StartDate;
+            Update.ExpireDate = License.ExpireDate;
+            Update.PONumber = License.PONumber;
+            Update.Attachfiles = License.Attachfiles;
+            Update.Note = License.Note;
+            Update.Status = License.Status;
+            Update.Model_ModelID = License.Model_ModelID;
+            Update.Supplier_SupplierID = License.Supplier_SupplierID;
+            Update.Department_DepartmentID = License.Department_DepartmentID;
+            Update.Company_CompanyID = License.Company_CompanyID;
+            Update.Employee = 2012;
+            _context.Update_License.Add(Update);
             try
             {
                 await _context.SaveChangesAsync();

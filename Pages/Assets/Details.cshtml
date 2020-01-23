@@ -4,327 +4,493 @@
 @{
     ViewData["Title"] = "Details";
 }
-    <div class="container">
-        <div class="row">
-            <div class="col-md-9" >
-                <h2>Asset Detail</h2>
-                <div class=" col-md-12 col-lg-12 ">
-                    <div class="card " style="margin-top:1%">
-                        <div class="card-header" style="font-weight:bold;color:darkblue;">
-                            Detail
-                        </div>
-                        <div class="card-body">
-                            <table class="table table-user-information" style="margin-top:-33%">
-                                <tbody>
-                                    <tr>
-                                        <div class="card-body">
-                                            <div class="row">
-                                                <div class="col">
-                                                    <td>@Html.DisplayNameFor(model => model.Asset.AssetName) :</td>
-                                                    <td> @Html.DisplayFor(model => model.Asset.AssetName)</td>
-                                                </div>
-                                                <div class="col">
-                                                    <td>@Html.DisplayNameFor(model => model.Asset.SerailNumber) :</td>
-                                                    <td>@Html.DisplayFor(model => model.Asset.SerailNumber)</td>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </tr>
-                                    <tr>
-                                        <div class="card-body">
-                                            <div class="row">
-                                                <div class="col">
-                                                    <td>@Html.DisplayNameFor(model => model.Asset.MACAddr) :</td>
-                                                    <td> @Html.DisplayFor(model => model.Asset.MACAddr)</td>
-                                                </div>
-                                                <div class="col">
-                                                    <td>@Html.DisplayNameFor(model => model.Asset.PONumber) :</td>
-                                                    <td>@Html.DisplayFor(model => model.Asset.PONumber)</td>
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </tr>
-                                    <tr>
-                                        <div class="card-body">
-                                            <div class="row">
-                                                <div class="col">
-                                                    <td>@Html.DisplayNameFor(model => model.Asset.Status) :</td>
-                                                    <td>@Html.DisplayFor(model => model.Asset.Status)</td>
-                                                </div>
-                                                <div class="col">
-                                                    <td>Model :</td>
-                                                    <td>
-                                                        @foreach (var item in Model.Model)
-                                                        {
-                                                            if (Model.Asset.Model_ModelID == item.ModelID)
-                                                            {
-                                                                @Html.DisplayFor(modelItem => item.ModelName)
-                                                            }
-                                                        }
-                                                    </td>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </tr>
-                                    <tr>
-                                        <div class="card-body">
-                                            <div class="row">
-                                                <div class="col">
-                                                    <td>@Html.DisplayNameFor(model => model.Asset.PONumber) :</td>
-                                                    <td>@Html.DisplayFor(model => model.Asset.PONumber)</td>
-                                                </div>
-                                                <div class="col">
-                                                    <td>@Html.DisplayNameFor(model => model.Asset.Price) :</td>
-                                                    <td>@Html.DisplayFor(model => model.Asset.Price)</td>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </tr>
-                                    <tr>
-                                        <div class="card-body">
-                                            <div class="row">
-                                                <div class="col">
-                                                    <td>@Html.DisplayNameFor(model => model.Asset.Warranty) :</td>
-                                                    <td>@Html.DisplayFor(model => model.Asset.Warranty)</td>
-                                                </div>
-                                                <div class="col">
-                                                    <td>@Html.DisplayNameFor(model => model.Asset.Type) :</td>
-                                                    <td>@Html.DisplayFor(model => model.Asset.Type)</td>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </tr>
-                                    <tr>
-                                        <div class="card-body">
-                                            <div class="row">
-                                                <div class="col">
-                                                    <td></td>
-                                                    <td></td>
-
-                                                </div>
-                                                <div class="col">
-                                                    <td></td>
-                                                    <td></td>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-9">
+            <h2>Asset Detail</h2>
+            <div class=" col-md-12 col-lg-12 ">
+                <div class="card " style="margin-top:1%">
+                    <div class="card-header" style="font-weight:bold;color:darkblue;">
+                        Detail
                     </div>
-                    
-                    <div class="card " style="margin-top:-4%">
-                        <div class="card-header" style="font-weight:bold;color:darkblue;">
-                            Model
-                        </div>
-                        <div class="card-body">
-                            <table class="table table-user-information" style="margin-top:-16%;margin-bottom:2%">
-                                <tbody>
-                                    <tr>
-                                        <div class="card-body">
-                                            <div class="row">
-                                                <div class="col">
-                                                    <td>Supplier :</td>
-                                                    <td>
-                                                        @foreach (var item in Model.Supplier)
-                                                        {
-                                                            if (Model.Asset.Supplier_SupplierID == item.SupplierID)
-                                                            {
-                                                                @Html.DisplayFor(modelItem => item.SupplierName)
-                                                            }
-                                                        }
-                                                    </td>
-                                                </div>
-                                                <div class="col">
-                                                    <td>Company :</td>
-                                                    <td>
-                                                        @foreach (var item in Model.Company)
-                                                        {
-                                                            if (Model.Asset.Company_CompanyID == item.CompanyID)
-                                                            {
-                                                                @Html.DisplayFor(modelItem => item.CompanyName)
-                                                            }
-                                                        }
-                                                    </td>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </tr>
-                                    <tr>
-                                        <div class="card-body">
-                                            <div class="row">
-                                                <div class="col">
-                                                    <td>Location :</td>
-                                                    <td>
-                                                        @foreach (var item in Model.Location)
-                                                        {
-                                                            if (Model.Asset.Location_LocationID == item.LocationID)
-                                                            {
-                                                                @Html.DisplayFor(modelItem => item.LocationName)
-                                                            }
-                                                        }
-                                                    </td>
-                                                </div>
-                                                <div class="col">
-                                                    <td>Department :</td>
-                                                    <td>
-                                                        @foreach (var item in Model.Department)
-                                                        {
-                                                            if (Model.Asset.Department_DepartmentID == item.DepartmentID)
-                                                            {
-                                                                @Html.DisplayFor(modelItem => item.DepartmentName)
-                                                            }
-                                                        }
-                                                    </td>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </tr>
-                                    <tr>
-                                        <div class="card-body">
-                                            <div class="row">
-                                                <div class="col">
-                                                    <td></td>
-                                                    <td></td>
-
-                                                </div>
-                                                <div class="col">
-                                                    <td></td>
-                                                    <td></td>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-
-                    <div class="card " style="margin-top:-4%">
-                        <div class="card-header" style="font-weight:bold;color:darkblue;">
-                            Date
-                        </div>
-                        <div class="card-body">
-                            <table class="table table-user-information" style="margin-top:-16%;margin-bottom:-3%">
-                                <tbody>
-                                    <tr>
-                                        <div class="card-body">
-                                            <div class="row">
-                                                <div class="col">
-                                                    <td>@Html.DisplayNameFor(model => model.Asset.InstallDate) :</td>
-                                                    <td>@Html.DisplayFor(model => model.Asset.InstallDate)</td>
-
-                                                </div>
-                                                <div class="col">
-                                                    <td>@Html.DisplayNameFor(model => model.Asset.PurchaseDate) :</td>
-                                                    <td>@Html.DisplayFor(model => model.Asset.PurchaseDate)</td>
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </tr>
-                                    <tr>
-                                        <div class="card-body">
-                                            <div class="row">
-                                                <div class="col">
-                                                    <td>@Html.DisplayNameFor(model => model.Asset.ExpireDate) :</td>
-                                                    <td>@Html.DisplayFor(model => model.Asset.ExpireDate)</td>
-
-                                                </div>
-                                                <div class="col">
-                                                    <td></td>
-                                                    <td></td>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </tr>
-                                    <tr>
-                                        <div class="card-body">
-                                            <div class="row">
-                                                <div class="col">
-                                                    <td></td>
-                                                    <td></td>
-
-                                                </div>
-                                                <div class="col">
-                                                    <td></td>
-                                                    <td></td>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <h2></h2>
-                <div class="col-md-3 col-lg-3 " align="center">
-                    <img src="~/uploads/@Html.DisplayFor(model => model.Asset.Image)" width="200px" height="220px" />
-
-                </div>
-
-            </div>
-        </div>
-
-        <div>
-            <a asp-page="./Edit" asp-route-id="@Model.Asset.AssetID">Edit</a> |
-            <a asp-page="./Index">Back to List</a>
-        </div>
-        <ul class="nav nav-tabs" id="myTab" role="tablist">
-            <li class="nav-item">
-                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Join</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">History Update</a>
-            </li>
-        </ul>
-        <div class="tab-content" id="myTabContent">
-            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                <div class="card-body">
-                    <div class="table-responsive">
-                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="3">
-                            <thead>
-                                <tr>
-                                    <th>
-                                        Name
-                                    </th>
-                                    <th>
-                                        Time
-                                    </th>
-
-                                    <th>
-                                        User
-                                    </th>
-                                    <th>
-                                        date
-                                    </th>
-
-                                    <th>
-                                        Edit
-                                    </th>
-                                    <th>
-                                        Details
-                                    </th>
-                                    <th>
-                                        Delete
-                                    </th>
-                                </tr>
-                            </thead>
+                    <div class="card-body">
+                        <table class="table table-user-information" style="margin-top:-33%">
                             <tbody>
                                 <tr>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col">
+                                                <td>@Html.DisplayNameFor(model => model.Asset.AssetName) :</td>
+                                                <td> @Html.DisplayFor(model => model.Asset.AssetName)</td>
+                                            </div>
+                                            <div class="col">
+                                                <td>@Html.DisplayNameFor(model => model.Asset.SerailNumber) :</td>
+                                                <td>@Html.DisplayFor(model => model.Asset.SerailNumber)</td>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </tr>
+                                <tr>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col">
+                                                <td>@Html.DisplayNameFor(model => model.Asset.MACAddr) :</td>
+                                                <td> @Html.DisplayFor(model => model.Asset.MACAddr)</td>
+                                            </div>
+                                            <div class="col">
+                                                <td>@Html.DisplayNameFor(model => model.Asset.PONumber) :</td>
+                                                <td>@Html.DisplayFor(model => model.Asset.PONumber)</td>
 
+                                            </div>
+                                        </div>
+                                    </div>
+                                </tr>
+                                <tr>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col">
+                                                <td>@Html.DisplayNameFor(model => model.Asset.Status) :</td>
+                                                <td>@Html.DisplayFor(model => model.Asset.Status)</td>
+                                            </div>
+                                            <div class="col">
+                                                <td>Model :</td>
+                                                <td>
+                                                    @foreach (var item in Model.Model)
+                                                    {
+                                                        if (Model.Asset.Model_ModelID == item.ModelID)
+                                                        {
+                                                            @Html.DisplayFor(modelItem => item.ModelName)
+                                                        }
+                                                    }
+                                                </td>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </tr>
+                                <tr>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col">
+                                                <td>@Html.DisplayNameFor(model => model.Asset.PONumber) :</td>
+                                                <td>@Html.DisplayFor(model => model.Asset.PONumber)</td>
+                                            </div>
+                                            <div class="col">
+                                                <td>@Html.DisplayNameFor(model => model.Asset.Price) :</td>
+                                                <td>@Html.DisplayFor(model => model.Asset.Price)</td>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </tr>
+                                <tr>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col">
+                                                <td>@Html.DisplayNameFor(model => model.Asset.Warranty) :</td>
+                                                <td>@Html.DisplayFor(model => model.Asset.Warranty)</td>
+                                            </div>
+                                            <div class="col">
+                                                <td>@Html.DisplayNameFor(model => model.Asset.Type) :</td>
+                                                <td>@Html.DisplayFor(model => model.Asset.Type)</td>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </tr>
+                                <tr>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col">
+                                                <td></td>
+                                                <td></td>
+
+                                            </div>
+                                            <div class="col">
+                                                <td></td>
+                                                <td></td>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="card " style="margin-top:-4%">
+                    <div class="card-header" style="font-weight:bold;color:darkblue;">
+                        Model
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-user-information" style="margin-top:-16%;margin-bottom:2%">
+                            <tbody>
+                                <tr>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col">
+                                                <td>Supplier :</td>
+                                                <td>
+                                                    @foreach (var item in Model.Supplier)
+                                                    {
+                                                        if (Model.Asset.Supplier_SupplierID == item.SupplierID)
+                                                        {
+                                                            @Html.DisplayFor(modelItem => item.SupplierName)
+                                                        }
+                                                    }
+                                                </td>
+                                            </div>
+                                            <div class="col">
+                                                <td>Company :</td>
+                                                <td>
+                                                    @foreach (var item in Model.Company)
+                                                    {
+                                                        if (Model.Asset.Company_CompanyID == item.CompanyID)
+                                                        {
+                                                            @Html.DisplayFor(modelItem => item.CompanyName)
+                                                        }
+                                                    }
+                                                </td>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </tr>
+                                <tr>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col">
+                                                <td>Location :</td>
+                                                <td>
+                                                    @foreach (var item in Model.Location)
+                                                    {
+                                                        if (Model.Asset.Location_LocationID == item.LocationID)
+                                                        {
+                                                            @Html.DisplayFor(modelItem => item.LocationName)
+                                                        }
+                                                    }
+                                                </td>
+                                            </div>
+                                            <div class="col">
+                                                <td>Department :</td>
+                                                <td>
+                                                    @foreach (var item in Model.Department)
+                                                    {
+                                                        if (Model.Asset.Department_DepartmentID == item.DepartmentID)
+                                                        {
+                                                            @Html.DisplayFor(modelItem => item.DepartmentName)
+                                                        }
+                                                    }
+                                                </td>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </tr>
+                                <tr>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col">
+                                                <td></td>
+                                                <td></td>
+
+                                            </div>
+                                            <div class="col">
+                                                <td></td>
+                                                <td></td>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="card " style="margin-top:-4%">
+                    <div class="card-header" style="font-weight:bold;color:darkblue;">
+                        Date
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-user-information" style="margin-top:-16%;margin-bottom:-3%">
+                            <tbody>
+                                <tr>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col">
+                                                <td>@Html.DisplayNameFor(model => model.Asset.InstallDate) :</td>
+                                                <td>@Html.DisplayFor(model => model.Asset.InstallDate)</td>
+
+                                            </div>
+                                            <div class="col">
+                                                <td>@Html.DisplayNameFor(model => model.Asset.PurchaseDate) :</td>
+                                                <td>@Html.DisplayFor(model => model.Asset.PurchaseDate)</td>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </tr>
+                                <tr>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col">
+                                                <td>@Html.DisplayNameFor(model => model.Asset.ExpireDate) :</td>
+                                                <td>@Html.DisplayFor(model => model.Asset.ExpireDate)</td>
+
+                                            </div>
+                                            <div class="col">
+                                                <td></td>
+                                                <td></td>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </tr>
+                                <tr>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col">
+                                                <td></td>
+                                                <td></td>
+
+                                            </div>
+                                            <div class="col">
+                                                <td></td>
+                                                <td></td>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
                 </div>
             </div>
-            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+        </div>
+        <div class="col-md-3">
+            <h2></h2>
+            <div class="col-md-3 col-lg-3 " align="center">
+                <img src="~/uploads/@Html.DisplayFor(model => model.Asset.Image)" width="200px" height="220px" />
 
             </div>
+
         </div>
+    </div>
+
+    <div>
+        <a asp-page="./Edit" asp-route-id="@Model.Asset.AssetID">Edit</a> |
+        <a asp-page="./Index">Back to List</a>
+    </div>
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item">
+            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Join</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">History Update</a>
+        </li>
+    </ul>
+    <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="3">
+                        <thead>
+                            <tr>
+                                <th>
+                                    AssetName
+                                </th>
+                                <th>
+                                    Asset
+                                </th>
+
+                                <th>
+                                    Status
+                                </th>
+                                <th>
+                                    Asset
+                                </th>
+                                <th>
+                                    Edit
+                                </th>
+                                <th>
+                                    Delete
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.Join_Asset_Emp)
+                            {
+                                if (Model.Asset.AssetID == item.Asset_AssetID)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(model => model.Asset.AssetName)
+                                        </td>
+                                        <td>
+                                            @foreach (var item1 in Model.Employee)
+                                            {
+                                                if (item.Employee_EmployeeID == item1.EmployeeID)
+                                                {
+                                                    @Html.DisplayFor(modelItem => item1.FirstName)
+                                                }
+                                            }
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Status)
+                                        </td>
+                                        <td width="100px">
+                                            <a asp-page="../Employees/Details" asp-route-id="@item.Employee_EmployeeID">Details</a>
+                                        </td>
+                                        <td width="100px">
+                                            <a asp-page="../JoinAsset_Emp/Edit" asp-route-id="@item.JoinAsEmpID">Edit</a>
+                                        </td>
+                                        <td width="100px">
+                                            <a asp-page="../JoinAsset_Emp/Delete" asp-route-id="@item.JoinAsEmpID">Delete</a>
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                            @foreach (var item in Model.Join_Asset_Asset)
+                            {
+                                if (Model.Asset.AssetID == item.Asset_AssetID)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(model => model.Asset.AssetName)
+                                        </td>
+                                        <td>
+                                            @foreach (var item1 in Model.Asset1)
+                                            {
+                                                if (item.Asset_AssetID == item1.AssetID)
+                                                {
+                                                    @Html.DisplayFor(modelItem => item1.AssetName)
+                                                }
+                                            }
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Status)
+                                        </td>
+                                        <td width="100px">
+                                            <a asp-page="../Assets/Details" asp-route-id="@item.Asset_AssetID">Details</a>
+                                        </td>
+                                        <td width="100px">
+                                            <a asp-page="../JoinAsset_Assets/Edit" asp-route-id="@item.JoinAsAsID">Edit</a>
+                                        </td>
+                                        <td width="100px">
+                                            <a asp-page="../JoinAsset_Assets/Delete" asp-route-id="@item.JoinAsAsID">Delete</a>
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                            @foreach (var item in Model.Join_License_Asset)
+                            {
+                                if (Model.Asset.AssetID == item.Asset_AssetID)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(model => model.Asset.AssetName)
+                                        </td>
+                                        <td>
+                                            @foreach (var item1 in Model.License)
+                                            {
+                                                if (item.License_LicenseID == item1.LicenseID)
+                                                {
+                                                    @Html.DisplayFor(modelItem => item1.LicenseName)
+                                                }
+                                            }
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Status)
+                                        </td>
+                                        <td width="100px">
+                                            <a asp-page="../Licenses/Details" asp-route-id="@item.License_LicenseID">Details</a>
+                                        </td>
+                                        <td width="100px">
+                                            <a asp-page="../JoinLicense_Assets/Edit" asp-route-id="@item.JoinLiAsID">Edit</a>
+                                        </td>
+                                        <td width="100px">
+                                            <a asp-page="../JoinLicense_Assets/Delete" asp-route-id="@item.JoinLiAsID">Delete</a>
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                            @foreach (var item in Model.Join_Network_Asset)
+                            {
+                                if (Model.Asset.AssetID == item.Asset_AssetID)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(model => model.Asset.AssetName)
+                                        </td>
+                                        <td>
+                                            @foreach (var item1 in Model.Network)
+                                            {
+                                                if (item.Network_NetworkID == item1.NetworkID)
+                                                {
+                                                    @Html.DisplayFor(modelItem => item1.NetworkName)
+                                                }
+                                            }
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Status)
+                                        </td>
+                                        <td width="100px">
+                                            <a asp-page="../Networks/Details" asp-route-id="@item.Network_NetworkID">Details</a>
+                                        </td>
+                                        <td width="100px">
+                                            <a asp-page="../JoinNetwork_Assets/Edit" asp-route-id="@item.JoinNetAsID">Edit</a>
+                                        </td>
+                                        <td width="100px">
+                                            <a asp-page="../JoinNetwork_Assets/Delete" asp-route-id="@item.JoinNetAsID">Delete</a>
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="3">
+                        <thead>
+                            <tr>
+                                <th>
+                                    NetworkName
+                                </th>
+                                <th>
+                                    User
+                                </th>
+
+                                <th>
+                                    UpdateDate
+                                </th>
+                                <th>
+                                    Details
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.Update_Asset)
+                            {
+                                if (Model.Asset.AssetID == item.Asset_AssetID)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(model => model.Asset.AssetName)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(model => item.Employee_EmpID)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Date)
+                                        </td>
+                                        <td width="100px">
+                                            <a asp-page="../Assets/Details" asp-route-id="@item.UpdateAssetID">Details</a>
+                                        </td>
+
+                                    </tr>
+                                }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>

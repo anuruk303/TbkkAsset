@@ -26,50 +26,66 @@
                             </button>
                         </a>
                         <!--<a class="btn btn-info" asp-page="Create">Create New</a>-->
-                        <button type="button" class="btn btn-info">Import data</button>
+                        <button class="btn btn-info" type="button" data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">Import data</button>
                     </div>
                 </div>
+
             </div>
+            <form method="post" enctype="multipart/form-data">
+                <div class="collapse multi-collapse" id="multiCollapseExample2" style="margin-top:1%;margin-left:auto">
+                    <div class="card card-body" style="margin-left:70%">
+                        <div class="input-group">
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="fUpload" name="Excel">
+                                <label class="custom-file-label" for="fUpload"></label>
+                            </div>
+                            <div class="input-group-append">
+                                <input class="btn btn-outline-info" value="Upload" type="submit" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
             <div class="card-body">
                 <div class="table-responsive">
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
-                        <th>
-                            @Html.DisplayNameFor(model => model.Asset[0].AssetName)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.Asset[0].InstallDate)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.Asset[0].ExpireDate)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.Asset[0].PONumber)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.Asset[0].Price)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.Asset[0].Type)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.Asset[0].Status)
-                        </th>
-                        <th>
-                            Company
-                        </th>
-                        <th>
-                            Location
-                        </th>
-                        <th>
-                            Department
-                        </th>
-                        <th>
-                            Supplier
-                        </th>
-                        <th>Actions</th>
-                        </tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Asset[0].AssetName)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Asset[0].InstallDate)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Asset[0].ExpireDate)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Asset[0].PONumber)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Asset[0].Price)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Asset[0].Type)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Asset[0].Status)
+                                </th>
+                                <th>
+                                    Company
+                                </th>
+                                <th>
+                                    Location
+                                </th>
+                                <th>
+                                    Department
+                                </th>
+                                <th>
+                                    Supplier
+                                </th>
+                                <th>Actions</th>
+                            </tr>
                         </thead>
                         <tbody>
                             @foreach (var item in Model.Asset)
@@ -98,16 +114,40 @@
                                         @Html.DisplayFor(modelItem => item.Status)
                                     </td>
                                     <td>
-                                        @Html.DisplayFor(modelItem => item.Company_CompanyID)
+                                        @foreach (var item1 in Model.Company)
+                                        {
+                                            if (item.Company_CompanyID == item1.CompanyID)
+                                            {
+                                                @Html.DisplayFor(modelItem => item1.CompanyName)
+                                            }
+                                        }
                                     </td>
                                     <td>
-                                        @Html.DisplayFor(modelItem => item.Location_LocationID)
+                                        @foreach (var item1 in Model.Location)
+                                        {
+                                            if (item.Company_CompanyID == item1.LocationID)
+                                            {
+                                                @Html.DisplayFor(modelItem => item1.LocationName)
+                                            }
+                                        }
                                     </td>
                                     <td>
-                                        @Html.DisplayFor(modelItem => item.Department_DepartmentID)
+                                        @foreach (var item1 in Model.Department)
+                                        {
+                                            if (item.Company_CompanyID == item1.DepartmentID)
+                                            {
+                                                @Html.DisplayFor(modelItem => item1.DepartmentName)
+                                            }
+                                        }
                                     </td>
                                     <td>
-                                        @Html.DisplayFor(modelItem => item.Supplier_SupplierID)
+                                        @foreach (var item1 in Model.Supplier)
+                                        {
+                                            if (item.Company_CompanyID == item1.SupplierID)
+                                            {
+                                                @Html.DisplayFor(modelItem => item1.SupplierName)
+                                            }
+                                        }
                                     </td>
 
                                     <td width="100px">

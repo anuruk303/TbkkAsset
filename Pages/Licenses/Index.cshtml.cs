@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
@@ -30,6 +32,52 @@ namespace tbkk_AC.Pages.Licenses
             Department = await _context.Department.ToListAsync();
             Company = await _context.Company.ToListAsync();
             License = await _context.License.ToListAsync();
+        }
+        public async Task<IActionResult> OnPostAsync(IFormFile Excel)
+        {
+            using (var reader = new StreamReader(Excel.OpenReadStream()))
+            {
+                while (!reader.EndOfStream)
+                {
+                    var line = reader.ReadLine();
+                    var values = line.Split(',');
+                    if (values[0] != null)
+                    {
+                        _context.License.AddRange(
+                                            new License
+                                            {
+                                                LicenseName = values[0],
+                                                SoftewareName = values[1],
+                                                PurchaseDate = DateTime.Parse(values[2]),
+                                                StartDate = DateTime.Parse(values[3]),
+                                                ExpireDate = DateTime.Parse(values[4]),
+                                                PONumber = values[5],
+                                                Attachfiles = values[6],
+                                                Note = values[7],
+                                                Status = "Using",
+                                                Model_ModelID = Parse(values[8]),
+                                                Supplier_SupplierID = Parse(values[9]),
+                                                Department_DepartmentID = Parse(values[10]),
+                                                Company_CompanyID = Parse(values[11])
+                                                
+                                            }
+                                            );
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
+            }
+
+            _context.SaveChanges();
+
+            return RedirectToPage("./Index");
+        }
+
+        private int Parse(string v)
+        {
+            throw new NotImplementedException();
         }
     }
 }

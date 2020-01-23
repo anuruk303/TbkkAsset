@@ -19,9 +19,14 @@ namespace tbkk_AC.Pages.Networks
         }
 
         public Network Network { get; set; }
-
+        public IList<Asset> Asset { get; set; }
+        public IList<Join_Network_Asset> Join_Network_Asset { get; set; }
+        public IList<Update_Network> Update_Network { get; set; }
         public async Task<IActionResult> OnGetAsync(int? id)
         {
+            Update_Network = await _context.Update_Network.ToListAsync();
+            Asset = await _context.Asset.ToListAsync();
+            Join_Network_Asset = await _context.Join_Network_Asset.ToListAsync();
             if (id == null)
             {
                 return NotFound();

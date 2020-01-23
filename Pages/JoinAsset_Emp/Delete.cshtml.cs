@@ -46,14 +46,14 @@ namespace tbkk_AC.Pages.JoinAsset_Emp
             }
 
             Join_Asset_Emp = await _context.Join_Asset_Emp.FindAsync(id);
-
+            Join_Asset_Emp.Status = "UNJOIN";
             if (Join_Asset_Emp != null)
             {
-                _context.Join_Asset_Emp.Remove(Join_Asset_Emp);
+                _context.Attach(Join_Asset_Emp).State = EntityState.Modified;
                 await _context.SaveChangesAsync();
             }
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("../Employees/Index");
         }
     }
 }

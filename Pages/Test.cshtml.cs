@@ -4,14 +4,26 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
+using tbkk_AC.Models;
 
 namespace tbkk_AC.Pages
 {
     public class TestModel : PageModel
     {
-        public void OnGet()
-        {
+        private readonly tbkk_AC.Models.tbkk_ACContext _context;
 
+        public TestModel(tbkk_AC.Models.tbkk_ACContext context)
+        {
+            _context = context;
+        }
+        public IList<Asset> Asset { get; set; }
+        public IList<License> License { get; set; }
+        public async Task OnGetAsync()
+        {
+            Asset = await _context.Asset.ToListAsync();
+            License = await _context.License.ToListAsync();
+           
         }
     }
 }

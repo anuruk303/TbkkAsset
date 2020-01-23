@@ -14,14 +14,11 @@
         </ol>
         <form method="post">
             <div class="card " style="margin-top:1%">
-                <div class="card-header">
+                <div class="card-header" style="font-weight:bold;color:darkblue;">
                     Create
                 </div>
                 <div class="card-body">
-
                     <div class="row">
-
-
                         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                         <div class="col">
                             <div class="form-group row">
@@ -63,7 +60,7 @@
 
             </div>
             <div class="card " style="margin-top:1%">
-                <div class="card-header">
+                <div class="card-header" style="font-weight:bold;color:darkblue;">
                     Model
                 </div>
                 <div class="card-body">
@@ -148,7 +145,7 @@
 
             </div>
             <div class="card " style="margin-top:1%">
-                <div class="card-header">
+                <div class="card-header" style="font-weight:bold;color:darkblue;">
                     Date
                 </div>
                 <div class="card-body">
@@ -188,7 +185,7 @@
 
             </div>
             <div class="card " style="margin-top:1%">
-                <div class="card-header">
+                <div class="card-header" style="font-weight:bold;color:darkblue;">
                     Note
                 </div>
                 <div class="card-body">
@@ -212,20 +209,16 @@
 
                         </div>
                     </div>
-
-
                 </div>
-
             </div>
-
             <div class="form-group row" style="float:right; margin-right:0% ; margin-top:1%">
                 <a asp-page="./Index"><button type="button" class="btn btn-link">Back to List</button></a>
-                <input style="margin-left:10px" type="submit" value="Save" class="btn btn-outline-secondary" />
+                <input style="margin-left:10px" type="submit" value="Save" class="btn btn-outline-secondary " />
             </div>
         </form>
     </div>
 </div>
 
 @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+
 

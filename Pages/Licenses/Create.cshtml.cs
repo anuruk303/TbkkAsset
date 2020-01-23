@@ -43,7 +43,6 @@ namespace tbkk_AC.Pages.Licenses
 
             _context.License.Add(License);
             await _context.SaveChangesAsync();
-
             return RedirectToPage("./Index");
         }
     }

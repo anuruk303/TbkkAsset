@@ -42,7 +42,7 @@ namespace tbkk_AC.Models
         public string Status { get; set; }
         [Required]
         [Display(Name = "Employee")]
-        public string Employee { get; set; }
+        public int Employee { get; set; }
         public int Model_ModelID { get; set; }
 
         public int Supplier_SupplierID { get; set; }

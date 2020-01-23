@@ -4,43 +4,34 @@
 @{
     ViewData["Title"] = "Delete";
 }
+<div id="content-wrapper">
+    <div class="container-fluid">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active">Asset Control</li>
+            <li class="breadcrumb-item active">Managment</li>
+            <li class="breadcrumb-item active">Join</li>
+        </ol>
+        <div class="card border-danger mb-auto">
+            <div class="card-header">Delete</div>
+            <div class="card-body text-dark" style="text-align:center">
+                <p class="card-title">Are you sure you want to delete this?</p>
+                <dl class="dl-horizontal">
+                    <dd>
+                        @Html.DisplayNameFor(model => model.Join_License_Asset.JoinLiAsID) :
+                        @Html.DisplayFor(model => model.Join_License_Asset.JoinLiAsID)
+                    </dd>
+                    <dd>
+                        @Html.DisplayNameFor(model => model.Join_License_Asset.Status) :
+                        @Html.DisplayFor(model => model.Join_License_Asset.Status)
+                    </dd>
+                </dl>
 
-<h2>Delete</h2>
-
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>Join_License_Asset</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Join_License_Asset.Note)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Join_License_Asset.Note)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Join_License_Asset.Status)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Join_License_Asset.Status)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Join_License_Asset.License)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Join_License_Asset.License.Attachfiles)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Join_License_Asset.Asset_AssetID)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Join_License_Asset.Asset_AssetID)
-        </dd>
-    </dl>
-    
-    <form method="post">
-        <input type="hidden" asp-for="Join_License_Asset.JoinLiAsID" />
-        <input type="submit" value="Delete" class="btn btn-default" /> |
-        <a asp-page="./Index">Back to List</a>
-    </form>
+                <form method="post">
+                    <input type="hidden" asp-for="Join_License_Asset.Status" />
+                    <a asp-page="./Index"><button type="button" class="btn btn-link">Back to List</button></a>
+                    <input style="margin-left:10px" type="submit" value="Delete" class="btn btn-outline-danger" />
+                </form>
+            </div>
+        </div>
+    </div>
 </div>

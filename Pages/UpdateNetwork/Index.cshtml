@@ -1,0 +1,78 @@
+﻿@page
+@model tbkk_AC.Pages.UpdateNetwork.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Update_Network[0].Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Update_Network[0].NetworkName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Update_Network[0].IpAddr)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Update_Network[0].Note)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Update_Network[0].Password)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Update_Network[0].Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Update_Network[0].Employee_EmpID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Update_Network[0].Network_NetworkID)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Update_Network) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NetworkName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IpAddr)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Note)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Password)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Employee_EmpID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Network_NetworkID)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.NetworkUpdateID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.NetworkUpdateID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.NetworkUpdateID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

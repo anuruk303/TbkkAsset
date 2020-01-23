@@ -285,24 +285,20 @@
                         <thead>
                             <tr>
                                 <th>
-                                    Name
+                                    EmployeeName
                                 </th>
                                 <th>
-                                    Time
+                                    AssetName
                                 </th>
 
                                 <th>
-                                    User
+                                    Status
                                 </th>
                                 <th>
-                                    date
+                                    Asset
                                 </th>
-
                                 <th>
                                     Edit
-                                </th>
-                                <th>
-                                    Details
                                 </th>
                                 <th>
                                     Delete
@@ -310,9 +306,38 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                            </tr>
-
+                            @foreach (var item in Model.Join_Asset_Emp)
+                            {
+                                if (Model.Employee.EmployeeID == item.Employee_EmployeeID)
+                                {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(model => model.Employee.FirstName)
+                                    </td>
+                                    <td>
+                                        @foreach (var item1 in Model.Asset)
+                            {
+                                if (item.Asset_AssetID == item1.AssetID)
+                                {
+                                                @Html.DisplayFor(modelItem => item1.AssetName)
+                                }
+                            }
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Status)
+                                    </td>
+                                    <td width="100px">
+                                        <a asp-page="../Assets/Details" asp-route-id="@item.Asset_AssetID">Details</a>
+                                    </td>
+                                    <td width="100px">
+                                        <a asp-page="../JoinAsset_Emp/Edit" asp-route-id="@item.JoinAsEmpID">Edit</a>
+                                    </td>
+                                    <td width="100px">
+                                        <a asp-page="../JoinAsset_Emp/Delete" asp-route-id="@item.JoinAsEmpID">Delete</a>
+                                    </td>
+                                </tr>
+                                }
+                            }
                         </tbody>
                     </table>
                 </div>

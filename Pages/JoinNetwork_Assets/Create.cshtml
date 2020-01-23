@@ -37,7 +37,7 @@
                         </div>
                     </div>
                     <div class="col">
-                        <label class="col-sm-0 col-form-label" asp-for="Join_Network_Asset.Network_NetworkID"></label>
+                        <label class="col-sm-0 col-form-label" asp-for="Join_Network_Asset.Network_NetworkID">Network</label>
                         <input class="form-control" placeholder="NetworkID" asp-for="Join_Network_Asset.Network_NetworkID" id="Net" />
                         <span class="text-danger" asp-validation-for="Join_Network_Asset.Network_NetworkID"></span>
                     </div>
@@ -200,7 +200,7 @@
         document.getElementById("Asset").value = Ass
     }
     function select2(Net) {
-        document.getElementById("lic").value = Net
+        document.getElementById("Net").value = Net
     }
 
     </script>
@@ -208,40 +208,3 @@
     @section Scripts {
         @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
     }
-
-    <h2>Create</h2>
-
-    <h4>Join_Network_Asset</h4>
-    <hr />
-    <div class="row">
-        <div class="col-md-4">
-            <form method="post">
-                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                <div class="form-group">
-                    <label asp-for="Join_Network_Asset.Note" class="control-label"></label>
-                    <input asp-for="Join_Network_Asset.Note" class="form-control" />
-                    <span asp-validation-for="Join_Network_Asset.Note" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Join_Network_Asset.Status" class="control-label"></label>
-                    <input asp-for="Join_Network_Asset.Status" class="form-control" />
-                    <span asp-validation-for="Join_Network_Asset.Status" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Join_Network_Asset.Network_NetworkID" class="control-label"></label>
-                    <select asp-for="Join_Network_Asset.Network_NetworkID" class="form-control" asp-items="ViewBag.Network_NetworkID"></select>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Join_Network_Asset.Asset_AssetID" class="control-label"></label>
-                    <select asp-for="Join_Network_Asset.Asset_AssetID" class="form-control" asp-items="ViewBag.Asset_AssetID"></select>
-                </div>
-                <div class="form-group">
-                    <input type="submit" value="Create" class="btn btn-default" />
-                </div>
-            </form>
-        </div>
-    </div>
-
-    <div>
-        <a asp-page="Index">Back to List</a>
-    </div>

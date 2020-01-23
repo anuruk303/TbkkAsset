@@ -46,51 +46,89 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>
-                                    Licenses001
-                                </td>
-                                <td>
-                                    Adoby.....
-                                </td>
-                                <td>
-                                    01-Jan-18 12:00:00 AM
-                                </td>
-                                <td>
-                                    01-Jan-20 12:00:00 AM
-                                </td>
-                                <td>
-                                    <h4><span class="badge badge-warning">Expiring</span></h4>
-                                </td>
-                                <td width="100px">
-                                    <a asp-page="./Edit">Edit</a> 
-                                </td>
-                            </tr>
+                            @foreach (var item in Model.License)
+                            {
+                                if (item.Status.Equals("Using"))
+                                {
+                                    if (item.ExpireDate < DateTime.Now.AddMonths(+1) || item.ExpireDate < DateTime.Now)
+                                    {
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.LicenseID)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.LicenseName)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.StartDate)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.ExpireDate)
+                                            </td>
 
-                        </tbody>
-                        <tbody>
-                            <tr>
-                                <td>
-                                    Licenses002
-                                </td>
-                                <td>
-                                    Adoby.....
-                                </td>
-                                <td>
-                                    01-Jan-18 12:00:00 AM
-                                </td>
-                                <td>
-                                    01-Jan-2018 12:00:00 AM
-                                </td>
-                                <td>
-                                    
-                                    <h4><span class="badge badge-danger">Expired</span></h4>
-                                </td>
-                                <td width="100px">
-                                    <a asp-page="./Edit">Edit</a> 
-                                </td>
-                            </tr>
-
+                                            <td>
+                                                @if (item.ExpireDate < DateTime.Now.AddMonths(+1)&&item.ExpireDate > DateTime.Now)
+                                                {
+                                                    <h4>
+                                                        <span class="badge badge-warning">Expiring</span>
+                                                    </h4>
+                                                }
+                                                else
+                                                {
+                                                    <h4>
+                                                        <span class="badge badge-danger">Expired</span>
+                                                    </h4>
+                                                }
+                                            </td>
+                                            <td width="100px">
+                                                <a asp-page="./Licenses/Edit" asp-route-id="@item.LicenseID">Edit</a> |
+                                                <a asp-page="./Licenses/Delete" asp-route-id="@item.LicenseID">Delete</a>
+                                            </td>
+                                        </tr>
+                                    }
+                                }
+                            }
+                            @foreach (var item in Model.Asset)
+                            {
+                                if (item.Status.Equals("Using"))
+                                {
+                                    if (item.ExpireDate < DateTime.Now.AddMonths(+1) || item.ExpireDate < DateTime.Now)
+                                    {
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.AssetID)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.AssetName)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.InstallDate)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.ExpireDate)
+                                            </td>
+                                            <td>
+                                                @if (item.ExpireDate < DateTime.Now.AddMonths(+1)&&item.ExpireDate > DateTime.Now)
+                                                {
+                                                    <h4>
+                                                        <span class="badge badge-warning">Expiring</span>
+                                                    </h4>
+                                                }
+                                                else
+                                                {
+                                                    <h4>
+                                                        <span class="badge badge-danger">Expired</span>
+                                                    </h4>
+                                                }
+                                            </td>
+                                            <td width="100px">
+                                                <a asp-page="./Assets/Edit" asp-route-id="@item.AssetID">Edit</a> |
+                                                <a asp-page="./Assets/Delete" asp-route-id="@item.AssetID">Delete</a>
+                                            </td>
+                                        </tr>
+                                    }
+                                }
+                            }
                         </tbody>
                     </table>
                 </div>

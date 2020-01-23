@@ -24,10 +24,26 @@
                     <div style="float: right">
                         <a asp-page="Create"><button type="button" class="btn btn-primary">Create</button></a>
 
-                        <button type="button" class="btn btn-info">Import data</button>
+                        <button class="btn btn-info" type="button" data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">Import data</button>
                     </div>
                 </div>
+
             </div>
+            <form method="post" enctype="multipart/form-data">
+                <div class="collapse multi-collapse" id="multiCollapseExample2" style="margin-top:1%;margin-left:auto">
+                    <div class="card card-body" style="margin-left:70%">
+                        <div class="input-group">
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="fUpload" name="Excel">
+                                <label class="custom-file-label" for="fUpload"></label>
+                            </div>
+                            <div class="input-group-append">
+                                <input class="btn btn-outline-info" value="Upload" type="submit" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
             <div class="card-body">
                 <div class="table-responsive">
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="3">
@@ -64,65 +80,65 @@
                             @foreach (var item in Model.License)
                             {
                                 if (item.Status.Equals("Using"))
-                                    {
-                            <tr>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.LicenseName)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.SoftewareName)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.ExpireDate)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.PONumber)
-                                </td>
-                                <td>
-                                    @foreach (var item1 in Model.Model)
-                                        {
-                                            if (item.Model_ModelID==item1.ModelID)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.LicenseName)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.SoftewareName)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.ExpireDate)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.PONumber)
+                                        </td>
+                                        <td>
+                                            @foreach (var item1 in Model.Model)
                                             {
-                                    @Html.DisplayFor(modelItem => item1.ModelName)
+                                                if (item.Model_ModelID == item1.ModelID)
+                                                {
+                                                    @Html.DisplayFor(modelItem => item1.ModelName)
+                                                }
                                             }
-                                        }
-                                </td>
-                                <td>
-                                    @foreach (var item1 in Model.Supplier)
-                                        {
-                                            if (item.Supplier_SupplierID == item1.SupplierID)
+                                        </td>
+                                        <td>
+                                            @foreach (var item1 in Model.Supplier)
                                             {
-                                    @Html.DisplayFor(modelItem => item1.SupplierName)
+                                                if (item.Supplier_SupplierID == item1.SupplierID)
+                                                {
+                                                    @Html.DisplayFor(modelItem => item1.SupplierName)
+                                                }
                                             }
-                                        }
 
-                                </td>
-                                <td>
-                                    @foreach (var item1 in Model.Department)
-                                        {
-                                            if (item.Department_DepartmentID == item1.DepartmentID)
+                                        </td>
+                                        <td>
+                                            @foreach (var item1 in Model.Department)
                                             {
-                                    @Html.DisplayFor(modelItem => item1.DepartmentName)
+                                                if (item.Department_DepartmentID == item1.DepartmentID)
+                                                {
+                                                    @Html.DisplayFor(modelItem => item1.DepartmentName)
+                                                }
                                             }
-                                        }
-                                </td>
-                                <td>
-                                    @foreach (var item1 in Model.Company)
-                                        {
-                                            if (item.Company_CompanyID == item1.CompanyID)
+                                        </td>
+                                        <td>
+                                            @foreach (var item1 in Model.Company)
                                             {
-                                    @Html.DisplayFor(modelItem => item1.CompanyName)
+                                                if (item.Company_CompanyID == item1.CompanyID)
+                                                {
+                                                    @Html.DisplayFor(modelItem => item1.CompanyName)
+                                                }
                                             }
-                                        }
 
-                                </td>
-                                <td width="100px">
-                                    <a asp-page="./Details" asp-route-id="@item.LicenseID">Details</a> |
-                                    <a asp-page="./UpdateCreate" asp-route-id="@item.LicenseID">Edit</a> |
-                                    <a asp-page="./Delete" asp-route-id="@item.LicenseID">Delete</a>
-                                </td>
-                            </tr>
-                            }
+                                        </td>
+                                        <td width="100px">
+                                            <a asp-page="./Details" asp-route-id="@item.LicenseID">Details</a> |
+                                            <a asp-page="./Edit" asp-route-id="@item.LicenseID">Edit</a> |
+                                            <a asp-page="./Delete" asp-route-id="@item.LicenseID">Delete</a>
+                                        </td>
+                                    </tr>
+                                }
                             }
                         </tbody>
                     </table>

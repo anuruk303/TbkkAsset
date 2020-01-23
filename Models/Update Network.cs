@@ -13,7 +13,10 @@ namespace tbkk_AC.Models
         public int NetworkUpdateID { get; set; }
         [Required]
         [Display(Name = "Date")]
-        public string Date { get; set; }
+        public DateTime Date { get; set; }
+        [Required]
+        [Display(Name = "NetworkName")]
+        public string NetworkName { get; set; }
         [Required]
         [Display(Name = "IpAddr")]
         public string IpAddr { get; set; }

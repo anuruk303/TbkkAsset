@@ -15,7 +15,7 @@ namespace tbkk_AC.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.1.11-servicing-32099")
+                .HasAnnotation("ProductVersion", "2.1.14-servicing-32113")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -499,6 +499,8 @@ namespace tbkk_AC.Migrations
 
                     b.Property<int>("Company_CompanyID");
 
+                    b.Property<DateTime>("Date");
+
                     b.Property<int>("Department_DepartmentID");
 
                     b.Property<int>("Employee_EmpID");
@@ -508,8 +510,7 @@ namespace tbkk_AC.Migrations
                     b.Property<string>("Image")
                         .IsRequired();
 
-                    b.Property<string>("InstallDate")
-                        .IsRequired();
+                    b.Property<DateTime>("InstallDate");
 
                     b.Property<int>("Location_LocationID");
 
@@ -518,9 +519,14 @@ namespace tbkk_AC.Migrations
 
                     b.Property<int>("Model_ModelID");
 
-                    b.Property<DateTime>("PONumber");
+                    b.Property<string>("Note")
+                        .IsRequired();
 
-                    b.Property<double>("Price");
+                    b.Property<string>("PONumber")
+                        .IsRequired();
+
+                    b.Property<string>("Price")
+                        .IsRequired();
 
                     b.Property<DateTime>("PurchaseDate");
 
@@ -557,8 +563,7 @@ namespace tbkk_AC.Migrations
 
                     b.Property<int>("Department_DepartmentID");
 
-                    b.Property<string>("Employee")
-                        .IsRequired();
+                    b.Property<int>("Employee");
 
                     b.Property<DateTime>("ExpireDate");
 
@@ -598,8 +603,7 @@ namespace tbkk_AC.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Date")
-                        .IsRequired();
+                    b.Property<DateTime>("Date");
 
                     b.Property<int?>("EmployeeID");
 
@@ -609,6 +613,9 @@ namespace tbkk_AC.Migrations
                         .IsRequired();
 
                     b.Property<int?>("NetworkID");
+
+                    b.Property<string>("NetworkName")
+                        .IsRequired();
 
                     b.Property<int>("Network_NetworkID");
 

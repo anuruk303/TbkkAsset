@@ -24,6 +24,8 @@ namespace tbkk_AC.Pages.Employees
         public IList<EmployeeType> EmployeeType { get; set; }
         public IList<Location> Location { get; set; }
         public IList<Position> Position { get; set; }
+        public IList<Join_Asset_Emp> Join_Asset_Emp { get; set; }
+        public IList<Asset> Asset { get; set; }
         public async Task<IActionResult> OnGetAsync(int? id)
         {
             Company = await _context.Company.ToListAsync();
@@ -31,6 +33,8 @@ namespace tbkk_AC.Pages.Employees
             EmployeeType = await _context.EmployeeType.ToListAsync();
             Location = await _context.Location.ToListAsync();
             Position = await _context.Position.ToListAsync();
+            Join_Asset_Emp = await _context.Join_Asset_Emp.ToListAsync();
+            Asset = await _context.Asset.ToListAsync();
             if (id == null)
             {
                 return NotFound();

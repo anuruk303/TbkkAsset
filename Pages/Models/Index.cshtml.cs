@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
@@ -25,6 +27,43 @@ namespace tbkk_AC.Pages.Models
             Model = await _context.Model
                 .Include(m => m.Brand)
                 .Include(m => m.Category).ToListAsync();
+        }
+        public async Task<IActionResult> OnPostAsync(IFormFile Excel)
+        {
+            using (var reader = new StreamReader(Excel.OpenReadStream()))
+            {
+                while (!reader.EndOfStream)
+                {
+                    var line = reader.ReadLine();
+                    var values = line.Split(',');
+                    if (values[0] != null)
+                    {
+                        _context.Model.AddRange(
+                                            new Model
+                                            {
+                                                ModelName = values[0],
+                                                Note = values[1],
+                                                Status = "Using",
+                                                Brand_BrandID = Parse(values[2]),
+                                                Category_CategoryID = Parse(values[3])
+                                            }
+                                            );
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
+            }
+
+            _context.SaveChanges();
+
+            return RedirectToPage("./Index");
+        }
+
+        private int Parse(string v)
+        {
+            throw new NotImplementedException();
         }
     }
 }

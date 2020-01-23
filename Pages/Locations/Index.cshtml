@@ -13,7 +13,8 @@
             <li class="breadcrumb-item active">Managment</li>
             <li class="breadcrumb-item active">Locations</li>
         </ol>
-        <!-- DataTables Example -->
+       
+            <!-- DataTables Example -->
         <div class="card mb-3">
             <div class="card-header">
                 <div class="dataTable_length">
@@ -21,56 +22,75 @@
                     <div style="float: right">
                         <a asp-page="Create">
                             <button type="button" class="btn btn-primary brands-modal">
-
                                 Create
                             </button>
                         </a>
-                        <!--<a class="btn btn-info" asp-page="Create">Create New</a>-->
-                        <button type="button" class="btn btn-info">Import data</button>
+                        <button class="btn btn-info" type="button" data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">Import data</button>
                     </div>
                 </div>
-            </div>
-            <div class="card-body">
-                <div class="table-responsive">
-                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                        <thead>
-                            <tr>
-                                <th>
-                                    @Html.DisplayNameFor(model => model.Location[0].LocationName)
-                                </th>
-                                <th>
-                                    @Html.DisplayNameFor(model => model.Location[0].Note)
-                                </th>
-                                <th>Actions</th>
 
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach (var item in Model.Location)
-                            {
-                                if (item.Status.Equals("Using"))
-                                {
-                                    <tr>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.LocationName)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.Note)
-                                        </td>
-                                        <td width="100px">
-                                            <a asp-page="./Edit" asp-route-id="@item.LocationID">Edit</a> |
-                                            <a asp-page="./Delete" asp-route-id="@item.LocationID">Delete</a>
-                                        </td>
-                                    </tr>
-                                }
-                            }
-                        </tbody>
-                    </table>
+            </div> 
+            <form method="post" enctype="multipart/form-data">
+                <div class="collapse multi-collapse" id="multiCollapseExample2" style="margin-top:1%;margin-left:auto">
+                    <div class="card card-body" style="margin-left:70%">
+                        <div class="input-group">
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="fUpload" name="Excel">
+                                <label class="custom-file-label" for="fUpload"></label>
+                            </div>
+                            <div class="input-group-append">
+                                <input class="btn btn-outline-info" value="Upload" type="submit"/>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
+            </form>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Location[0].LocationName)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Location[0].Note)
+                                    </th>
+                                    <th>Actions</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model.Location)
+                                {
+                                    if (item.Status.Equals("Using"))
+                                    {
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.LocationName)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Note)
+                                            </td>
+                                            <td width="100px">
+                                                <a asp-page="./Edit" asp-route-id="@item.LocationID">Edit</a> |
+                                                <a asp-page="./Delete" asp-route-id="@item.LocationID">Delete</a>
+                                            </td>
+                                        </tr>
+                                    }
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
         </div>
+       
     </div>
 </div>
 
+<script type="text/javascript">
+    function run() {
+        document.getElementById("Excel").innerHTML = document.getElementById("fUpload").value;
+    }
 
-
+</script>
