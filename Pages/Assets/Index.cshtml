@@ -125,7 +125,7 @@
                                     <td>
                                         @foreach (var item1 in Model.Location)
                                         {
-                                            if (item.Company_CompanyID == item1.LocationID)
+                                            if (item.Location_LocationID == item1.LocationID)
                                             {
                                                 @Html.DisplayFor(modelItem => item1.LocationName)
                                             }
@@ -134,7 +134,7 @@
                                     <td>
                                         @foreach (var item1 in Model.Department)
                                         {
-                                            if (item.Company_CompanyID == item1.DepartmentID)
+                                            if (item.Department_DepartmentID == item1.DepartmentID)
                                             {
                                                 @Html.DisplayFor(modelItem => item1.DepartmentName)
                                             }
@@ -143,7 +143,7 @@
                                     <td>
                                         @foreach (var item1 in Model.Supplier)
                                         {
-                                            if (item.Company_CompanyID == item1.SupplierID)
+                                            if (item.Supplier_SupplierID == item1.SupplierID)
                                             {
                                                 @Html.DisplayFor(modelItem => item1.SupplierName)
                                             }

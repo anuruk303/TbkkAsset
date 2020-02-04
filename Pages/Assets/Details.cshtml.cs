@@ -32,10 +32,8 @@ namespace tbkk_AC.Pages.Assets
         public IList<Employee> Employee { get; set; }
         public IList<Network> Network { get; set; }
         public IList<Asset> Asset1 { get; set; }
-        public IList<Update_Asset> Update_Asset { get; set; }
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            Update_Asset =  await _context.Update_Asset.ToListAsync();
             License = await _context.License.ToListAsync();
             Employee = await _context.Employee.ToListAsync();
             Network = await _context.Network.ToListAsync();

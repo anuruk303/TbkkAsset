@@ -58,16 +58,16 @@ namespace tbkk_AC.Pages.Assets
                                                 ExpireDate = DateTime.Parse(values[5]),
                                                 PONumber = values[6],
                                                 Price = values[7],
-                                                Warranty = Parse(values[8]),
+                                                Warranty = Int32.Parse(values[8]),
                                                 Type = values[9],
                                                 Note = values[10],
                                                 Status = "Using",
                                                 Image = values[11],
-                                                Company_CompanyID = Parse(values[12]),
-                                                Location_LocationID = Parse(values[13]),
-                                                Department_DepartmentID = Parse(values[14]),
-                                                Supplier_SupplierID = Parse(values[15]),
-                                                Model_ModelID = Parse(values[16]),
+                                                Company_CompanyID = Int32.Parse(values[12]),
+                                                Location_LocationID = Int32.Parse(values[13]),
+                                                Department_DepartmentID = Int32.Parse(values[14]),
+                                                Supplier_SupplierID = Int32.Parse(values[15]),
+                                                Model_ModelID = Int32.Parse(values[16])
 
                                             }
                                             );

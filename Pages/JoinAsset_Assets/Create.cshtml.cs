@@ -19,15 +19,19 @@ namespace tbkk_AC.Pages.JoinAsset_Assets
             _context = context;
         }
 
-        public async Task<IActionResult> OnGetAsync()
+        public async Task<IActionResult> OnGetAsync(int id)
         {
+
             Asset = await _context.Asset.ToListAsync();
+            ID = id;
             return Page();
         }
 
         [BindProperty]
         public Join_Asset_Asset Join_Asset_Asset { get; set; }
         public IList<Asset> Asset { get; set; }
+        public int ID { get; set; }
+
         public async Task<IActionResult> OnPostAsync()
         {
             if (!ModelState.IsValid)
@@ -38,7 +42,7 @@ namespace tbkk_AC.Pages.JoinAsset_Assets
             _context.Join_Asset_Asset.Add(Join_Asset_Asset);
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("./Create");
+            return RedirectToPage();
         }
     }
 }

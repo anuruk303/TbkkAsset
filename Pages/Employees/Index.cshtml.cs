@@ -54,11 +54,11 @@ namespace tbkk_AC.Pages.Employees
                                                 Addr = values[8],
                                                 Date = DateTime.Parse(values[9]),
                                                 Status = "Using",
-                                                Company_CompanyID = Parse(values[10]),
-                                                Department_DepartmentID = Parse(values[11]),
-                                                Location_LocationID = Parse(values[12]),
-                                                EmployeeType_EmployeeTypeID = Parse(values[13]),
-                                                Position_PositionID = Parse(values[14])
+                                                Company_CompanyID = Int32.Parse(values[10]),
+                                                Department_DepartmentID = Int32.Parse(values[11]),
+                                                Location_LocationID = Int32.Parse(values[12]),
+                                                EmployeeType_EmployeeTypeID = Int32.Parse(values[13]),
+                                                Position_PositionID = Int32.Parse(values[14])
                                             }
                                             );
                     }

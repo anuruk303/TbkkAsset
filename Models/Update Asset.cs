@@ -12,48 +12,48 @@ namespace tbkk_AC.Models
         public int UpdateAssetID { get; set; }
         [Required]
         [Display(Name = "Date")]
-        public DateTime Date { get; set; }
+        public DateTime UpdateDate { get; set; }
         [Required]
         [Display(Name = "AssetName")]
-        public string AssetName { get; set; }
+        public string UpdateAssetName { get; set; }
 
         [Required]
         [Display(Name = "SerailNumber")]
-        public string SerailNumber { get; set; }
+        public string UpdateSerailNumber { get; set; }
         [Required]
         [Display(Name = "MACAddr")]
-        public string MACAddr { get; set; }
+        public string UpdateMACAddr { get; set; }
         [Required]
         [Display(Name = "InstallDate")]
-        public DateTime InstallDate { get; set; }
+        public DateTime UpdateInstallDate { get; set; }
         [Required]
         [Display(Name = "PurchaseDate")]
-        public DateTime PurchaseDate { get; set; }
+        public DateTime UpdatePurchaseDate { get; set; }
         [Required]
         [Display(Name = "ExpireDate")]
-        public DateTime ExpireDate { get; set; }
+        public DateTime UpdateExpireDate { get; set; }
         [Required]
         [Display(Name = "PONumber")]
-        public string PONumber { get; set; }
+        public string UpdatePONumber { get; set; }
         [Required]
         [Display(Name = "Note")]
-        public string Note { get; set; }
+        public string UpdateNote { get; set; }
         [Required]
         [Display(Name = " Price")]
-        public string Price { get; set; }
+        public string UpdatePrice { get; set; }
         [Required]
         [Display(Name = " Warranty")]
-        public int Warranty { get; set; }
+        public int UpdateWarranty { get; set; }
         [Required]
         [Display(Name = " Type:")]
-        public string Type { get; set; }
+        public string UpdateType { get; set; }
         [Required]
         [Display(Name = "Status")]
-        public string Status { get; set; }
+        public string UpdateStatus { get; set; }
 
         [Required]
         [Display(Name = "Image")]
-        public string Image { get; set; }
+        public string UpdateImage { get; set; }
       
         public int Location_LocationID { get; set; }
 

@@ -492,56 +492,56 @@ namespace tbkk_AC.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("AssetName")
-                        .IsRequired();
-
                     b.Property<int>("Asset_AssetID");
 
                     b.Property<int>("Company_CompanyID");
-
-                    b.Property<DateTime>("Date");
 
                     b.Property<int>("Department_DepartmentID");
 
                     b.Property<int>("Employee_EmpID");
 
-                    b.Property<DateTime>("ExpireDate");
-
-                    b.Property<string>("Image")
-                        .IsRequired();
-
-                    b.Property<DateTime>("InstallDate");
-
                     b.Property<int>("Location_LocationID");
-
-                    b.Property<string>("MACAddr")
-                        .IsRequired();
 
                     b.Property<int>("Model_ModelID");
 
-                    b.Property<string>("Note")
-                        .IsRequired();
-
-                    b.Property<string>("PONumber")
-                        .IsRequired();
-
-                    b.Property<string>("Price")
-                        .IsRequired();
-
-                    b.Property<DateTime>("PurchaseDate");
-
-                    b.Property<string>("SerailNumber")
-                        .IsRequired();
-
-                    b.Property<string>("Status")
-                        .IsRequired();
-
                     b.Property<int>("Supplier_SupplierID");
 
-                    b.Property<string>("Type")
+                    b.Property<string>("UpdateAssetName")
                         .IsRequired();
 
-                    b.Property<int>("Warranty");
+                    b.Property<DateTime>("UpdateDate");
+
+                    b.Property<DateTime>("UpdateExpireDate");
+
+                    b.Property<string>("UpdateImage")
+                        .IsRequired();
+
+                    b.Property<DateTime>("UpdateInstallDate");
+
+                    b.Property<string>("UpdateMACAddr")
+                        .IsRequired();
+
+                    b.Property<string>("UpdateNote")
+                        .IsRequired();
+
+                    b.Property<string>("UpdatePONumber")
+                        .IsRequired();
+
+                    b.Property<string>("UpdatePrice")
+                        .IsRequired();
+
+                    b.Property<DateTime>("UpdatePurchaseDate");
+
+                    b.Property<string>("UpdateSerailNumber")
+                        .IsRequired();
+
+                    b.Property<string>("UpdateStatus")
+                        .IsRequired();
+
+                    b.Property<string>("UpdateType")
+                        .IsRequired();
+
+                    b.Property<int>("UpdateWarranty");
 
                     b.HasKey("UpdateAssetID");
 
@@ -605,14 +605,10 @@ namespace tbkk_AC.Migrations
 
                     b.Property<DateTime>("Date");
 
-                    b.Property<int?>("EmployeeID");
-
                     b.Property<int>("Employee_EmpID");
 
                     b.Property<string>("IpAddr")
                         .IsRequired();
-
-                    b.Property<int?>("NetworkID");
 
                     b.Property<string>("NetworkName")
                         .IsRequired();
@@ -629,10 +625,6 @@ namespace tbkk_AC.Migrations
                         .IsRequired();
 
                     b.HasKey("NetworkUpdateID");
-
-                    b.HasIndex("EmployeeID");
-
-                    b.HasIndex("NetworkID");
 
                     b.ToTable("Update_Network");
                 });
@@ -709,17 +701,6 @@ namespace tbkk_AC.Migrations
                         .WithMany()
                         .HasForeignKey("Category_CategoryID")
                         .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("tbkk_AC.Models.Update_Network", b =>
-                {
-                    b.HasOne("tbkk_AC.Models.Employee", "Employee")
-                        .WithMany()
-                        .HasForeignKey("EmployeeID");
-
-                    b.HasOne("tbkk_AC.Models.Network", "Network")
-                        .WithMany()
-                        .HasForeignKey("NetworkID");
                 });
 #pragma warning restore 612, 618
         }

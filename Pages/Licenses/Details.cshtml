@@ -343,56 +343,6 @@
             </div>
         </div>
         <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-            <div class="card-body">
-                <div class="table-responsive">
-                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="3">
-                        <thead>
-                            <tr>
-                                <th>
-                                    LicenseName
-                                </th>
-                                <th>
-                                    User
-                                </th>
 
-                                <th>
-                                    Update Date
-                                </th>
-                                <th>
-                                    Details
-                                </th>
-                                <th>
-                                    Delete
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach (var item in Model.Update_License)
-                            {
-                                if (Model.License.LicenseID == item.UpdateLicenseID)
-                                {
-                                    <tr>
-                                        <td>
-                                            @Html.DisplayFor(model => model.License.LicenseName)
-                                        </td>
-                                        <td>
-                                             @Html.DisplayFor(model => item.Employee)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(model => item.Date)
-                                        </td>
-                                        <td width="100px">
-                                            <a asp-page="../UpdateLicenes/Details" asp-route-id="@item.UpdateLicenseID">Details</a>
-                                        </td>
-                                        <td width="100px">
-                                            <a asp-page="../UpdateLicenes/Delete" asp-route-id="@item.UpdateLicenseID">Delete</a>
-                                        </td>
-                                    </tr>
-                                }
-                            }
-                        </tbody>
-                    </table>
-                </div>
-            </div>
         </div>
     </div>

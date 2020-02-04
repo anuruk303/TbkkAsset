@@ -166,52 +166,7 @@
         </div>
     </div>
     <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-        <div class="card-body">
-            <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="3">
-                    <thead>
-                        <tr>
-                            <th>
-                                NetworkName
-                            </th>
-                            <th>
-                                User
-                            </th>
-
-                            <th>
-                                UpdateDate
-                            </th>
-                            <th>
-                                Details
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach (var item in Model.Update_Network)
-                        {
-                            if (Model.Network.NetworkID == item.Network_NetworkID)
-                            {
-                                <tr>
-                                    <td>
-                                        @Html.DisplayFor(model => model.Network.NetworkName)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(model => item.Employee_EmpID)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Date)
-                                    </td>
-                                    <td width="100px">
-                                        <a asp-page="../Assets/Details" asp-route-id="@item.NetworkUpdateID">Details</a>
-                                    </td>
-                                    
-                                </tr>
-                            }
-                        }
-                    </tbody>
-                </table>
-            </div>
-        </div>
+        
     </div>
 </div>
 

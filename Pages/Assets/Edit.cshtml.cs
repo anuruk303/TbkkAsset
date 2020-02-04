@@ -27,10 +27,10 @@ namespace tbkk_AC.Pages.Assets
         public IList<Supplier> Supplier { get; set; }
         public IList<Department> Department { get; set; }
         public IList<Company> Company { get; set; }
-        public IList<Update_Asset> Update_Asset { get; set; }
+       
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            Update_Asset = await _context.Update_Asset.ToListAsync();
+            
             Supplier = await _context.Supplier.ToListAsync();
             Company = await _context.Company.ToListAsync();
             Department = await _context.Department.ToListAsync();
@@ -60,29 +60,7 @@ namespace tbkk_AC.Pages.Assets
             }
 
             _context.Attach(Asset).State = EntityState.Modified;
-            var Update = new Update_Asset();
-            Update.Date = DateTime.Now;
-            Update.Asset_AssetID = Asset.AssetID;
-            Update.Employee_EmpID = 2012;
-            Update.AssetName = Asset.AssetName;
-            Update.SerailNumber = Asset.SerailNumber;
-            Update.MACAddr = Asset.MACAddr;
-            Update.InstallDate = Asset.InstallDate;
-            Update.PurchaseDate = Asset.PurchaseDate;
-            Update.ExpireDate = Asset.ExpireDate;
-            Update.PONumber = Asset.PONumber;
-            Update.Price = Asset.Price;
-            Update.Warranty = Asset.Warranty;
-            Update.Type = Asset.Type;
-            Update.Note = Asset.Note;
-            Update.Status = Asset.Status;
-            Update.Image = Asset.Image;
-            Update.Company_CompanyID = Asset.Company_CompanyID;
-            Update.Location_LocationID = Asset.Location_LocationID;
-            Update.Department_DepartmentID = Asset.Department_DepartmentID;
-            Update.Supplier_SupplierID = Asset.Supplier_SupplierID;
-            Update.Model_ModelID = Asset.Model_ModelID;
-            _context.Update_Asset.Add(Update);
+           
 
             try
             {

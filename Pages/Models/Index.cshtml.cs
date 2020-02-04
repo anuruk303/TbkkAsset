@@ -44,8 +44,10 @@ namespace tbkk_AC.Pages.Models
                                                 ModelName = values[0],
                                                 Note = values[1],
                                                 Status = "Using",
-                                                Brand_BrandID = Parse(values[2]),
-                                                Category_CategoryID = Parse(values[3])
+                                                Brand_BrandID = Int32.Parse(values[2]),
+                                                Category_CategoryID = Int32.Parse
+                                                
+                                                (values[3])
                                             }
                                             );
                     }
@@ -61,9 +63,6 @@ namespace tbkk_AC.Pages.Models
             return RedirectToPage("./Index");
         }
 
-        private int Parse(string v)
-        {
-            throw new NotImplementedException();
-        }
+       
     }
 }

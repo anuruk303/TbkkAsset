@@ -21,7 +21,7 @@ namespace tbkk_AC.Pages.Licenses
 
         [BindProperty]
         public License License { get; set; }
-        public Update_License Update_License { get; set; }
+       
         public IList<Model> Model { get; set; }
         public IList<Supplier> Supplier { get; set; }
         public IList<Department> Department { get; set; }
@@ -56,24 +56,7 @@ namespace tbkk_AC.Pages.Licenses
 
            
             _context.Attach(License).State = EntityState.Modified;
-            var Update = new Update_License();
-            Update.Date = DateTime.Now;
-            Update.License_LicenseID = License.LicenseID;
-            Update.LicenseName = License.LicenseName;
-            Update.SoftewareName = License.SoftewareName;
-            Update.PurchaseDate = License.PurchaseDate;
-            Update.StartDate = License.StartDate;
-            Update.ExpireDate = License.ExpireDate;
-            Update.PONumber = License.PONumber;
-            Update.Attachfiles = License.Attachfiles;
-            Update.Note = License.Note;
-            Update.Status = License.Status;
-            Update.Model_ModelID = License.Model_ModelID;
-            Update.Supplier_SupplierID = License.Supplier_SupplierID;
-            Update.Department_DepartmentID = License.Department_DepartmentID;
-            Update.Company_CompanyID = License.Company_CompanyID;
-            Update.Employee = 2012;
-            _context.Update_License.Add(Update);
+            
             try
             {
                 await _context.SaveChangesAsync();

@@ -55,11 +55,11 @@ namespace tbkk_AC.Pages.Licenses
                                                 Attachfiles = values[6],
                                                 Note = values[7],
                                                 Status = "Using",
-                                                Model_ModelID = Parse(values[8]),
-                                                Supplier_SupplierID = Parse(values[9]),
-                                                Department_DepartmentID = Parse(values[10]),
-                                                Company_CompanyID = Parse(values[11])
-                                                
+                                                Model_ModelID = Int32.Parse(values[8]),
+                                                Supplier_SupplierID = Int32.Parse(values[9]),
+                                                Department_DepartmentID = Int32.Parse(values[10]),
+                                                Company_CompanyID = Int32.Parse(values[11])
+
                                             }
                                             );
                     }

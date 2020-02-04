@@ -22,6 +22,7 @@
     <form method="post">
         <div class="card " style="margin-top:1%">
             <div class="card-header">
+
                 Create
             </div>
             <div class="card-body">
@@ -31,7 +32,7 @@
                         <div class="form-group row">
                             <div class="col-sm-12">
                                 <label class="col-sm-0 col-form-label" asp-for="Join_Asset_Asset.Asset_AssetID"></label>
-                                <input class="form-control" placeholder="AssetID" asp-for="Join_Asset_Asset.Asset_AssetID" id="Asset" />
+                                <input class="form-control" placeholder="AssetID" asp-for="Join_Asset_Asset.Asset_AssetID" id="AssetID" value="@Model.ID" />
                                 <span class="text-danger" asp-validation-for="Join_Asset_Asset.Asset_AssetID"></span>
                             </div>
                         </div>

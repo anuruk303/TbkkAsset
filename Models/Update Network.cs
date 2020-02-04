@@ -30,11 +30,9 @@ namespace tbkk_AC.Models
         [Required]
         [Display(Name = "Status")]
         public string Status { get; set; }
-        [ForeignKey("EmpID")]
+
         public int Employee_EmpID { get; set; }
-        public Employee Employee { get; set; }
-        [ForeignKey("NetworkID")]
+     
         public int Network_NetworkID { get; set; }
-        public Network Network { get; set; }
     }
 }
