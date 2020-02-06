@@ -45,9 +45,7 @@ namespace tbkk_AC.Pages.Models
                                                 Note = values[1],
                                                 Status = "Using",
                                                 Brand_BrandID = Int32.Parse(values[2]),
-                                                Category_CategoryID = Int32.Parse
-                                                
-                                                (values[3])
+                                                Category_CategoryID = Int32.Parse(values[3])
                                             }
                                             );
                     }

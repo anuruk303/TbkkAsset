@@ -24,7 +24,7 @@ namespace tbkk_AC
 
                 try
                 {
-                    
+                    SeedData.Initialize(services);
                 }
                 catch (Exception ex)
                 {

@@ -32,7 +32,15 @@
                         <div class="form-group row">
                             <div class="col-sm-12">
                                 <label class="col-sm-0 col-form-label" asp-for="Join_Asset_Asset.Asset_AssetID"></label>
-                                <input class="form-control" placeholder="AssetID" asp-for="Join_Asset_Asset.Asset_AssetID" id="AssetID" value="@Model.ID" />
+                                @if (Model.Num=="1")
+                                {
+                            <input class="form-control" placeholder="AssetID" asp-for="Join_Asset_Asset.Asset_AssetID" id="AssetID" value="@Model.ID" />
+                                }
+                                else
+                                {
+                            <input class="form-control" placeholder="AssetID" asp-for="Join_Asset_Asset.Asset_AssetID" id="AssetID"  />
+                                }
+                                
                                 <span class="text-danger" asp-validation-for="Join_Asset_Asset.Asset_AssetID"></span>
                             </div>
                         </div>

@@ -280,9 +280,10 @@
                 Join
             </button>
             <div class="dropdown-menu">
-                <a class="dropdown-item" asp-page="../JoinAsset_Assets/Create" asp-route-id="@Model.Asset.AssetID">Join Asset</a>
-                <a class="dropdown-item" asp-page="./Edit" asp-route-id="@Model.Asset.AssetID">Join Employee</a>
-                <a class="dropdown-item" asp-page="./Edit" asp-route-id="@Model.Asset.AssetID">Join Network</a>
+                <a class="dropdown-item" asp-page="../JoinAsset_Assets/Create" asp-route-id="@Model.Asset.AssetID" asp-route-num="1">Join Asset</a>
+                <a class="dropdown-item" asp-page="../JoinLicense_Assets/Create" asp-route-id="@Model.Asset.AssetID" asp-route-num="1">Join License</a>
+                <a class="dropdown-item" asp-page="../JoinAsset_Emp/Create" asp-route-id="@Model.Asset.AssetID" asp-route-num="1">Join Employee</a>
+                <a class="dropdown-item" asp-page="../JoinNetwork_Assets/Create" asp-route-id="@Model.Asset.AssetID" asp-route-num="1">Join Network</a>
             </div>
         </div>
         <ul class="nav nav-tabs" id="myTab" role="tablist">

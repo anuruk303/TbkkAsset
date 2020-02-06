@@ -19,10 +19,11 @@ namespace tbkk_AC.Pages.JoinAsset_Assets
             _context = context;
         }
 
-        public async Task<IActionResult> OnGetAsync(int id)
+        public async Task<IActionResult> OnGetAsync(int id,String num)
         {
 
             Asset = await _context.Asset.ToListAsync();
+            Num = num;
             ID = id;
             return Page();
         }
@@ -30,6 +31,7 @@ namespace tbkk_AC.Pages.JoinAsset_Assets
         [BindProperty]
         public Join_Asset_Asset Join_Asset_Asset { get; set; }
         public IList<Asset> Asset { get; set; }
+        public string Num { get; set; }
         public int ID { get; set; }
 
         public async Task<IActionResult> OnPostAsync()

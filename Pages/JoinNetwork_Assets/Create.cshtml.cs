@@ -19,8 +19,10 @@ namespace tbkk_AC.Pages.JoinNetwork_Assets
             _context = context;
         }
 
-        public async Task<IActionResult> OnGetAsync()
+        public async Task<IActionResult> OnGetAsync(int id, String num)
         {
+            Num = num;
+            ID = id;
             Asset = await _context.Asset.ToListAsync();
             Network = await _context.Network.ToListAsync();
             return Page();
@@ -30,6 +32,8 @@ namespace tbkk_AC.Pages.JoinNetwork_Assets
         public Join_Network_Asset Join_Network_Asset { get; set; }
         public IList<Asset> Asset { get; set; }
         public IList<Network> Network { get; set; }
+        public string Num { get;set; }
+        public int ID { get;set; }
 
         public async Task<IActionResult> OnPostAsync()
         {

@@ -31,14 +31,29 @@
                         <div class="form-group row">
                             <div class="col-sm-12">
                                 <label class="col-sm-0 col-form-label" asp-for="Join_Asset_Emp.Asset_AssetID"></label>
-                                <input class="form-control" placeholder="AssetID" asp-for="Join_Asset_Emp.Asset_AssetID" id="Asset" />
+                                @if (Model.Num == "1")
+                                {
+                                    <input class="form-control" placeholder="AssetID" asp-for="Join_Asset_Emp.Asset_AssetID" id="AssetID" value="@Model.ID" />
+                                }
+                                else
+                                {
+                                    <input class="form-control" placeholder="AssetID" asp-for="Join_Asset_Emp.Asset_AssetID" id="AssetID" />
+                                }
                                 <span class="text-danger" asp-validation-for="Join_Asset_Emp.Asset_AssetID"></span>
                             </div>
                         </div>
                     </div>
                     <div class="col">
                         <label class="col-sm-0 col-form-label" asp-for="Join_Asset_Emp.Employee_EmployeeID"></label>
-                        <input class="form-control" placeholder="AssetID" asp-for="Join_Asset_Emp.Employee_EmployeeID" id="Emp" />
+                        @if (Model.Num == "2")
+                        {
+                            <input class="form-control" placeholder="AssetID" asp-for="Join_Asset_Emp.Employee_EmployeeID" id="Emp" value="@Model.ID" />
+                        }
+                        else
+                        {
+                            <input class="form-control" placeholder="AssetID" asp-for="Join_Asset_Emp.Employee_EmployeeID" id="Emp" />
+                        }
+
                         <span class="text-danger" asp-validation-for="Join_Asset_Emp.Employee_EmployeeID"></span>
                     </div>
                 </div>
