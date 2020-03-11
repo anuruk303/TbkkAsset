@@ -86,90 +86,131 @@
             </div>
         </div>
     </div>
-    <div>
+    <div style="margin-top:2%">
         <a asp-page="./Edit" asp-route-id="@Model.Network.NetworkID">Edit</a> |
         <a asp-page="./Index">Back to List</a>
     </div>
-</div>
-<ul class="nav nav-tabs" id="myTab" role="tablist">
-    <li class="nav-item">
-        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Join</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">History Update</a>
-    </li>
-</ul>
-<div class="tab-content" id="myTabContent">
-    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-        <div class="card-body">
-            <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="3">
-                    <thead>
-                        <tr>
-                            <th>
-                                NetworkName
-                            </th>
-                            <th>
-                                Asset
-                            </th>
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item">
+            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Join</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">History Update</a>
+        </li>
+    </ul>
+    <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="3">
+                        <thead>
+                            <tr>
+                                <th>
+                                    NetworkName
+                                </th>
+                                <th>
+                                    Asset
+                                </th>
 
-                            <th>
-                                Status
-                            </th>
-                            <th>
-                                Asset
-                            </th>
-                            <th>
-                                Edit
-                            </th>
-                            <th>
-                                Delete
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach (var item in Model.Join_Network_Asset)
-                        {
-                            if (Model.Network.NetworkID == item.Network_NetworkID)
+                                <th>
+                                    Status
+                                </th>
+                                <th>
+                                    Asset
+                                </th>
+                                <th>
+                                    Edit
+                                </th>
+                                <th>
+                                    Delete
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.Join_Network_Asset)
                             {
-                                <tr>
-                                    <td>
-                                        @Html.DisplayFor(model => model.Network.NetworkName)
-                                    </td>
-                                    <td>
-                                        @foreach (var item1 in Model.Asset)
-                                        {
-                                            if (item.Asset_AssetID == item1.AssetID)
+                                if (Model.Network.NetworkID == item.Network_NetworkID)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(model => model.Network.NetworkName)
+                                        </td>
+                                        <td>
+                                            @foreach (var item1 in Model.Asset)
                                             {
-                                                @Html.DisplayFor(modelItem => item1.AssetName)
+                                                if (item.Asset_AssetID == item1.AssetID)
+                                                {
+                                                    @Html.DisplayFor(modelItem => item1.AssetName)
+                                                }
                                             }
-                                        }
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Status)
-                                    </td>
-                                    <td width="100px">
-                                        <a asp-page="../Assets/Details" asp-route-id="@item.Network_NetworkID">Details</a>
-                                    </td>
-                                    <td width="100px">
-                                        <a asp-page="../JoinNetwork_Assets/Edit" asp-route-id="@item.JoinNetAsID">Edit</a>
-                                    </td>
-                                    <td width="100px">
-                                        <a asp-page="../JoinNetwork_Assets/Delete" asp-route-id="@item.JoinNetAsID">Delete</a>
-                                    </td>
-                                </tr>
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Status)
+                                        </td>
+                                        <td width="100px">
+                                            <a asp-page="../Assets/Details" asp-route-id="@item.Network_NetworkID">Details</a>
+                                        </td>
+                                        <td width="100px">
+                                            <a asp-page="../JoinNetwork_Assets/Edit" asp-route-id="@item.JoinNetAsID">Edit</a>
+                                        </td>
+                                        <td width="100px">
+                                            <a asp-page="../JoinNetwork_Assets/Delete" asp-route-id="@item.JoinNetAsID">Delete</a>
+                                        </td>
+                                    </tr>
+                                }
                             }
-                        }
-                    </tbody>
-                </table>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable1" width="100%" cellspacing="3">
+                        <thead>
+                            <tr>
+                                <th>
+                                    NetworkName
+                                </th>
+                                <th>
+                                    User
+                                </th>
+
+                                <th>
+                                    UpdateDate
+                                </th>
+                                <th>
+                                    Details
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.Update_Network)
+                            {
+                                if (Model.Network.NetworkID == item.Network_NetworkID)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(model => model.Network.NetworkName)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(model => item.Employee_EmpID)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Date)
+                                        </td>
+                                        <td width="100px">
+                                            <a asp-page="../UpdateNetworks/Details" asp-route-id="@item.NetworkUpdateID">Details</a>
+                                        </td>
+
+                                    </tr>
+                                }
+                            }
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
-    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-        
-    </div>
 </div>
-
-
-
-

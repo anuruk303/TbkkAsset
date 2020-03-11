@@ -20,8 +20,8 @@
                                         <div class="card-body">
                                             <div class="row">
                                                 <div class="col">
-                                                    <td>@Html.DisplayNameFor(model => model.Asset.AssetName) :</td>
-                                                    <td> @Html.DisplayFor(model => model.Asset.AssetName)</td>
+                                                    <td>@Html.DisplayNameFor(model => model.Asset.AssetName) </td>
+                                                    <td>: @Html.DisplayFor(model => model.Asset.AssetName)</td>
                                                 </div>
                                                 <div class="col">
                                                     <td>@Html.DisplayNameFor(model => model.Asset.SerailNumber) :</td>
@@ -89,8 +89,16 @@
                                                     <td>@Html.DisplayFor(model => model.Asset.Warranty)</td>
                                                 </div>
                                                 <div class="col">
-                                                    <td>@Html.DisplayNameFor(model => model.Asset.Type) :</td>
-                                                    <td>@Html.DisplayFor(model => model.Asset.Type)</td>
+                                                    <td>Supplier :</td>
+                                                    <td>
+                                                        @foreach (var item in Model.Category)
+                                                        {
+                                                            if (Model.Asset.Category == item.CategoryID)
+                                                            {
+                                                                @Html.DisplayFor(modelItem => item.CategoryName)
+                                                            }
+                                                        }
+                                                    </td>
                                                 </div>
                                             </div>
                                         </div>
@@ -259,6 +267,51 @@
                             </table>
                         </div>
                     </div>
+                    <div class="card " style="margin-top:-0%">
+                        <div class="card-header" style="font-weight:bold;color:darkblue;">
+                            More
+                        </div>
+                        <div class="card-body">
+                            <table class="table table-user-information" style="margin-top:-12%;margin-bottom:-3%">
+                                <tbody>
+                                    <tr>
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col">
+                                                    <td>@Html.DisplayNameFor(model => model.Asset.Status) :</td>
+                                                    <td>@Html.DisplayFor(model => model.Asset.Status)</td>
+                                                </div>
+                                                <div class="col">
+                                                    <td>@Html.DisplayNameFor(model => model.Asset.Note) :</td>
+                                                    <td>
+                                                        <div class="form-group">
+                                                            <textarea class="form-control" id="exampleFormControlTextarea3" rows="5" cols='20'>@Html.DisplayFor(model => model.Asset.Note)</textarea>
+                                                        </div>
+                                                    </td>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </tr>
+                                    <tr>
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col">
+                                                    <td></td>
+                                                    <td></td>
+
+                                                </div>
+                                                <div class="col">
+                                                    <td></td>
+                                                    <td></td>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="col-md-3">
@@ -274,7 +327,7 @@
         <div>
             <a asp-page="./Edit" asp-route-id="@Model.Asset.AssetID">Edit</a> |
             <a asp-page="./Index">Back to List</a>
-        </div> 
+        </div>
         <div class="btn-group" style="margin-left:90%;">
             <button class="btn btn-outline-success btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Join
@@ -293,9 +346,7 @@
             <li class="nav-item">
                 <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">History Update</a>
             </li>
-
         </ul>
-
         <div class="tab-content" id="myTabContent">
             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                 <div class="card-body">
@@ -459,5 +510,51 @@
                 </div>
             </div>
             <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="dataTable1" width="100%" cellspacing="3">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        AssetName
+                                    </th>
+                                    <th>
+                                        User
+                                    </th>
+
+                                    <th>
+                                        UpdateDate
+                                    </th>
+                                    <th>
+                                        Details
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model.Update_Asset)
+                                {
+                                    if (Model.Asset.AssetID == item.Asset_AssetID)
+                                    {
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayFor(model => model.Asset.AssetName)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(model => item.Employee_EmpID)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.UpdateDate)
+                                            </td>
+                                            <td width="100px">
+                                                <a asp-page="../UpdateAsset/Details" asp-route-id="@item.UpdateAssetID">Details</a>
+                                            </td>
+
+                                        </tr>
+                                    }
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
         </div>

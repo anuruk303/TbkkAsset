@@ -20,14 +20,14 @@ namespace tbkk_AC.Pages.JoinAsset_Emp
 
         [BindProperty]
         public Join_Asset_Emp Join_Asset_Emp { get; set; }
-
+        public IList<Asset> Asset { get; set; }
         public async Task<IActionResult> OnGetAsync(int? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
-
+            Asset = await _context.Asset.ToListAsync();
             Join_Asset_Emp = await _context.Join_Asset_Emp
                 .Include(j => j.Asset).FirstOrDefaultAsync(m => m.JoinAsEmpID == id);
 
@@ -44,9 +44,12 @@ namespace tbkk_AC.Pages.JoinAsset_Emp
             {
                 return NotFound();
             }
-
+            
             Join_Asset_Emp = await _context.Join_Asset_Emp.FindAsync(id);
             Join_Asset_Emp.Status = "UNJOIN";
+            var AssetUpdate = await _context.Asset.FindAsync(Join_Asset_Emp.Asset_AssetID);
+            AssetUpdate.Status = "InStock";
+            await _context.SaveChangesAsync();
             if (Join_Asset_Emp != null)
             {
                 _context.Attach(Join_Asset_Emp).State = EntityState.Modified;

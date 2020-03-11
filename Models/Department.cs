@@ -14,7 +14,7 @@ namespace tbkk_AC.Models
         public string DepartmentName { get; set; }
 
 
-        [Required]
+     
         [Display(Name = "Image")]
         public string Image { get; set; }
 
@@ -22,9 +22,6 @@ namespace tbkk_AC.Models
         [Display(Name = "Status")]
         public string Status { get; set; }
 
-        public static implicit operator Department(List<Department> v)
-        {
-            throw new NotImplementedException();
-        }
+   
     }
 }

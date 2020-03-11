@@ -60,10 +60,7 @@
                                 </th>
                                 <th>
                                     @Html.DisplayNameFor(model => model.License[0].PONumber)
-                                </th>
-                                <th>
-                                    Model
-                                </th>
+                                </th>  
                                 <th>
                                     Supplier
                                 </th>
@@ -94,15 +91,7 @@
                                         <td>
                                             @Html.DisplayFor(modelItem => item.PONumber)
                                         </td>
-                                        <td>
-                                            @foreach (var item1 in Model.Model)
-                                            {
-                                                if (item.Model_ModelID == item1.ModelID)
-                                                {
-                                                    @Html.DisplayFor(modelItem => item1.ModelName)
-                                                }
-                                            }
-                                        </td>
+                                        
                                         <td>
                                             @foreach (var item1 in Model.Supplier)
                                             {

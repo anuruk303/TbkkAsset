@@ -12,13 +12,14 @@ namespace tbkk_AC.Models
         [Required]
         [Display(Name = "NetworkName")]
         public string NetworkName { get; set; }
-        [Required]
+      
         [Display(Name = "IpAddr")]
         public string IpAddr { get; set; }
-        [Required]
+   
+   
         [Display(Name = "Note")]
         public string Note { get; set; }
-        [Required]
+    
         [Display(Name = "Password")]
         public string Password { get; set; }
 

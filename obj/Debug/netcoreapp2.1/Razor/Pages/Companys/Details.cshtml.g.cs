@@ -182,7 +182,7 @@ using tbkk_AC;
                     ");
             EndContext();
             BeginContext(3790, 99, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "61c7ed0265304389b481eaa60e783ffb", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "41be96236ded4973ac4c2869ef9c05f1", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -209,7 +209,7 @@ AddHtmlAttributeValue("", 3810, Html.DisplayFor(model => model.Company.Image), 3
             WriteLiteral("\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div>\r\n            ");
             EndContext();
             BeginContext(3978, 69, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b415dbeea30843b2a9ee8f0e6dea5b58", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cb89ae56ff0447e4bb2c0523b81c186d", async() => {
                 BeginContext(4039, 4, true);
                 WriteLiteral("Edit");
                 EndContext();
@@ -244,7 +244,7 @@ AddHtmlAttributeValue("", 3810, Html.DisplayFor(model => model.Company.Image), 3
             WriteLiteral(" |\r\n            ");
             EndContext();
             BeginContext(4063, 38, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "659a0a2afe94481398e52ae4d27e330a", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4013313ce9df4d068596ad9b4c2df0fa", async() => {
                 BeginContext(4085, 12, true);
                 WriteLiteral("Back to List");
                 EndContext();

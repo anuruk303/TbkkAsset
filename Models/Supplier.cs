@@ -12,19 +12,18 @@ namespace tbkk_AC.Models
         [Required]
         [Display(Name = "SupplierName")]
         public string SupplierName { get; set; }
-        [Required]
         [Display(Name = "ContactName")]
         public string ContactName { get; set; }
-        [Required]
+    
         [Display(Name = "Address")]
         public string Address { get; set; }
-        [Required]
+     
         [Display(Name = "Email")]
         public string Email { get; set; }
-        [Required]
+        
         [Display(Name = "URL")]
         public string URL { get; set; }
-        [Required]
+       
         [Display(Name = "Note")]
         public string Note { get; set; }
         [Required]
@@ -34,9 +33,6 @@ namespace tbkk_AC.Models
         [Display(Name = "Status")]
         public string Status { get; set; }
 
-        public static implicit operator Supplier(List<Supplier> v)
-        {
-            throw new NotImplementedException();
-        }
+        
     }
 }

@@ -18,13 +18,13 @@ namespace tbkk_AC.Pages.Licenses
         {
             _context = context;
         }
-        public IList<Model> Model { get; set; }
+       
         public IList<Supplier> Supplier { get; set; }
         public IList<Department>  Department { get; set; }
         public IList<Company> Company { get; set; }
     public async Task<IActionResult> OnGetAsync()
         {
-            Model = await _context.Model.ToListAsync();
+            
             Supplier = await _context.Supplier.ToListAsync();
             Department = await _context.Department.ToListAsync();
             Company = await _context.Company.ToListAsync();

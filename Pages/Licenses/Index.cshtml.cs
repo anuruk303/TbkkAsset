@@ -21,13 +21,11 @@ namespace tbkk_AC.Pages.Licenses
         }
 
         public IList<License> License { get; set; }
-        public IList<Model> Model { get; set; }
         public IList<Supplier> Supplier { get; set; }
         public IList<Department> Department { get; set; }
         public IList<Company> Company { get; set; }
         public async Task OnGetAsync()
         {
-            Model = await _context.Model.ToListAsync();
             Supplier = await _context.Supplier.ToListAsync();
             Department = await _context.Department.ToListAsync();
             Company = await _context.Company.ToListAsync();
@@ -55,10 +53,9 @@ namespace tbkk_AC.Pages.Licenses
                                                 Attachfiles = values[6],
                                                 Note = values[7],
                                                 Status = "Using",
-                                                Model_ModelID = Int32.Parse(values[8]),
-                                                Supplier_SupplierID = Int32.Parse(values[9]),
-                                                Department_DepartmentID = Int32.Parse(values[10]),
-                                                Company_CompanyID = Int32.Parse(values[11])
+                                                Supplier_SupplierID = Int32.Parse(values[8]),
+                                                Department_DepartmentID = Int32.Parse(values[9]),
+                                                Company_CompanyID = Int32.Parse(values[10])
 
                                             }
                                             );

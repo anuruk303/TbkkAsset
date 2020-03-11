@@ -13,47 +13,50 @@ namespace tbkk_AC.Models
     {
 
         public int AssetID { get; set; }
-        [Required]
+  
         [Display(Name = "AssetName")]
         public string AssetName { get; set; }
 
-        [Required]
+  
         [Display(Name = "Serail Number")]
         public string SerailNumber { get; set; }
 
-        [Required]
+     
         [Display(Name = "MAC Address")]
         public string MACAddr { get; set; }
 
-        [Required]
+      
         [Display(Name = "Install Date")]
+        [DataType(DataType.Date)]
         public DateTime InstallDate { get; set; }
 
-        [Required]
+    
         [Display(Name = "Purchase Date")]
+        [DataType(DataType.Date)]
         public DateTime PurchaseDate { get; set; }
 
-        [Required]
+    
         [Display(Name = "Expire Date")]
+        [DataType(DataType.Date)]
         public DateTime ExpireDate { get; set; }
 
         [Required]
         [Display(Name = "PO Number")]
         public string PONumber { get; set; }
 
-        [Required]
+    
         [Display(Name = "Price")]
         public string Price { get; set; }
 
-        [Required]
+     
         [Display(Name = "Warranty")]
         public int Warranty { get; set; }
 
         [Required]
-        [Display(Name = "Type")]
-        public string Type { get; set; }
+        [Display(Name = "Category")]
+        public int Category { get; set; }
 
-        [Required]
+  
         [Display(Name = "Note")]
         public string Note { get; set; }
 
@@ -61,7 +64,7 @@ namespace tbkk_AC.Models
         [Display(Name = "Status")]
         public string Status { get; set; }
 
-        [Required]
+    
         [Display(Name = "Image")]
         public string Image { get; set; }
 

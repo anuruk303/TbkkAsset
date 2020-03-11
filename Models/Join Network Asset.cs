@@ -11,7 +11,7 @@ namespace tbkk_AC.Models
     {
         [Key]
         public int JoinNetAsID { get; set; }
-        [Required]
+   
         [Display(Name = "Note")]
         public string Note { get; set; }
         [Required]

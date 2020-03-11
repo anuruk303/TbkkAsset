@@ -40,7 +40,9 @@ namespace tbkk_AC.Pages.JoinAsset_Emp
             {
                 return Page();
             }
-
+            var AssetUpdate = await _context.Asset.FindAsync(Join_Asset_Emp.Asset_AssetID);
+            AssetUpdate.Status = "Using";
+            await _context.SaveChangesAsync();
             _context.Join_Asset_Emp.Add(Join_Asset_Emp);
             await _context.SaveChangesAsync();
 

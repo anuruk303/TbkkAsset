@@ -1,0 +1,144 @@
+﻿@page
+
+@model tbkk_AC.Pages.UpdateNetworks.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+<div class="container">
+    <div class="row">
+        <div class="col-md-9">
+            <h2>Network Detail</h2>
+            <div class=" col-md-12 col-lg-12 ">
+                <div class="card " style="margin-top:1%">
+                    <div class="card-header" style="font-weight:bold;color:darkblue;">
+                        Detail
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-user-information" style="margin-top:-21%;margin-bottom:-6%">
+                            <tbody>
+                                <tr>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col">
+                                                <td>@Html.DisplayNameFor(model => model.Update_Network.Network_NetworkID) :</td>
+                                                <td>@Html.DisplayFor(model => model.Update_Network.Network_NetworkID)</td>
+                                            </div>
+                                            <div class="col">
+                                                <td>@Html.DisplayNameFor(model => model.Update_Network.NetworkName) :</td>
+                                                <td>@Html.DisplayFor(model => model.Update_Network.NetworkName)</td>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </tr>
+                                <tr>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col">
+                                                <td>@Html.DisplayNameFor(model => model.Update_Network.IpAddr) :</td>
+                                                <td>@Html.DisplayFor(model => model.Update_Network.IpAddr)</td>
+
+                                            </div>
+                                            <div class="col">
+                                                <td>@Html.DisplayNameFor(model => model.Update_Network.Password) :</td>
+                                                <td>@Html.DisplayFor(model => model.Update_Network.Password)</td>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </tr>
+                                <tr>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col">
+                                                <td>@Html.DisplayNameFor(model => model.Update_Network.Status) :</td>
+                                                <td>@Html.DisplayFor(model => model.Update_Network.Status)</td>
+
+                                            </div>
+                                            <div class="col">
+                                                <td>@Html.DisplayNameFor(model => model.Update_Network.Note) :</td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <textarea class="form-control" id="exampleFormControlTextarea3" rows="5" cols='20'>@Html.DisplayFor(model => model.Update_Network.Note)</textarea>
+                                                    </div>
+                                                </td>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </tr>
+                                <tr>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col">
+                                                <td></td>
+                                                <td></td>
+
+                                            </div>
+                                            <div class="col">
+                                                <td></td>
+                                                <td></td>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="card " style="margin-top:0%">
+                    <div class="card-header" style="font-weight:bold;color:darkblue;">
+                        Update
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-user-information" style="margin-top:-10%;margin-bottom:-3%">
+                            <tbody>
+                                <tr>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col">
+                                                <td>Employee :</td>
+                                                <td>
+                                                    @foreach (var item in Model.Employee)
+                                                    {
+                                                        if (Model.Update_Network.Employee_EmpID == item.EmployeeID)
+                                                        {
+                                                            @Html.DisplayFor(modelItem => item.FirstName)
+                                                        }
+                                                    }
+                                                </td>
+                                            </div>
+                                            <div class="col">
+                                                <td>@Html.DisplayNameFor(model => model.Update_Network.Date) :</td>
+                                                <td>@Html.DisplayFor(model => model.Update_Network.Date)</td>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </tr>
+                                <tr>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col">
+                                                <td></td>
+                                                <td></td>
+
+                                            </div>
+                                            <div class="col">
+                                                <td></td>
+                                                <td></td>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div>
+        <a asp-page="../Networks/Details" asp-route-id="@Model.Update_Network.Network_NetworkID">Back to List</a> 
+    </div>
+</div>

@@ -27,10 +27,12 @@ namespace tbkk_AC.Pages.Assets
         public IList<Supplier> Supplier { get; set; }
         public IList<Department> Department { get; set; }
         public IList<Company> Company { get; set; }
-       
+        public IList<Update_Asset> Update_Asset { get; set; }
+        public IList<Category> Category { get; set; }
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            
+            Category = await _context.Category.ToListAsync();
+            Update_Asset = await _context.Update_Asset.ToListAsync();
             Supplier = await _context.Supplier.ToListAsync();
             Company = await _context.Company.ToListAsync();
             Department = await _context.Department.ToListAsync();
@@ -53,15 +55,13 @@ namespace tbkk_AC.Pages.Assets
 
         public async Task<IActionResult> OnPostAsync()
         {
-            
+
             if (!ModelState.IsValid)
             {
                 return Page();
             }
 
             _context.Attach(Asset).State = EntityState.Modified;
-           
-
             try
             {
                 await _context.SaveChangesAsync();
@@ -77,6 +77,31 @@ namespace tbkk_AC.Pages.Assets
                     throw;
                 }
             }
+            var Update = new Update_Asset();
+            Update.UpdateDate = DateTime.Now;
+            Update.Asset_AssetID = Asset.AssetID;
+            Update.Employee_EmpID = 2012;
+            Update.UpdateAssetName = Asset.AssetName;
+            Update.UpdateSerailNumber = Asset.SerailNumber;
+            Update.UpdateMACAddr = Asset.MACAddr;
+            Update.UpdateInstallDate = Asset.InstallDate;
+            Update.UpdatePurchaseDate = Asset.PurchaseDate;
+            Update.UpdateExpireDate = Asset.ExpireDate;
+            Update.UpdatePONumber = Asset.PONumber;
+            Update.UpdatePrice = Asset.Price;
+            Update.UpdateWarranty = Asset.Warranty;
+            Update.Category = Asset.Category;
+            Update.UpdateNote = Asset.Note;
+            Update.UpdateStatus = Asset.Status;
+            Update.UpdateImage = Asset.Image;
+            Update.Company_CompanyID = Asset.Company_CompanyID;
+            Update.Location_LocationID = Asset.Location_LocationID;
+            Update.Department_DepartmentID = Asset.Department_DepartmentID;
+            Update.Supplier_SupplierID = Asset.Supplier_SupplierID;
+            Update.Model_ModelID = Asset.Model_ModelID;
+            _context.Update_Asset.Add(Update);
+            await _context.SaveChangesAsync();
+
 
             return RedirectToPage("./Index");
         }

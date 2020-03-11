@@ -221,3 +221,11 @@ C:\Users\Anuruk\Desktop\tbkk-asset-master\obj\Debug\netcoreapp2.1\Razor\Pages\Su
 C:\Users\Anuruk\Desktop\tbkk-asset-master\obj\Debug\netcoreapp2.1\Razor\Pages\Test.cshtml.g.cs
 C:\Users\Anuruk\Desktop\tbkk-asset-master\obj\Debug\netcoreapp2.1\Razor\Pages\_ViewImports.cshtml.g.cs
 C:\Users\Anuruk\Desktop\tbkk-asset-master\obj\Debug\netcoreapp2.1\Razor\Pages\_ViewStart.cshtml.g.cs
+C:\Users\Anuruk\Desktop\tbkk-asset-master\obj\Debug\netcoreapp2.1\Razor\Pages\UpdateAsset\Details.cshtml.g.cs
+C:\Users\Anuruk\Desktop\tbkk-asset-master\obj\Debug\netcoreapp2.1\Razor\Pages\UdateLicense\Details.cshtml.g.cs
+C:\Users\Anuruk\Desktop\tbkk-asset-master\obj\Debug\netcoreapp2.1\Razor\Pages\UpdateNetworks\Details.cshtml.g.cs
+C:\Users\Anuruk\Desktop\tbkk-asset-master\obj\Debug\netcoreapp2.1\Razor\Pages\Home\Create.cshtml.g.cs
+C:\Users\Anuruk\Desktop\tbkk-asset-master\obj\Debug\netcoreapp2.1\Razor\Pages\Home\Delete.cshtml.g.cs
+C:\Users\Anuruk\Desktop\tbkk-asset-master\obj\Debug\netcoreapp2.1\Razor\Pages\Home\Details.cshtml.g.cs
+C:\Users\Anuruk\Desktop\tbkk-asset-master\obj\Debug\netcoreapp2.1\Razor\Pages\Home\Edit.cshtml.g.cs
+C:\Users\Anuruk\Desktop\tbkk-asset-master\obj\Debug\netcoreapp2.1\Razor\Pages\Home\Index.cshtml.g.cs

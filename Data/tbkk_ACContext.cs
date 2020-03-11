@@ -54,5 +54,6 @@ namespace tbkk_AC.Models
         public DbSet<tbkk_AC.Models.Update_Asset> Update_Asset { get; set; }
 
         public DbSet<tbkk_AC.Models.Update_Network> Update_Network { get; set; }
+        
     }
 }

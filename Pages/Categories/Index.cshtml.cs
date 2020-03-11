@@ -41,7 +41,6 @@ namespace tbkk_AC.Pages.Categories
                                             {
                                                 CategoryName = values[0],
                                                 Image = values[1],
-                                                TypeName = values[2],
                                                 Status = "Using"
                                             }
                                             );

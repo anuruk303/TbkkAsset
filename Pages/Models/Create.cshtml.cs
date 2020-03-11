@@ -20,11 +20,11 @@ namespace tbkk_AC.Pages.Models
         }
 
         public IList<Brand> Brand { get; set; }
-        public IList<Category> Category { get; set; }
+       
         public async Task<IActionResult> OnGetAsync()
         {
             Brand = await _context.Brand.ToListAsync();
-            Category = await _context.Category.ToListAsync();
+           
             return Page();
         }
 

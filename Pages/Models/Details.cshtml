@@ -38,10 +38,7 @@
                                                     <td>@Html.DisplayFor(model => model.Model.Brand.BrandName)</td>
 
                                                 </div>
-                                                <div class="col">
-                                                    <td>@Html.DisplayNameFor(model => model.Model.Category) :</td>
-                                                    <td>@Html.DisplayFor(model => model.Model.Category.CategoryName)</td>
-                                                </div>
+                                               
                                             </div>
                                         </div>
                                     </tr>
@@ -86,7 +83,7 @@
                 </div>
             </div>
         </div>
-        <div>
+        <div style="margin-top:2%">
             <a asp-page="./Edit" asp-route-id="@Model.Model.ModelID">Edit</a> |
             <a asp-page="./Index" asp-route-id="@Model.Model.ModelID">Back to List</a>
         </div>

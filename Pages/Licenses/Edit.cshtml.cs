@@ -13,22 +13,23 @@ namespace tbkk_AC.Pages.Licenses
     public class EditModel : PageModel
     {
         private readonly tbkk_AC.Models.tbkk_ACContext _context;
+        private readonly tbkk_AC.Models.tbkk_ACContext _context1;
 
         public EditModel(tbkk_AC.Models.tbkk_ACContext context)
         {
             _context = context;
+           
         }
 
         [BindProperty]
         public License License { get; set; }
-       
-        public IList<Model> Model { get; set; }
+        public Update_License Update_License { get; set; }
         public IList<Supplier> Supplier { get; set; }
         public IList<Department> Department { get; set; }
         public IList<Company> Company { get; set; }
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            Model = await _context.Model.ToListAsync();
+           
             Supplier = await _context.Supplier.ToListAsync();
             Department = await _context.Department.ToListAsync();
             Company = await _context.Company.ToListAsync();
@@ -54,9 +55,8 @@ namespace tbkk_AC.Pages.Licenses
                 return Page();
             }
 
-           
+
             _context.Attach(License).State = EntityState.Modified;
-            
             try
             {
                 await _context.SaveChangesAsync();
@@ -72,7 +72,24 @@ namespace tbkk_AC.Pages.Licenses
                     throw;
                 }
             }
-
+            var Update = new Update_License();
+            Update.Date = DateTime.Now;
+            Update.License_LicenseID = License.LicenseID;
+            Update.LicenseName = License.LicenseName;
+            Update.SoftewareName = License.SoftewareName;
+            Update.PurchaseDate = License.PurchaseDate;
+            Update.StartDate = License.StartDate;
+            Update.ExpireDate = License.ExpireDate;
+            Update.PONumber = License.PONumber;
+            Update.Attachfiles = License.Attachfiles;
+            Update.Note = License.Note;
+            Update.Status = License.Status;
+            Update.Supplier_SupplierID = License.Supplier_SupplierID;
+            Update.Department_DepartmentID = License.Department_DepartmentID;
+            Update.Company_CompanyID = License.Company_CompanyID;
+            Update.Employee = 2012;
+            _context.Update_License.Add(Update);
+            await _context.SaveChangesAsync();
             return RedirectToPage("./Index");
         }
 

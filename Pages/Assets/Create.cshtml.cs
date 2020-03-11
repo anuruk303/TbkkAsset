@@ -31,8 +31,10 @@ namespace tbkk_AC.Pages.Assets
         public IList<Supplier> Supplier { get; set; }
         public IList<Department> Department { get; set; }
         public IList<Company> Company { get; set; }
+        public IList<Category> Category { get; set; }
         public async Task<IActionResult> OnGetAsync()
         {
+            Category = await _context.Category.ToListAsync();
             Supplier = await _context.Supplier.ToListAsync();
             Company = await _context.Company.ToListAsync();
             Department = await _context.Department.ToListAsync();

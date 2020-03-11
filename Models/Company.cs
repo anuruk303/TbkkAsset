@@ -12,7 +12,7 @@ namespace tbkk_AC.Models
         [Display(Name = "CompanyName")]
         public string CompanyName { get; set; }
 
-        [Required]
+     
         [Display(Name = "Image")]
         public string Image { get; set; }
         [Required]

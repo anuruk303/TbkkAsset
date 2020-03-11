@@ -28,8 +28,7 @@ namespace tbkk_AC.Pages.Models
             }
 
             Model = await _context.Model
-                .Include(m => m.Brand)
-                .Include(m => m.Category).FirstOrDefaultAsync(m => m.ModelID == id);
+                .Include(m => m.Brand).FirstOrDefaultAsync(m => m.ModelID == id);
 
             if (Model == null)
             {

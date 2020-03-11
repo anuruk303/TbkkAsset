@@ -19,18 +19,18 @@ namespace tbkk_AC.Pages.Licenses
         }
 
         public License License { get; set; }
-        public IList<Model> Model { get; set; }
+      
         public IList<Supplier> Supplier { get; set; }
         public IList<Department> Department { get; set; }
         public IList<Company> Company { get; set; }
         public IList<Join_License_Asset> Join_License_Asset { get; set; }
         public IList<Asset> Asset { get; set; }
-        
+        public IList<Update_License> Update_License { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-        
-            Model = await _context.Model.ToListAsync();
+            Update_License = await _context.Update_License.ToListAsync();
+            
             Supplier = await _context.Supplier.ToListAsync();
             Department = await _context.Department.ToListAsync();
             Company = await _context.Company.ToListAsync();

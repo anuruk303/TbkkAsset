@@ -21,10 +21,10 @@ namespace tbkk_AC.Pages.Networks
 
         [BindProperty]
         public Network Network { get; set; }
-        
+        public IList<Update_Network> Update_Network { get; set; }
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            
+            Update_Network = await _context.Update_Network.ToListAsync();
             if (id == null)
             {
                 return NotFound();
@@ -47,8 +47,6 @@ namespace tbkk_AC.Pages.Networks
             }
 
             _context.Attach(Network).State = EntityState.Modified;
-            
-
             try
             {
                 await _context.SaveChangesAsync();
@@ -64,6 +62,19 @@ namespace tbkk_AC.Pages.Networks
                     throw;
                 }
             }
+
+            var Update = new Update_Network();
+
+            Update.Date = DateTime.Now;
+            Update.Network_NetworkID = Network.NetworkID;
+            Update.Employee_EmpID = 2012;
+            Update.NetworkName = Network.NetworkName;
+            Update.IpAddr = Network.IpAddr;
+            Update.Note = Network.Note;
+            Update.Password = Network.Password;
+            Update.Status = Network.Status;
+            _context.Update_Network.Add(Update);
+            await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");
         }

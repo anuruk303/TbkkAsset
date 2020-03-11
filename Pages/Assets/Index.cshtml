@@ -19,9 +19,12 @@
                 <div class="dataTable_length">
                     <i class="fas fa-table"> Asset</i>
                     <div style="float: right">
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#createModal">
+                            Launch demo modal
+                        </button>
                         <a asp-page="Create">
-                            <button type="button" class="btn btn-primary brands-modal">
 
+                            <button type="button" class="btn btn-primary brands-modal">
                                 Create
                             </button>
                         </a>
@@ -36,11 +39,11 @@
                     <div class="card card-body" style="margin-left:70%">
                         <div class="input-group">
                             <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="fUpload" name="Excel">
-                                <label class="custom-file-label" for="fUpload"></label>
+                                <input type="file" class="custom-file-input" id="fUpload" name="Excel" onchange="run()">
+                                <label class="custom-file-label" for="fUpload" id="ff"></label>
                             </div>
                             <div class="input-group-append">
-                                <input class="btn btn-outline-info" value="Upload" type="submit" />
+                                <input class="btn btn-outline-info" value="Upload" type="submit" asp-page-handler="Import" />
                             </div>
                         </div>
                     </div>
@@ -67,7 +70,7 @@
                                     @Html.DisplayNameFor(model => model.Asset[0].Price)
                                 </th>
                                 <th>
-                                    @Html.DisplayNameFor(model => model.Asset[0].Type)
+                                    @Html.DisplayNameFor(model => model.Asset[0].Category)
                                 </th>
                                 <th>
                                     @Html.DisplayNameFor(model => model.Asset[0].Status)
@@ -90,72 +93,81 @@
                         <tbody>
                             @foreach (var item in Model.Asset)
                             {
-                                <tr>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.AssetName)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.InstallDate)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.ExpireDate)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.PONumber)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Price)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Type)
-                                    </td>
+                                if (!item.Status.Equals("Unused"))
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.AssetName)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.InstallDate)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.ExpireDate)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.PONumber)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Price)
+                                        </td>
+                                        <td>
+                                            @foreach (var item1 in Model.Category)
+                                            {
+                                                if (item.Category == item1.CategoryID)
+                                                {
+                                                    @Html.DisplayFor(modelItem => item1.CategoryName)
+                                                }
+                                            }
+                                        </td>
 
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Status)
-                                    </td>
-                                    <td>
-                                        @foreach (var item1 in Model.Company)
-                                        {
-                                            if (item.Company_CompanyID == item1.CompanyID)
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Status)
+                                        </td>
+                                        <td>
+                                            @foreach (var item1 in Model.Company)
                                             {
-                                                @Html.DisplayFor(modelItem => item1.CompanyName)
+                                                if (item.Company_CompanyID == item1.CompanyID)
+                                                {
+                                                    @Html.DisplayFor(modelItem => item1.CompanyName)
+                                                }
                                             }
-                                        }
-                                    </td>
-                                    <td>
-                                        @foreach (var item1 in Model.Location)
-                                        {
-                                            if (item.Location_LocationID == item1.LocationID)
+                                        </td>
+                                        <td>
+                                            @foreach (var item1 in Model.Location)
                                             {
-                                                @Html.DisplayFor(modelItem => item1.LocationName)
+                                                if (item.Location_LocationID == item1.LocationID)
+                                                {
+                                                    @Html.DisplayFor(modelItem => item1.LocationName)
+                                                }
                                             }
-                                        }
-                                    </td>
-                                    <td>
-                                        @foreach (var item1 in Model.Department)
-                                        {
-                                            if (item.Department_DepartmentID == item1.DepartmentID)
+                                        </td>
+                                        <td>
+                                            @foreach (var item1 in Model.Department)
                                             {
-                                                @Html.DisplayFor(modelItem => item1.DepartmentName)
+                                                if (item.Department_DepartmentID == item1.DepartmentID)
+                                                {
+                                                    @Html.DisplayFor(modelItem => item1.DepartmentName)
+                                                }
                                             }
-                                        }
-                                    </td>
-                                    <td>
-                                        @foreach (var item1 in Model.Supplier)
-                                        {
-                                            if (item.Supplier_SupplierID == item1.SupplierID)
+                                        </td>
+                                        <td>
+                                            @foreach (var item1 in Model.Supplier)
                                             {
-                                                @Html.DisplayFor(modelItem => item1.SupplierName)
+                                                if (item.Supplier_SupplierID == item1.SupplierID)
+                                                {
+                                                    @Html.DisplayFor(modelItem => item1.SupplierName)
+                                                }
                                             }
-                                        }
-                                    </td>
+                                        </td>
 
-                                    <td width="100px">
-                                        <a asp-page="./Edit" asp-route-id="@item.AssetID">Edit</a> |
-                                        <a asp-page="./Delete" asp-route-id="@item.AssetID">Delete</a>
-                                        <a asp-page="./Details" asp-route-id="@item.AssetID">Deatail</a>
-                                    </td>
-                                </tr>
+                                        <td width="100px">
+                                            <a asp-route-id="@item.AssetID" data-toggle="modal" data-target="#editModal">Edit</a> |
+                                            <a asp-page="./Delete" asp-route-id="@item.AssetID">Delete</a>
+                                            <a asp-page="./Details" asp-route-id="@item.AssetID">Deatail</a>
+                                        </td>
+                                    </tr>
+                                }
                             }
                         </tbody>
                     </table>
@@ -164,3 +176,268 @@
         </div>
     </div>
 </div>
+
+<!-- Modal -->
+<form method="post" enctype="multipart/form-data">
+    <div class="modal fade bd-example-modal-xl" id="createModal" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="card-body">
+                        <div class="row">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <div class="col">
+                                <div class="form-group row">
+                                    <div class="col-sm-12">
+                                        <label asp-for="AssetCreate.AssetName" class="col-sm-0 col-form-label"></label>
+                                        <input asp-for="AssetCreate.AssetName" class="form-control" placeholder="AssetName" />
+                                        <span asp-validation-for="AssetCreate.AssetName" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-12">
+                                        <label asp-for="AssetCreate.MACAddr" class="col-sm-0 col-form-label"></label>
+                                        <input asp-for="AssetCreate.MACAddr" class="form-control" placeholder="MACAddr" />
+
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-12">
+                                        <label asp-for="AssetCreate.Price" class="col-sm-0 col-form-label"></label>
+                                        <input asp-for="AssetCreate.Price" type="number" class="form-control" placeholder="Price" />
+
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-12">
+                                        <label asp-for="AssetCreate.Category" class="col-sm-0 col-form-label"></label>
+                                        <select asp-for="AssetCreate.Category" class="form-control">
+                                            <option selected value=@null>Plase select</option>
+                                            @foreach (var item in Model.Category)
+                                            {
+                                                if (item.Status.Equals("Using"))
+                                                {
+                                                    <option value=@item.CategoryID>@Html.DisplayFor(modelItem => item.CategoryName)</option>
+                                                }
+                                            }
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group row">
+                                    <div class="col-sm-12">
+                                        <label asp-for="AssetCreate.SerailNumber" class="col-sm-0 col-form-label"></label>
+                                        <input asp-for="AssetCreate.SerailNumber" class="form-control" placeholder="SerailNumber" />
+
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-12">
+                                        <label asp-for="AssetCreate.PONumber" class="col-sm-0 col-form-label"></label>
+                                        <input asp-for="AssetCreate.PONumber" class="form-control" placeholder="PONumber" />
+                                        <span asp-validation-for="AssetCreate.PONumber" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-12">
+                                        <label asp-for="AssetCreate.Warranty" class="col-sm-0 col-form-label"></label>
+                                        <input asp-for="AssetCreate.Warranty" type="number" class="form-control" placeholder="Warranty" />
+                                        <span asp-validation-for="AssetCreate.Warranty" class="text-danger"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group row">
+                                    <div class="col-sm-12">
+                                        <label asp-for="AssetCreate.Supplier_SupplierID" class="col-sm-0 col-form-label">Supplier</label>
+                                        <select asp-for="AssetCreate.Supplier_SupplierID" class="form-control">
+                                            <option selected value=@null>Plase select</option>
+                                            @foreach (var item in Model.Supplier)
+                                            {
+                                                if (item.Status.Equals("Using"))
+                                                {
+                                                    <option value=@item.SupplierID>@Html.DisplayFor(modelItem => item.SupplierName)</option>
+                                                }
+                                            }
+                                        </select>
+
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+
+                                    <div class="col-sm-12">
+                                        <label asp-for="AssetCreate.Company_CompanyID" class="col-sm-0 col-form-label">Company</label>
+                                        <select asp-for="AssetCreate.Company_CompanyID" class="form-control">
+                                            <option selected value=@null>Plase select</option>
+                                            @foreach (var item in Model.Company)
+                                            {
+                                                if (item.Status.Equals("Using"))
+                                                {
+                                                    <option value=@item.CompanyID>@Html.DisplayFor(modelItem => item.CompanyName)</option>
+                                                }
+                                            }
+                                        </select>
+                                        <span asp-validation-for="AssetCreate.Company_CompanyID" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+
+                                    <div class="col-sm-12">
+                                        <label asp-for="AssetCreate.Location_LocationID" class="col-sm-0 col-form-label">Company</label>
+                                        <select asp-for="AssetCreate.Location_LocationID" class="form-control">
+                                            <option selected value=@null>Plase select</option>
+                                            @foreach (var item in Model.Location)
+                                            {
+                                                if (item.Status.Equals("Using"))
+                                                {
+                                                    <option value=@item.LocationID>@Html.DisplayFor(modelItem => item.LocationName)</option>
+                                                }
+                                            }
+                                        </select>
+
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="col">
+                                <div class="form-group row">
+                                    <div class="col-sm-12">
+                                        <label asp-for="AssetCreate.Model_ModelID" class="col-sm-0 col-form-label">Model</label>
+                                        <select asp-for="AssetCreate.Model_ModelID" class="form-control">
+                                            <option selected value=@null>Plase select</option>
+                                            @foreach (var item in Model.Model)
+                                            {
+                                                if (item.Status.Equals("Using"))
+                                                {
+                                                    <option value=@item.ModelID>@Html.DisplayFor(modelItem => item.ModelName)</option>
+                                                }
+                                            }
+                                        </select>
+
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-12">
+                                        <label asp-for="AssetCreate.Department_DepartmentID" class="col-sm-0 col-form-label">Department</label>
+                                        <select asp-for="AssetCreate.Department_DepartmentID" class="form-control">
+                                            <option selected value=@null>Plase select</option>
+                                            @foreach (var item in Model.Department)
+                                            {
+                                                if (item.Status.Equals("Using"))
+                                                {
+                                                    <option value=@item.DepartmentID>@Html.DisplayFor(modelItem => item.DepartmentName)</option>
+                                                }
+                                            }
+                                        </select>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group row">
+                                    <div class="col-sm-12">
+                                        <label asp-for="AssetCreate.InstallDate" class="col-sm-0 col-form-label"></label>
+                                        <input asp-for="AssetCreate.InstallDate" class="form-control" />
+
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-12">
+                                        <label asp-for="AssetCreate.PurchaseDate" class="col-sm-0 col-form-label"></label>
+                                        <input asp-for="AssetCreate.PurchaseDate" class="form-control" />
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group row">
+                                    <div class="col-sm-12">
+                                        <label asp-for="AssetCreate.ExpireDate" class="col-sm-0 col-form-label"></label>
+                                        <input asp-for="AssetCreate.ExpireDate" class="form-control" placeholder="URL" />
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group row">
+                                    <div class="col-sm-12">
+                                        <label asp-for="AssetCreate.Note" class="col-sm-0 col-form-label"></label>
+                                        <textarea rows="4" cols="15" asp-for="AssetCreate.Note" class="form-control"></textarea>
+                                        <span asp-validation-for="AssetCreate.Note" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-12">
+                                        <label asp-for="AssetCreate.Status" class="col-sm-0 col-form-label"></label>
+                                        <input asp-for="AssetCreate.Status" class="form-control" value="InStock" readonly />
+                                        <span asp-validation-for="AssetCreate.Status" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <input type="file" name="photo" id="pho1" asp-for="AssetCreate.Image" accept="image/jpeg,image/jpg" />
+                                    <input asp-for="AssetCreate.Image" class="form-control" hidden id="pho2" />
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <input style="margin-left:10px" type="submit" asp-page-handler="Create" onclick="run1" value="Create" class="btn btn-outline-secondary" />
+                </div>
+            </div>
+        </div>
+    </div>
+    </form>
+
+<form method="post" enctype="multipart/form-data">
+    <div class="modal fade bd-example-modal-xl" id="editModal" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <input style="margin-left:10px" type="submit" asp-page-handler="Create" onclick="run1" value="Create" class="btn btn-outline-secondary" />
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<script>
+    function run1() {
+        document.getElementById("pho2").value = document.getElementById("pho1").value
+    }
+</script>
+    <script>
+
+        function run() {
+            document.getElementById("ff").innerHTML = document.getElementById("fUpload").value
+        }
+    </script>

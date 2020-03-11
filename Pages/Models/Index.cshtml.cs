@@ -26,7 +26,7 @@ namespace tbkk_AC.Pages.Models
         {
             Model = await _context.Model
                 .Include(m => m.Brand)
-                .Include(m => m.Category).ToListAsync();
+                .ToListAsync();
         }
         public async Task<IActionResult> OnPostAsync(IFormFile Excel)
         {
@@ -44,8 +44,8 @@ namespace tbkk_AC.Pages.Models
                                                 ModelName = values[0],
                                                 Note = values[1],
                                                 Status = "Using",
-                                                Brand_BrandID = Int32.Parse(values[2]),
-                                                Category_CategoryID = Int32.Parse(values[3])
+                                                Brand_BrandID = Int32.Parse(values[2])
+                                                
                                             }
                                             );
                     }

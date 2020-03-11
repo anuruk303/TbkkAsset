@@ -44,9 +44,8 @@ namespace tbkk_AC.Models
         [Required]
         [Display(Name = " Warranty")]
         public int UpdateWarranty { get; set; }
-        [Required]
-        [Display(Name = " Type:")]
-        public string UpdateType { get; set; }
+        
+        public int Category { get; set; }
         [Required]
         [Display(Name = "Status")]
         public string UpdateStatus { get; set; }

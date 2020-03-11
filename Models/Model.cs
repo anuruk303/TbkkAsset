@@ -13,7 +13,7 @@ namespace tbkk_AC.Models
         [Display(Name = "ModelName")]
         public string ModelName { get; set; }
 
-        [Required]
+       
         [Display(Name = "Note")]
         public string Note { get; set; }
 
@@ -24,10 +24,6 @@ namespace tbkk_AC.Models
         [ForeignKey("Brand")]
         public int Brand_BrandID { get; set; }
         public Brand Brand { get; set; }
-
-        [ForeignKey("Category")]
-        public int Category_CategoryID { get; set; }
-        public Category Category { get; set; }
 
         public static implicit operator Model(List<Model> v)
         {

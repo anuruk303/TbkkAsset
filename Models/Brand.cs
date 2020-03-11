@@ -13,7 +13,7 @@ namespace tbkk_AC.Models
         [Display(Name = "Brand Name")]
         public string BrandName { get; set; }
 
-        [Required]
+  
         [Display(Name = "Image")]
         public string Image { get; set; }
 
