@@ -22,8 +22,8 @@ namespace tbkk_AC.Pages.Assets
             _context = context;
             this.environment = environment;
         }
-       
-       
+
+
 
         public IList<Location> Location { get; set; }
         public IList<Position> Position { get; set; }
@@ -54,7 +54,7 @@ namespace tbkk_AC.Pages.Assets
             Asset.Image = photo.FileName;
             if (!ModelState.IsValid)
             {
-                
+
             }
             _context.Asset.Add(Asset);
             await _context.SaveChangesAsync();

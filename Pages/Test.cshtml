@@ -48,7 +48,7 @@
                         <tbody>
                             @foreach (var item in Model.License)
                             {
-                                if (item.Status.Equals("Using"))
+                                if (!item.Status.Equals("Unused"))
                                 {
                                     if (item.ExpireDate < DateTime.Now.AddMonths(+1) || item.ExpireDate < DateTime.Now)
                                     {
@@ -90,7 +90,7 @@
                             }
                             @foreach (var item in Model.Asset)
                             {
-                                if (item.Status.Equals("Using"))
+                                if (!item.Status.Equals("Unused"))
                                 {
                                     if (item.ExpireDate < DateTime.Now.AddMonths(+1) || item.ExpireDate < DateTime.Now)
                                     {

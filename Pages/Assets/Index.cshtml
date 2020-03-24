@@ -1,4 +1,4 @@
-﻿@page
+﻿@page 
 @model tbkk_AC.Pages.Assets.IndexModel
 
 @{
@@ -30,6 +30,7 @@
                         </a>
                         <!--<a class="btn btn-info" asp-page="Create">Create New</a>-->
                         <button class="btn btn-info" type="button" data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">Import data</button>
+                        <button class="btn btn-info" type="button" data-toggle="collapse" data-target="#multiCollapseExample3" aria-expanded="false" aria-controls="multiCollapseExample3">Search data</button>
                     </div>
                 </div>
 
@@ -49,133 +50,234 @@
                     </div>
                 </div>
             </form>
-            <div class="card-body">
-                <div class="table-responsive">
-                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                        <thead>
-                            <tr>
-                                <th>
-                                    @Html.DisplayNameFor(model => model.Asset[0].AssetName)
-                                </th>
-                                <th>
-                                    @Html.DisplayNameFor(model => model.Asset[0].InstallDate)
-                                </th>
-                                <th>
-                                    @Html.DisplayNameFor(model => model.Asset[0].ExpireDate)
-                                </th>
-                                <th>
-                                    @Html.DisplayNameFor(model => model.Asset[0].PONumber)
-                                </th>
-                                <th>
-                                    @Html.DisplayNameFor(model => model.Asset[0].Price)
-                                </th>
-                                <th>
-                                    @Html.DisplayNameFor(model => model.Asset[0].Category)
-                                </th>
-                                <th>
-                                    @Html.DisplayNameFor(model => model.Asset[0].Status)
-                                </th>
-                                <th>
-                                    Company
-                                </th>
-                                <th>
-                                    Location
-                                </th>
-                                <th>
-                                    Department
-                                </th>
-                                <th>
-                                    Supplier
-                                </th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach (var item in Model.Asset)
-                            {
-                                if (!item.Status.Equals("Unused"))
-                                {
-                                    <tr>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.AssetName)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.InstallDate)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.ExpireDate)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.PONumber)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.Price)
-                                        </td>
-                                        <td>
-                                            @foreach (var item1 in Model.Category)
+            <form>
+                <div class="collapse multi-collapse" id="multiCollapseExample3" style="">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-4 col-lg-3">
+                                <div class="form-group row">
+                                    <div class="col-sm-12">
+                                        <label class="col-sm-0 col-form-label"> PO Number</label>
+                                        <input class="form-control form-control-sm" placeholder="PO Number" id="PONumber" asp-for="PONumber" />
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-12">
+                                        <label class="col-sm-0 col-form-label">Supplier</label>
+                                        <select class="form-control form-control-sm" id="Supplier" asp-for="SupplierID">
+                                            <option selected value=@null>Plase select</option>
+                                            @foreach (var item in Model.Supplier)
                                             {
-                                                if (item.Category == item1.CategoryID)
+                                                if (!item.Status.Equals("Unused"))
                                                 {
-                                                    @Html.DisplayFor(modelItem => item1.CategoryName)
+                                                    <option value=@item.SupplierID>@Html.DisplayFor(modelItem => item.SupplierName)</option>
                                                 }
                                             }
-                                        </td>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-4 col-lg-3">
+                                <div class="form-group row">
+                                    <div class="col-sm-12">
+                                        <label class="col-sm-0 col-form-label">Category</label>
+                                        <select class="form-control form-control-sm" id="Category" asp-for="CategoryID">
+                                            <option selected value=@null>Plase select</option>
+                                            @foreach (var item in Model.Category)
+                                            {
+                                                if (!item.Status.Equals("Unused"))
+                                                {
+                                                    <option value=@item.CategoryID>@Html.DisplayFor(modelItem => item.CategoryName)</option>
+                                                }
+                                            }
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-12">
+                                        <label class="col-sm-0 col-form-label">Location</label>
+                                        <select class="form-control form-control-sm" id="Location" asp-for="LocationID">
+                                            <option selected value=@null>Plase select</option>
+                                            @foreach (var item in Model.Location)
+                                            {
+                                                if (!item.Status.Equals("Unused"))
+                                                {
+                                                    <option value=@item.LocationID>@Html.DisplayFor(modelItem => item.LocationName)</option>
+                                                }
+                                            }
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
 
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.Status)
-                                        </td>
-                                        <td>
-                                            @foreach (var item1 in Model.Company)
+                            <div class="col-sm-12 col-md-4 col-lg-3">
+                                <div class="form-group row">
+                                    <div class="col-sm-12">
+                                        <label class="col-sm-0 col-form-label">Department</label>
+                                        <select class="form-control form-control-sm" id="Department" asp-for="DepartmentID">
+                                            <option selected value=@null>Plase select</option>
+                                            @foreach (var item in Model.Department)
                                             {
-                                                if (item.Company_CompanyID == item1.CompanyID)
+                                                if (!item.Status.Equals("Unused"))
                                                 {
-                                                    @Html.DisplayFor(modelItem => item1.CompanyName)
+                                                    <option value=@item.DepartmentID>@Html.DisplayFor(modelItem => item.DepartmentName)</option>
                                                 }
                                             }
-                                        </td>
-                                        <td>
-                                            @foreach (var item1 in Model.Location)
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-12">
+                                        <label class="col-sm-0 col-form-label">Company</label>
+                                        <select class="form-control form-control-sm" id="Company" asp-for="CompanyID">
+                                            <option selected value=@null>Plase select</option>
+                                            @foreach (var item in Model.Company)
                                             {
-                                                if (item.Location_LocationID == item1.LocationID)
+                                                if (!item.Status.Equals("Unused"))
                                                 {
-                                                    @Html.DisplayFor(modelItem => item1.LocationName)
+                                                    <option value=@item.CompanyID>@Html.DisplayFor(modelItem => item.CompanyName)</option>
                                                 }
                                             }
-                                        </td>
-                                        <td>
-                                            @foreach (var item1 in Model.Department)
-                                            {
-                                                if (item.Department_DepartmentID == item1.DepartmentID)
-                                                {
-                                                    @Html.DisplayFor(modelItem => item1.DepartmentName)
-                                                }
-                                            }
-                                        </td>
-                                        <td>
-                                            @foreach (var item1 in Model.Supplier)
-                                            {
-                                                if (item.Supplier_SupplierID == item1.SupplierID)
-                                                {
-                                                    @Html.DisplayFor(modelItem => item1.SupplierName)
-                                                }
-                                            }
-                                        </td>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-4 col-lg-3">
+                                <div class="form-group row">
+                                    <div class="col-sm-12">
+                                        <label class="col-sm-0 col-form-label">Status</label>
+                                        <select class="form-control form-control-sm" id="Status" asp-for="Status">
+                                            <option selected value=@null>Plase select</option>
+                                            <option value="Using">Using</option>
+                                            <option value="InStock">InStock</option>
 
-                                        <td width="100px">
-                                            <a asp-route-id="@item.AssetID" data-toggle="modal" data-target="#editModal">Edit</a> |
-                                            <a asp-page="./Delete" asp-route-id="@item.AssetID">Delete</a>
-                                            <a asp-page="./Details" asp-route-id="@item.AssetID">Deatail</a>
-                                        </td>
-                                    </tr>
-                                }
-                            }
-                        </tbody>
-                    </table>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div style="float: right;margin-bottom:1% ">
+                                <button type="submit" class="btn btn-primary brands-modal">
+                                    Search
+                                </button>
+                         
+                            <button class="btn btn-info" type="button" onclick="clear1()">Clear</button>
+                        </div>
+                    </div>
                 </div>
+            </form>
+        </div>
+        
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" style="font-size:small">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Asset[0].AssetName)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Asset[0].PONumber)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Asset[0].Category)
+                            </th>
+                            <th>
+                                Department
+                            </th>
+                            <th>
+                                Supplier
+                            </th>
+                            <th>
+                                Company
+                            </th>
+
+                            <th>
+                                @Html.DisplayNameFor(model => model.Asset[0].Status)
+                            </th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.Asset)
+                        {
+                            if (!item.Status.Equals("Unused"))
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.AssetName)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.PONumber)
+                                    </td>
+
+                                    <td>
+                                        @foreach (var item1 in Model.Category)
+                                        {
+                                            if (item.Category == item1.CategoryID)
+                                            {
+                                                @Html.DisplayFor(modelItem => item1.CategoryName)
+                                            }
+                                        }
+                                    </td>
+
+                                    <td>
+                                        @foreach (var item1 in Model.Department)
+                                        {
+                                            if (item.Department_DepartmentID == item1.DepartmentID)
+                                            {
+                                                @Html.DisplayFor(modelItem => item1.DepartmentName)
+                                            }
+                                        }
+                                    </td>
+                                    <td>
+                                        @foreach (var item1 in Model.Supplier)
+                                        {
+                                            if (item.Supplier_SupplierID == item1.SupplierID)
+                                            {
+                                                @Html.DisplayFor(modelItem => item1.SupplierName)
+                                            }
+                                        }
+                                    </td>
+                                    <td>
+                                        @foreach (var item1 in Model.Company)
+                                        {
+                                            if (item.Company_CompanyID == item1.CompanyID)
+                                            {
+                                                @foreach (var item2 in Model.Location)
+                                                {
+                                                    if (item.Location_LocationID == item2.LocationID)
+                                                    {
+                                                        @Html.DisplayFor(modelItem => item2.LocationName)<text>/</text>@Html.DisplayFor(modelItem => item1.CompanyName)
+                                                    }
+                                                }
+
+                                            }
+                                        }
+                                    </td>
+
+
+
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Status)
+                                    </td>
+
+                                    <td width="100px">
+                                        <a asp-page="./Edit" asp-route-id="@item.AssetID">Edit</a> |
+                                        <a asp-page="./Delete" asp-route-id="@item.AssetID">Delete</a>
+                                        <a asp-page="./Details" asp-route-id="@item.AssetID">Deatail</a>
+                                    </td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
 </div>
+
 
 <!-- Modal -->
 <form method="post" enctype="multipart/form-data">
@@ -407,7 +509,7 @@
             </div>
         </div>
     </div>
-    </form>
+</form>
 
 <form method="post" enctype="multipart/form-data">
     <div class="modal fade bd-example-modal-xl" id="editModal" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
@@ -434,10 +536,16 @@
     function run1() {
         document.getElementById("pho2").value = document.getElementById("pho1").value
     }
+    function run() {
+        document.getElementById("ff").innerHTML = document.getElementById("fUpload").value
+    } function clear1() {
+        
+        document.getElementById("Supplier").selectedIndex = "0";
+        document.getElementById("PONumber").value = "";
+        document.getElementById("Company").selectedIndex = "0";
+        document.getElementById("Status").selectedIndex = "0";
+        document.getElementById("Department").selectedIndex = "0";
+        document.getElementById("Location").selectedIndex = "0";
+        document.getElementById("Category").selectedIndex = "0";
+    }
 </script>
-    <script>
-
-        function run() {
-            document.getElementById("ff").innerHTML = document.getElementById("fUpload").value
-        }
-    </script>

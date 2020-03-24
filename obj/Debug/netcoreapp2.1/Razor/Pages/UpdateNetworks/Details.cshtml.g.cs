@@ -329,7 +329,7 @@ using tbkk_AC;
             WriteLiteral("                 </div>\r\n                </div>\r\n            </div>\r\n\r\n        </div>\r\n    </div>\r\n    <div>\r\n        ");
             EndContext();
             BeginContext(7745, 105, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "14e16f3626fe42ddb5e9a76e0e6a1b3c", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2ade047e48fe4eb9a5625c2955bfce03", async() => {
                 BeginContext(7834, 12, true);
                 WriteLiteral("Back to List");
                 EndContext();

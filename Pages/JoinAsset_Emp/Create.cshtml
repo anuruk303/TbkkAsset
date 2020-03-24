@@ -47,11 +47,11 @@
                         <label class="col-sm-0 col-form-label" asp-for="Join_Asset_Emp.Employee_EmployeeID"></label>
                         @if (Model.Num == "2")
                         {
-                            <input class="form-control" placeholder="AssetID" asp-for="Join_Asset_Emp.Employee_EmployeeID" id="Emp" value="@Model.ID" />
+                            <input class="form-control" placeholder="EmployeeID" asp-for="Join_Asset_Emp.Employee_EmployeeID" id="Emp" value="@Model.ID" />
                         }
                         else
                         {
-                            <input class="form-control" placeholder="AssetID" asp-for="Join_Asset_Emp.Employee_EmployeeID" id="Emp" />
+                            <input class="form-control" placeholder="EmployeeID" asp-for="Join_Asset_Emp.Employee_EmployeeID" id="Emp" />
                         }
 
                         <span class="text-danger" asp-validation-for="Join_Asset_Emp.Employee_EmployeeID"></span>
@@ -101,9 +101,7 @@
                                     <th>
                                         @Html.DisplayNameFor(model => model.Asset[0].PurchaseDate)
                                     </th>
-                                    <th>
-                                        @Html.DisplayNameFor(model => model.Asset[0].Type)
-                                    </th>
+                                   
                                     <th>
                                         @Html.DisplayNameFor(model => model.Asset[0].Status)
                                     </th>
@@ -123,6 +121,8 @@
                             <tbody>
                                 @foreach (var item in Model.Asset)
                                 {
+                                    if (item.Status.Equals("InStock"))
+                                    {
                                     <tr>
                                         <td>
                                             @Html.DisplayFor(modelItem => item.AssetID)
@@ -133,9 +133,7 @@
                                         <td>
                                             @Html.DisplayFor(modelItem => item.PurchaseDate)
                                         </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.Type)
-                                        </td>
+                                        
                                         <td>
                                             @Html.DisplayFor(modelItem => item.Status)
                                         </td>
@@ -153,6 +151,7 @@
                                             <button type="button" class="btn btn-outline-success" onclick="select1(@item.AssetID)">Select</button>
                                         </td>
                                     </tr>
+                                    }
                                 }
 
                             </tbody>

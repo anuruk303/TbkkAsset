@@ -21,7 +21,7 @@ namespace tbkk_AC.Models
         public string Line { get; set; }
         public string Image { get; set; }
         public string Addr { get; set; }
-
+        [DataType(DataType.Date)]
         public DateTime Date { get; set; }
         public string Status { get; set; }
 

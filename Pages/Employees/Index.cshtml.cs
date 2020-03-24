@@ -46,19 +46,19 @@ namespace tbkk_AC.Pages.Employees
                                             {
                                                 FirstName = values[0],
                                                 LastName = values[1],
-                                                Gender = values[3],
-                                                Email = values[4],
-                                                Call = values[5],
-                                                Line = values[6],
-                                                Image = values[7],
-                                                Addr = values[8],
-                                                Date = DateTime.Parse(values[9]),
+                                                Gender = values[2],
+                                                Email = values[3],
+                                                Call = values[4],
+                                                Line = values[5],
+                                                Image = values[6],
+                                                Addr = values[7],
+                                                Date = DateTime.Parse(values[8]),
                                                 Status = "Using",
-                                                Company_CompanyID = Int32.Parse(values[10]),
-                                                Department_DepartmentID = Int32.Parse(values[11]),
-                                                Location_LocationID = Int32.Parse(values[12]),
-                                                EmployeeType_EmployeeTypeID = Int32.Parse(values[13]),
-                                                Position_PositionID = Int32.Parse(values[14])
+                                                Company_CompanyID = Int32.Parse(values[9]),
+                                                Department_DepartmentID = Int32.Parse(values[10]),
+                                                Location_LocationID = Int32.Parse(values[11]),
+                                                EmployeeType_EmployeeTypeID = Int32.Parse(values[12]),
+                                                Position_PositionID = Int32.Parse(values[13])
                                             }
                                             );
                     }

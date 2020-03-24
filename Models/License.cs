@@ -19,12 +19,15 @@ namespace tbkk_AC.Models
         public string SoftewareName { get; set; }
       
         [Display(Name = "PurchaseDate")]
+        [DataType(DataType.Date)]
         public DateTime PurchaseDate { get; set; }
      
         [Display(Name = "StartDate")]
+        [DataType(DataType.Date)]
         public DateTime StartDate { get; set; }
       
         [Display(Name = "ExpireDate")]
+        [DataType(DataType.Date)]
         public DateTime ExpireDate { get; set; }
         [Required]
         [Display(Name = "PONumber")]

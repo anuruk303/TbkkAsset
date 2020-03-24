@@ -47,11 +47,11 @@
                             <label class="col-sm-0 col-form-label" asp-for="Join_License_Asset.License_LicenseID"></label>
                             @if (Model.Num == "2")
                             {
-                                <input class="form-control" placeholder="AssetID" asp-for="Join_License_Asset.License_LicenseID" id="Emp" value="@Model.ID" />
+                                <input class="form-control" placeholder="AssetID" asp-for="Join_License_Asset.License_LicenseID" id="Licen" value="@Model.ID" />
                             }
                             else
                             {
-                                <input class="form-control" placeholder="AssetID" asp-for="Join_License_Asset.License_LicenseID" id="Emp" />
+                                <input class="form-control" placeholder="AssetID" asp-for="Join_License_Asset.License_LicenseID" id="Licen" />
                             }
 
                             <span class="text-danger" asp-validation-for="Join_License_Asset.License_LicenseID"></span>
@@ -101,9 +101,7 @@
                                         <th>
                                             @Html.DisplayNameFor(model => model.Asset[0].PurchaseDate)
                                         </th>
-                                        <th>
-                                            @Html.DisplayNameFor(model => model.Asset[0].Type)
-                                        </th>
+                                       
                                         <th>
                                             @Html.DisplayNameFor(model => model.Asset[0].Status)
                                         </th>
@@ -133,9 +131,7 @@
                                             <td>
                                                 @Html.DisplayFor(modelItem => item.PurchaseDate)
                                             </td>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.Type)
-                                            </td>
+                                           
                                             <td>
                                                 @Html.DisplayFor(modelItem => item.Status)
                                             </td>
@@ -235,10 +231,10 @@
         <script>
 
     function select1(Ass) {
-        document.getElementById("Asset").value = Ass
+        document.getElementById("AssetID").value = Ass
     }
     function select2(lic) {
-        document.getElementById("lic").value = lic
+        document.getElementById("Licen").value = lic
     }
 
         </script>

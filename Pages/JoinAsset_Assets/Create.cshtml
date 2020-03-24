@@ -95,9 +95,7 @@
                                 <th>
                                     @Html.DisplayNameFor(model => model.Asset[0].PurchaseDate)
                                 </th>
-                                <th>
-                                    @Html.DisplayNameFor(model => model.Asset[0].Type)
-                                </th>
+                                
                                 <th>
                                     @Html.DisplayNameFor(model => model.Asset[0].Status)
                                 </th>
@@ -127,9 +125,7 @@
                                 <td>
                                     @Html.DisplayFor(modelItem => item.PurchaseDate)
                                 </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Type)
-                                </td>
+                               
                                 <td>
                                     @Html.DisplayFor(modelItem => item.Status)
                                 </td>
@@ -170,9 +166,7 @@
                                 <th>
                                     @Html.DisplayNameFor(model => model.Asset[0].PurchaseDate)
                                 </th>
-                                <th>
-                                    @Html.DisplayNameFor(model => model.Asset[0].Type)
-                                </th>
+                                
                                 <th>
                                     @Html.DisplayNameFor(model => model.Asset[0].Status)
                                 </th>
@@ -201,9 +195,6 @@
                                     </td>
                                     <td>
                                         @Html.DisplayFor(modelItem => item1.PurchaseDate)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item1.Type)
                                     </td>
                                     <td>
                                         @Html.DisplayFor(modelItem => item1.Status)
@@ -237,7 +228,7 @@
     function select1(Ass) {
         console.log("ggg")
         console.log(Ass)
-        document.getElementById("Asset").value = Ass
+        document.getElementById("AssetID").value = Ass
     }
     function select2(Ass) {
         console.log("ggg")

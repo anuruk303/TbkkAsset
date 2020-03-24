@@ -136,33 +136,33 @@
                     <div class="card-body">
                         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                         <div class="row">
-
-                            <input asp-for="License.PurchaseDate" class="form-control" type="hidden" value="@DateTime.Now" />
-                            <span asp-validation-for="License.PurchaseDate" class="text-danger"></span>
-
-
-
                             <div class="col">
-                                <div class="form-group row">
-                                    <div class="col-sm-12">
-                                        <label asp-for="License.StartDate" class="col-sm-0 col-form-label"></label>
-                                        <input asp-for="License.StartDate" class="form-control" />
-                                        <span asp-validation-for="License.StartDate" class="text-danger"></span>
+                                <label asp-for="License.PurchaseDate" class="col-sm-0 col-form-label"></label>
+                                <input asp-for="License.PurchaseDate" class="form-control" />
+                                <span asp-validation-for="License.PurchaseDate" class="text-danger"></span>
+                                </div>
+
+                                <div class="col">
+                                    <div class="form-group row">
+                                        <div class="col-sm-12">
+                                            <label asp-for="License.StartDate" class="col-sm-0 col-form-label"></label>
+                                            <input asp-for="License.StartDate" class="form-control" />
+                                            <span asp-validation-for="License.StartDate" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col">
+                                    <div class="form-group row">
+                                        <div class="col-sm-12">
+                                            <label asp-for="License.ExpireDate" class="col-sm-0 col-form-label"></label>
+                                            <input asp-for="License.ExpireDate" class="form-control" />
+                                            <span asp-validation-for="License.ExpireDate" class="text-danger"></span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-
-                            <div class="col">
-                                <div class="form-group row">
-                                    <div class="col-sm-12">
-                                        <label asp-for="License.ExpireDate" class="col-sm-0 col-form-label"></label>
-                                        <input asp-for="License.ExpireDate" class="form-control" />
-                                        <span asp-validation-for="License.ExpireDate" class="text-danger"></span>
-                                    </div>
-                                </div>
                             </div>
-                        </div>
-                    </div>
 
                 </div>
                 <div class="card " style="margin-top:1%">

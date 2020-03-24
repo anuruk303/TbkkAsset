@@ -5,133 +5,139 @@
     ViewData["Title"] = "Index";
 }
 
-<div id="content-wrapper">
-    <div class="container-fluid">
-        <!-- Breadcrumbs-->
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item">
-                <a href="index.html">Asset Control</a>
-            </li>
-            <li class="breadcrumb-item active">Managment</li>
-            <li class="breadcrumb-item active">License</li>
-        </ol>
-        <!-- DataTables Example -->
+    <div id="content-wrapper">
+        <div class="container-fluid">
+            <!-- Breadcrumbs-->
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="index.html">Asset Control</a>
+                </li>
+                <li class="breadcrumb-item active">Managment</li>
+                <li class="breadcrumb-item active">License</li>
+            </ol>
+            <!-- DataTables Example -->
 
-        <div class="card mb-3">
-            <div class="card-header">
-                <div class="dataTable_length">
-                    <i class="fas fa-table">License</i>
-                    <div style="float: right">
-                        <a asp-page="Create"><button type="button" class="btn btn-primary">Create</button></a>
+            <div class="card mb-3">
+                <div class="card-header">
+                    <div class="dataTable_length">
+                        <i class="fas fa-table">License</i>
+                        <div style="float: right">
+                            <a asp-page="Create"><button type="button" class="btn btn-primary">Create</button></a>
 
-                        <button class="btn btn-info" type="button" data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">Import data</button>
+                            <button class="btn btn-info" type="button" data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">Import data</button>
+                        </div>
                     </div>
-                </div>
 
-            </div>
-            <form method="post" enctype="multipart/form-data">
-                <div class="collapse multi-collapse" id="multiCollapseExample2" style="margin-top:1%;margin-left:auto">
-                    <div class="card card-body" style="margin-left:70%">
-                        <div class="input-group">
-                            <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="fUpload" name="Excel">
-                                <label class="custom-file-label" for="fUpload"></label>
-                            </div>
-                            <div class="input-group-append">
-                                <input class="btn btn-outline-info" value="Upload" type="submit" />
+                </div>
+                <form method="post" enctype="multipart/form-data">
+                    <div class="collapse multi-collapse" id="multiCollapseExample2" style="margin-top:1%;margin-left:auto">
+                        <div class="card card-body" style="margin-left:70%">
+                            <div class="input-group">
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" id="fUpload" name="Excel" onchange="run()">
+                                    <label class="custom-file-label" for="fUpload" id="ff"></label>
+                                </div>
+                                <div class="input-group-append">
+                                    <input class="btn btn-outline-info" value="Upload" type="submit" asp-page-handler="Import" />
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </form>
-            <div class="card-body">
-                <div class="table-responsive">
-                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="3">
-                        <thead>
-                            <tr>
-                                <th>
-                                    @Html.DisplayNameFor(model => model.License[0].LicenseName)
-                                </th>
-                                <th>
-                                    @Html.DisplayNameFor(model => model.License[0].SoftewareName)
-                                </th>
-                                <th>
-                                    @Html.DisplayNameFor(model => model.License[0].ExpireDate)
-                                </th>
-                                <th>
-                                    @Html.DisplayNameFor(model => model.License[0].PONumber)
-                                </th>  
-                                <th>
-                                    Supplier
-                                </th>
-                                <th>
-                                    Department
-                                </th>
-                                <th>
-                                    Company
-                                </th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach (var item in Model.License)
-                            {
-                                if (item.Status.Equals("Using"))
+                </form>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="3">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.License[0].LicenseName)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.License[0].SoftewareName)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.License[0].ExpireDate)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.License[0].PONumber)
+                                    </th>
+                                    <th>
+                                        Supplier
+                                    </th>
+                                    <th>
+                                        Department
+                                    </th>
+                                    <th>
+                                        Company
+                                    </th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model.License)
                                 {
-                                    <tr>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.LicenseName)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.SoftewareName)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.ExpireDate)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.PONumber)
-                                        </td>
-                                        
-                                        <td>
-                                            @foreach (var item1 in Model.Supplier)
-                                            {
-                                                if (item.Supplier_SupplierID == item1.SupplierID)
-                                                {
-                                                    @Html.DisplayFor(modelItem => item1.SupplierName)
-                                                }
-                                            }
+                                    if (item.Status.Equals("Using"))
+                                    {
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.LicenseName)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.SoftewareName)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.ExpireDate)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.PONumber)
+                                            </td>
 
-                                        </td>
-                                        <td>
-                                            @foreach (var item1 in Model.Department)
-                                            {
-                                                if (item.Department_DepartmentID == item1.DepartmentID)
+                                            <td>
+                                                @foreach (var item1 in Model.Supplier)
                                                 {
-                                                    @Html.DisplayFor(modelItem => item1.DepartmentName)
+                                                    if (item.Supplier_SupplierID == item1.SupplierID)
+                                                    {
+                                                        @Html.DisplayFor(modelItem => item1.SupplierName)
+                                                    }
                                                 }
-                                            }
-                                        </td>
-                                        <td>
-                                            @foreach (var item1 in Model.Company)
-                                            {
-                                                if (item.Company_CompanyID == item1.CompanyID)
-                                                {
-                                                    @Html.DisplayFor(modelItem => item1.CompanyName)
-                                                }
-                                            }
 
-                                        </td>
-                                        <td width="100px">
-                                            <a asp-page="./Details" asp-route-id="@item.LicenseID">Details</a> |
-                                            <a asp-page="./Edit" asp-route-id="@item.LicenseID">Edit</a> |
-                                            <a asp-page="./Delete" asp-route-id="@item.LicenseID">Delete</a>
-                                        </td>
-                                    </tr>
+                                            </td>
+                                            <td>
+                                                @foreach (var item1 in Model.Department)
+                                                {
+                                                    if (item.Department_DepartmentID == item1.DepartmentID)
+                                                    {
+                                                        @Html.DisplayFor(modelItem => item1.DepartmentName)
+                                                    }
+                                                }
+                                            </td>
+                                            <td>
+                                                @foreach (var item1 in Model.Company)
+                                                {
+                                                    if (item.Company_CompanyID == item1.CompanyID)
+                                                    {
+                                                        @Html.DisplayFor(modelItem => item1.CompanyName)
+                                                    }
+                                                }
+
+                                            </td>
+                                            <td width="100px">
+                                                <a asp-page="./Details" asp-route-id="@item.LicenseID">Details</a> |
+                                                <a asp-page="./Edit" asp-route-id="@item.LicenseID">Edit</a> |
+                                                <a asp-page="./Delete" asp-route-id="@item.LicenseID">Delete</a>
+                                            </td>
+                                        </tr>
+                                    }
                                 }
-                            }
-                        </tbody>
-                    </table>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+        <script>
+
+        function run() {
+            document.getElementById("ff").innerHTML = document.getElementById("fUpload").value
+        }
+        </script>

@@ -88,10 +88,7 @@
                                                 <td>@Html.DisplayNameFor(model => model.Update_Asset.UpdateWarranty) :</td>
                                                 <td>@Html.DisplayFor(model => model.Update_Asset.UpdateWarranty)</td>
                                             </div>
-                                            <div class="col">
-                                                <td>@Html.DisplayNameFor(model => model.Update_Asset.UpdateType) :</td>
-                                                <td>@Html.DisplayFor(model => model.Update_Asset.UpdateType)</td>
-                                            </div>
+
                                         </div>
                                     </div>
                                 </tr>
@@ -214,7 +211,8 @@
                                         <div class="row">
                                             <div class="col">
                                                 <td>
-                                                @Html.DisplayNameFor(model => model.Update_Asset.UpdateInstallDate) :</td>
+                                                    @Html.DisplayNameFor(model => model.Update_Asset.UpdateInstallDate) :
+                                                </td>
                                                 <td>@Html.DisplayFor(model => model.Update_Asset.UpdateInstallDate)</td>
 
                                             </div>
@@ -237,6 +235,51 @@
                                             <div class="col">
                                                 <td></td>
                                                 <td></td>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </tr>
+                                <tr>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col">
+                                                <td></td>
+                                                <td></td>
+
+                                            </div>
+                                            <div class="col">
+                                                <td></td>
+                                                <td></td>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="card " style="margin-top:-0%">
+                    <div class="card-header" style="font-weight:bold;color:darkblue;">
+                        More
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-user-information" style="margin-top:-12%;margin-bottom:-3%">
+                            <tbody>
+                                <tr>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col">
+                                                <td>@Html.DisplayNameFor(model => model.Update_Asset.UpdateStatus) :</td>
+                                                <td>@Html.DisplayFor(model => model.Update_Asset.UpdateStatus)</td>
+                                            </div>
+                                            <div class="col">
+                                                <td>@Html.DisplayNameFor(model => model.Update_Asset.UpdateNote) :</td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <textarea class="form-control" id="exampleFormControlTextarea3" rows="5" cols='20'>@Html.DisplayFor(model => model.Update_Asset.UpdateNote)</textarea>
+                                                    </div>
+                                                </td>
+
                                             </div>
                                         </div>
                                     </div>

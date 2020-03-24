@@ -13,7 +13,7 @@
             <li class="breadcrumb-item active">Asset</li>
         </ol>
         <form method="post" enctype="multipart/form-data">
-            <div class="card " style="margin-top:1%">
+            <div class="card " style="margin-top:1%;font-size:small" >
                 <div class="card-header" style="font-weight:bold;color:darkblue;">
                     Create
                 </div>
@@ -32,14 +32,14 @@
                                 <div class="col-sm-12">
                                     <label asp-for="Asset.MACAddr" class="col-sm-0 col-form-label"></label>
                                     <input asp-for="Asset.MACAddr" class="form-control" placeholder="MACAddr" />
-                                    
+
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <div class="col-sm-12">
                                     <label asp-for="Asset.Price" class="col-sm-0 col-form-label"></label>
                                     <input asp-for="Asset.Price" type="number" class="form-control" placeholder="Price" />
-                                
+
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -63,7 +63,7 @@
                                 <div class="col-sm-12">
                                     <label asp-for="Asset.SerailNumber" class="col-sm-0 col-form-label"></label>
                                     <input asp-for="Asset.SerailNumber" class="form-control" placeholder="SerailNumber" />
-              
+
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -107,7 +107,7 @@
                                             }
                                         }
                                     </select>
-                              
+
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -141,7 +141,7 @@
                                             }
                                         }
                                     </select>
-                        
+
                                 </div>
                             </div>
 
@@ -161,7 +161,7 @@
                                             }
                                         }
                                     </select>
-                          
+
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -177,7 +177,7 @@
                                             }
                                         }
                                     </select>
-                          
+
                                 </div>
                             </div>
                         </div>
@@ -188,7 +188,9 @@
 
             </div>
             <div class="card " style="margin-top:1%">
-                <div class="card-header" style="font-weight:bold;color:darkblue;">
+                <div class="card-header" style="        font-weight: bold;
+        color: darkblue;
+">
                     Date
                 </div>
                 <div class="card-body">
@@ -199,14 +201,14 @@
                                 <div class="col-sm-12">
                                     <label asp-for="Asset.InstallDate" class="col-sm-0 col-form-label"></label>
                                     <input asp-for="Asset.InstallDate" class="form-control" />
-                            
+
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <div class="col-sm-12">
                                     <label asp-for="Asset.PurchaseDate" class="col-sm-0 col-form-label"></label>
                                     <input asp-for="Asset.PurchaseDate" class="form-control" />
-                        
+
                                 </div>
                             </div>
                         </div>
@@ -215,7 +217,7 @@
                                 <div class="col-sm-12">
                                     <label asp-for="Asset.ExpireDate" class="col-sm-0 col-form-label"></label>
                                     <input asp-for="Asset.ExpireDate" class="form-control" placeholder="URL" />
-                          
+
                                 </div>
                             </div>
                         </div>
@@ -248,7 +250,7 @@
                             <div class="form-group">
                                 <input type="file" name="photo" id="pho1" asp-for="Asset.Image" accept="image/jpeg,image/jpg" />
                                 <input asp-for="Asset.Image" class="form-control" hidden id="pho2" />
-                         
+
                             </div>
 
                         </div>
@@ -277,4 +279,3 @@
         document.getElementById("pho2").value = document.getElementById("pho1").value
     }
 </script>
-

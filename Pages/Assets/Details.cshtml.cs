@@ -53,8 +53,8 @@ namespace tbkk_AC.Pages.Assets
             Location = await _context.Location.ToListAsync();
             Position = await _context.Position.ToListAsync();
 
-           
-     
+
+
             if (id == null)
             {
                 return NotFound();

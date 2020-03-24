@@ -47,11 +47,11 @@
                         <label class="col-sm-0 col-form-label" asp-for="Join_Network_Asset.Network_NetworkID"></label>
                         @if (Model.Num == "2")
                         {
-                            <input class="form-control" placeholder="AssetID" asp-for="Join_Network_Asset.Network_NetworkID" id="Emp" value="@Model.ID" />
+                            <input class="form-control" placeholder="AssetID" asp-for="Join_Network_Asset.Network_NetworkID" id="Net" value="@Model.ID" />
                         }
                         else
                         {
-                            <input class="form-control" placeholder="AssetID" asp-for="Join_Network_Asset.Network_NetworkID" id="Emp" />
+                            <input class="form-control" placeholder="AssetID" asp-for="Join_Network_Asset.Network_NetworkID" id="Net" />
                         }
 
                         <span class="text-danger" asp-validation-for="Join_Network_Asset.Network_NetworkID"></span>
@@ -98,9 +98,7 @@
                                     <th>
                                         @Html.DisplayNameFor(model => model.Asset[0].PurchaseDate)
                                     </th>
-                                    <th>
-                                        @Html.DisplayNameFor(model => model.Asset[0].Type)
-                                    </th>
+                                   
                                     <th>
                                         @Html.DisplayNameFor(model => model.Asset[0].Status)
                                     </th>
@@ -130,9 +128,7 @@
                                         <td>
                                             @Html.DisplayFor(modelItem => item.PurchaseDate)
                                         </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.Type)
-                                        </td>
+                                        
                                         <td>
                                             @Html.DisplayFor(modelItem => item.Status)
                                         </td>
@@ -212,7 +208,7 @@
     <script>
 
     function select1(Ass) {
-        document.getElementById("Asset").value = Ass
+        document.getElementById("AssetID").value = Ass
     }
     function select2(Net) {
         document.getElementById("Net").value = Net

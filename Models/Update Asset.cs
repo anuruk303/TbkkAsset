@@ -25,12 +25,15 @@ namespace tbkk_AC.Models
         public string UpdateMACAddr { get; set; }
         [Required]
         [Display(Name = "InstallDate")]
+        [DataType(DataType.Date)]
         public DateTime UpdateInstallDate { get; set; }
         [Required]
         [Display(Name = "PurchaseDate")]
+        [DataType(DataType.Date)]
         public DateTime UpdatePurchaseDate { get; set; }
         [Required]
         [Display(Name = "ExpireDate")]
+        [DataType(DataType.Date)]
         public DateTime UpdateExpireDate { get; set; }
         [Required]
         [Display(Name = "PONumber")]
